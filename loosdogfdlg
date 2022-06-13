@@ -1,0 +1,3820 @@
+# 
+# World Mobs Pack Skills
+#
+PoisonousSlimes:
+    Conditions:
+    - incombat true
+    Skills:
+    - summon{type=MutatedSlimeDummy;amount=1;radius=9;os=true} @self
+PoisonousSlimeSpawn:
+    Skills:
+    - sound{s=entity.slime.squish;v=3;sc=hostile} @self
+    - effect:particles{p=slime;amount=60;speed=0;hS=1.5;vS=0.1} @self
+    - delay 10
+    - sound{s=entity.slime.squish;v=3;sc=hostile} @self
+    - effect:particles{p=slime;amount=60;speed=0;hS=1.5;vS=0.1} @self
+    - delay 10
+    - sound{s=entity.slime.squish;v=3;sc=hostile} @self
+    - effect:particles{p=slime;amount=60;speed=0;hS=1.5;vS=0.1} @self
+    - delay 10
+    - sound{s=entity.slime.squish;v=3;sc=hostile} @self
+    - effect:particles{p=slime;amount=60;speed=0;hS=1.5;vS=0.1} @self
+    - delay 10
+    - sound{s=entity.slime.squish;v=3;sc=hostile} @self
+    - effect:particles{p=slime;amount=60;speed=0;hS=1.5;vS=0.1} @self
+    - summon{type=MutatedSlime2;amount=1;radius=0;os=true} @self
+    - delay 5
+    - remove @self
+OozingBolt:
+    Skills:
+    - sound{s=entity.slime.attack;v=3;sc=hostile} @self
+    - projectile{onTick=OozingBolt-Tick;onHit=OozingBolt-Hit;v=12;i=1;hR=1;vR=1;g=0.45;tyo=8} @RLNTE{a=1;r=5;s=1;minr=1;}
+OozingBolt-Tick:
+    Skills:
+    - effect:particles{p=slime;amount=20;speed=0;hS=0.1;vS=0.1} @origin
+    - effect:particles{p=reddust;color=#2b9600;amount=20;speed=0;hS=0.1;vS=0.01} @origin
+OozingBolt-Hit:
+    Skills:
+    - basedamage{m=3.5}
+    - potion{type=SLOW;duration=140;lvl=2}
+DarkShield:
+    Conditions:
+    - incombat true
+    Skills:
+    - sound{s=entity.evoker.prepare_wololo;v=3;sc=hostile} @self
+    - orbital{onTick=DarkShield-Tick;onHit=DarkShield-Hit;points=20;interval=1;duration=200;charges=1;p=64}
+    - orbital{onTick=DarkShield-Tick;onHit=DarkShield-Hit;points=20;interval=1;duration=200;charges=1;oy=1;p=64}
+    - orbital{onTick=DarkShield-Tick;onHit=DarkShield-Hit;points=20;interval=1;duration=200;charges=1;oy=2;p=64}
+DarkShield-Tick:
+    Skills:
+    - effect:particles{p=reddust;color=#a448f2;amount=5;speed=0;hS=0.1;vS=0.1} @origin
+    - effect:particles{p=reddust;color=#7300b4;amount=5;speed=0;hS=0.1;vS=0.1} @origin
+DarkShield-Hit:
+    Skills:
+    - basedamage{m=1.5}
+    - potion{type=BLINDNESS;duration=100;lvl=1}
+ShiftingBolt:
+    Skills:
+    - projectile{onTick=ShiftingBolt-Tick;onHit=ShiftingBolt-Hit;v=8;i=1;hR=1;vR=1;hs=true}
+ShiftingBolt-Tick:
+    Skills:
+    - effect:particles{p=reddust;color=#a448f2;amount=5;speed=0;hS=0.01;vS=0.01} @origin
+    - effect:particles{p=reddust;color=#7300b4;amount=5;speed=0;hS=0.01;vS=0.01} @origin
+ShiftingBolt-Hit:
+    Skills:
+    - basedamage{m=2}
+    - potion{type=BLINDNESS;duration=100;lvl=1}
+ShiftingPower:
+  Conditions:
+  - incombat true
+  Skills:
+  - summon{type=ShiftingPowerDummy;amount=1;radius=5;os=true} @self
+  - potion{type=SLOW;duration=45;lvl=10} @self
+  - effect:particlering{particle=witchMagic;radius=2;points=12;amount=1;hS=0.01;vS=0;y=3} @self 
+  - sound{s=block.portal.trigger;v=3;sc=hostile} @self
+  - delay 5
+  - effect:particlering{particle=witchMagic;radius=2;points=12;amount=1;hS=0.01;vS=0;y=2.5} @self
+  - sound{s=block.portal.trigger;v=3;sc=hostile} @self
+  - delay 5  
+  - effect:particlering{particle=witchMagic;radius=2;points=12;amount=1;hS=0.01;vS=0;y=2} @self 
+  - sound{s=block.portal.trigger;v=3;sc=hostile} @self
+  - delay 5
+  - effect:particlering{particle=witchMagic;radius=2;points=12;amount=1;hS=0.01;vS=0;y=1.5} @self 
+  - sound{s=block.portal.trigger;v=3;sc=hostile} @self
+  - delay 5
+  - effect:particlering{particle=witchMagic;radius=2;points=12;amount=1;hS=0.01;vS=0;y=1} @self
+  - sound{s=block.portal.trigger;v=3;sc=hostile} @self
+  - delay 5  
+  - effect:particlering{particle=witchMagic;radius=2;points=12;amount=1;hS=0.01;vS=0;y=0.5} @self 
+  - sound{s=entity.enderman.teleport;v=3;sc=hostile} @self
+  - teleport{spreadh=0;spreadv=0} @MIR{r=25;t=ShiftingPowerDummy}
+  - projectile{onTick=ShiftingBolt-Tick;onHit=ShiftingBolt-Hit;v=8;i=1;hR=1;vR=1;hs=true} @Ring{radius=5;points=19}
+EnergyBlast:
+  Skills:
+  - sound{s=block.conduit.activate;v=3;sc=hostile} @self
+  - potion{type=SLOW;duration=110;lvl=10} @self
+  - effect:particles{p=reddust;color=#ff3636;amount=50;hS=0.01;vS=0.03;speed=5;y=1.2} @self
+  - effect:particles{p=reddust;color=#7c0000;amount=50;hS=0.01;vS=0.03;speed=5;y=1.2} @self
+  - delay 10
+  - sound{s=block.conduit.activate;v=3;sc=hostile} @self
+  - effect:particles{p=reddust;color=#ff3636;amount=50;hS=0.01;vS=0.03;speed=5;y=1.2} @self
+  - effect:particles{p=reddust;color=#7c0000;amount=50;hS=0.01;vS=0.03;speed=5;y=1.2} @self
+  - delay 10
+  - sound{s=block.conduit.activate;v=3;sc=hostile} @self
+  - effect:particles{p=reddust;color=#ff3636;amount=50;hS=0.01;vS=0.03;speed=5;y=1.2} @self
+  - effect:particles{p=reddust;color=#7c0000;amount=50;hS=0.01;vS=0.03;speed=5;y=1.2} @self
+  - delay 10
+  - sound{s=block.conduit.activate;v=3;sc=hostile} @self
+  - effect:particles{p=reddust;color=#ff3636;amount=50;hS=0.01;vS=0.03;speed=5;y=1.2} @self
+  - effect:particles{p=reddust;color=#7c0000;amount=50;hS=0.01;vS=0.03;speed=5;y=1.2} @self
+  - delay 10
+  - sound{s=block.conduit.activate;v=3;sc=hostile} @self
+  - effect:particles{p=reddust;color=#ff3636;amount=50;hS=0.01;vS=0.03;speed=5;y=1.2} @self
+  - effect:particles{p=reddust;color=#7c0000;amount=50;hS=0.01;vS=0.03;speed=5;y=1.2} @self
+  - delay 5
+  - basedamage{m=0.5} @PIR{r=1}
+  - effect:particles{p=reddust;color=#ff3636;amount=50;hS=1;vS=1;speed=5} @self
+  - effect:particles{p=reddust;color=#7c0000;amount=50;hS=1;vS=1;speed=5} @self
+  - sound{s=block.conduit.deactivate;v=3;sc=hostile} @self
+  - delay 5
+  - basedamage{m=0.5} @PIR{r=2}
+  - effect:particles{p=reddust;color=#ff3636;amount=75;hS=1.5;vS=1.5;speed=5} @self
+  - effect:particles{p=reddust;color=#7c0000;amount=75;hS=1.5;vS=1.5;speed=5} @self
+  - sound{s=block.conduit.deactivate;v=3;sc=hostile} @self
+  - delay 5
+  - basedamage{m=0.5} @PIR{r=3}
+  - effect:particles{p=reddust;color=#ff3636;amount=100;hS=2;vS=2;speed=5} @self
+  - effect:particles{p=reddust;color=#7c0000;amount=100;hS=2;vS=2;speed=5} @self
+  - sound{s=block.conduit.deactivate;v=3;sc=hostile} @self
+  - delay 5
+  - basedamage{m=0.5} @PIR{r=4}
+  - effect:particles{p=reddust;color=#ff3636;amount=125;hS=2.5;vS=2.5;speed=5} @self
+  - effect:particles{p=reddust;color=#7c0000;amount=125;hS=2.5;vS=2.5;speed=5} @self
+  - sound{s=block.conduit.deactivate;v=3;sc=hostile} @self
+  - delay 5
+  - basedamage{m=0.5} @PIR{r=5}
+  - effect:particles{p=reddust;color=#ff3636;amount=150;hS=3;vS=3;speed=5} @self
+  - effect:particles{p=reddust;color=#7c0000;amount=150;hS=3;vS=3;speed=5} @self
+  - sound{s=block.conduit.deactivate;v=3;sc=hostile} @self
+TitanMissile:
+  Conditions:
+  - incombat true
+  Skills:
+  - potion{type=SLOW;duration=60;lvl=10} @self
+  - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+  - missile{ot=TitanMissile_TICK;oh=TitanMissile_HIT;oE=TitanMissile2_END;v=8;i=1;hR=1;vR=1;in=0.75;sfo=-1;mr=9}
+  - delay 20
+  - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+  - missile{ot=TitanMissile_TICK;oh=TitanMissile_HIT;oE=TitanMissile2_END;v=8;i=1;hR=1;vR=1;in=0.75;sfo=-1;mr=9}
+  - delay 20
+  - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+  - missile{ot=TitanMissile_TICK;oh=TitanMissile_HIT;oE=TitanMissile2_END;v=8;i=1;hR=1;vR=1;in=0.75;sfo=-1;mr=9}
+  - delay 20
+  - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+  - missile{ot=TitanMissile_TICK;oh=TitanMissile_HIT;oE=TitanMissile2_END;v=8;i=1;hR=1;vR=1;in=0.75;sfo=-1;mr=9}
+TitanMissile_TICK:
+  Skills:
+  - effect:particles{p=cloud;a=1} @origin
+
+TitanMissile_HIT:
+  Skills:
+  - effect:particles{p=cloud;a=50;hS=1;vS=1}
+  - effect:sound{s=entity.generic.explode;v=1;p=0}
+  - basedamage{m=1}
+  - ignite{ticks=40}
+TitanMissile2_END:
+  Skills:
+  - summon{type=MissileDummy;amount=1;radius=0;os=false} @origin
+TitanMissile2_HIT:
+  Skills:
+  - missile{ot=TitanMissile_TICK;oh=TitanMissile_HIT;v=8;i=1;hR=1;vR=1;in=0.75;sfo=-1} @target
+LaserBolt:
+    Conditions:
+    - incombat true
+    Skills:
+    - potion{type=SLOW;duration=60;lvl=10} @self
+    - sound{s=block.conduit.activate;v=3;sc=hostile} @self
+    - effect:particles{p=reddust;color=#ff3636;amount=20;speed=0;hS=0.2;vS=0.1;y=1.5;forwardOffset=0.5} @self
+    - delay 5
+    - effect:particles{p=reddust;color=#ff3636;amount=20;speed=0;hS=0.2;vS=0.1;y=1.5;forwardOffset=0.5} @self
+    - delay 5
+    - effect:particles{p=reddust;color=#ff3636;amount=20;speed=0;hS=0.2;vS=0.1;y=1.5;forwardOffset=0.5} @self
+    - delay 5
+    - effect:particles{p=reddust;color=#ff3636;amount=20;speed=0;hS=0.2;vS=0.1;y=1.5;forwardOffset=0.5} @self
+    - delay 1
+    - projectile{onTick=LaserBolt-Tick;onHit=LaserBolt-Hit;v=19;i=1;hR=1;vR=1;syo=1.5} @targetLocation
+    - sound{s=block.conduit.deactivate;v=3;sc=hostile} @self
+    - delay 5
+    - projectile{onTick=LaserBolt-Tick;onHit=LaserBolt-Hit;v=19;i=1;hR=1;vR=1;syo=1.5} @targetLocation
+    - sound{s=block.conduit.deactivate;v=3;sc=hostile} @self
+    - delay 5
+    - projectile{onTick=LaserBolt-Tick;onHit=LaserBolt-Hit;v=19;i=1;hR=1;vR=1;syo=1.5} @targetLocation
+    - sound{s=block.conduit.deactivate;v=3;sc=hostile} @self
+    - delay 5
+    - projectile{onTick=LaserBolt-Tick;onHit=LaserBolt-Hit;v=19;i=1;hR=1;vR=1;syo=1.5} @targetLocation
+    - sound{s=block.conduit.deactivate;v=3;sc=hostile} @self
+    - delay 5
+    - projectile{onTick=LaserBolt-Tick;onHit=LaserBolt-Hit;v=19;i=1;hR=1;vR=1;syo=1.5} @targetLocation
+    - sound{s=block.conduit.deactivate;v=3;sc=hostile} @self
+LaserBolt-Tick:
+    Skills:
+    - effect:particles{p=reddust;color=#ff3636;amount=20;speed=0;hS=0.1;vS=0.01} @origin
+    - effect:particles{p=reddust;color=#7c0000;amount=20;speed=0;hS=0.1;vS=0.01} @origin
+LaserBolt-Hit:
+    Skills:
+    - basedamage{m=2}
+    - ignite{ticks=40}
+SummonDomain:
+     Conditions:
+     - incombat true
+     Skills:
+     - summon{type=IcedGhoulDummy;amount=1;radius=0;os=true}
+DomainOfFrostFull:
+    Conditions:
+    - stance fullfrost true
+    Skills:
+    - sound{s=entity.snowball.throw;v=3;sc=hostile} @self
+    - effect:particles{particle=cloud;amount=120;hS=3;vS=0.1;speed=0.01} @self
+    - effect:particlering{particle=cloud;radius=6;points=16;amount=1;hS=0.01;vS=0} @self
+    - basedamage{m=0.5} @PIR{r=6}
+    - potion{type=SLOW;duration=60;lvl=1} @PIR{r=6}
+DomainOfFrost:
+    Skills:
+    - sound{s=entity.snowball.throw;v=3;sc=hostile} @self
+    - potion{type=SLOW;duration=100;lvl=10} @self
+    - effect:particles{particle=cloud;amount=20;hS=0.5;vS=0.1;speed=0.01} @self
+    - effect:particlering{particle=cloud;radius=1;points=16;amount=1;hS=0.01;vS=0} @self
+    - basedamage{m=0.5} @PIR{r=1}
+    - potion{type=SLOW;duration=60;lvl=1} @PIR{r=1}
+    - delay 20
+    - sound{s=entity.snowball.throw;v=3;sc=hostile} @self
+    - effect:particles{particle=cloud;amount=40;hS=1;vS=0.1;speed=0.01} @self
+    - effect:particlering{particle=cloud;radius=2;points=16;amount=1;hS=0.01;vS=0} @self
+    - basedamage{m=0.5} @PIR{r=2}
+    - potion{type=SLOW;duration=60;lvl=1} @PIR{r=2}
+    - delay 20
+    - sound{s=entity.snowball.throw;v=3;sc=hostile} @self
+    - effect:particles{particle=cloud;amount=60;hS=1.5;vS=0.1;speed=0.01} @self
+    - effect:particlering{particle=cloud;radius=3;points=16;amount=1;hS=0.01;vS=0} @self
+    - basedamage{m=0.5} @PIR{r=3}
+    - potion{type=SLOW;duration=60;lvl=1} @PIR{r=3}
+    - delay 20
+    - sound{s=entity.snowball.throw;v=3;sc=hostile} @self
+    - effect:particles{particle=cloud;amount=80;hS=2;vS=0.1;speed=0.01} @self
+    - effect:particlering{particle=cloud;radius=4;points=16;amount=1;hS=0.01;vS=0} @self
+    - basedamage{m=0.5} @PIR{r=4}
+    - potion{type=SLOW;duration=60;lvl=1} @PIR{r=4}
+    - delay 20
+    - sound{s=entity.snowball.throw;v=3;sc=hostile} @self
+    - effect:particles{particle=cloud;amount=100;hS=2.5;vS=0.1;speed=0.01} @self
+    - effect:particlering{particle=cloud;radius=5;points=16;amount=1;hS=0.01;vS=0} @self
+    - basedamage{m=0.5} @PIR{r=5}
+    - potion{type=SLOW;duration=60;lvl=1} @PIR{r=5}
+    - delay 20
+    - sound{s=entity.snowball.throw;v=3;sc=hostile} @self
+    - effect:particles{particle=cloud;amount=120;hS=3;vS=0.1;speed=0.01} @self
+    - effect:particlering{particle=cloud;radius=6;points=16;amount=1;hS=0.01;vS=0} @self
+    - basedamage{m=0.5} @PIR{r=6}
+    - potion{type=SLOW;duration=60;lvl=1} @PIR{r=6}
+    - setstance{stance=fullfrost} @self
+IceShard:
+    Conditions:
+    - incombat true
+    Skills:
+    - sound{s=block.glass.break;v=3;sc=hostile} @self
+    - projectile{onTick=IceShard-Tick;onHit=IceShard-Hit;v=8;i=1;hR=1;vR=1} @RLNTE{a=1;r=11;s=3;minr=2}
+    - delay 5
+    - sound{s=block.glass.break;v=3;sc=hostile} @self
+    - projectile{onTick=IceShard-Tick;onHit=IceShard-Hit;v=8;i=1;hR=1;vR=1} @RLNTE{a=1;r=11;s=3;minr=2}
+    - delay 5
+    - sound{s=block.glass.break;v=3;sc=hostile} @self
+    - projectile{onTick=IceShard-Tick;onHit=IceShard-Hit;v=8;i=1;hR=1;vR=1} @RLNTE{a=1;r=11;s=3;minr=2}
+    - delay 5
+    - sound{s=block.glass.break;v=3;sc=hostile} @self
+    - projectile{onTick=IceShard-Tick;onHit=IceShard-Hit;v=8;i=1;hR=1;vR=1} @RLNTE{a=1;r=11;s=3;minr=2}
+    - delay 5
+    - sound{s=block.glass.break;v=3;sc=hostile} @self
+    - projectile{onTick=IceShard-Tick;onHit=IceShard-Hit;v=8;i=1;hR=1;vR=1} @RLNTE{a=1;r=11;s=3;minr=2}
+    - delay 5
+    - sound{s=block.glass.break;v=3;sc=hostile} @self
+    - projectile{onTick=IceShard-Tick;onHit=IceShard-Hit;v=8;i=1;hR=1;vR=1} @RLNTE{a=1;r=11;s=3;minr=2}
+    - delay 5
+    - sound{s=block.glass.break;v=3;sc=hostile} @self
+    - projectile{onTick=IceShard-Tick;onHit=IceShard-Hit;v=8;i=1;hR=1;vR=1} @RLNTE{a=1;r=11;s=3;minr=2}
+IceShard-Tick:
+    Skills:
+    - effect:particles{p=reddust;color=#57BFFF;amount=1;speed=0;hS=0.01;vS=0.01} @origin
+    - effect:particles{p=reddust;color=#014c7a;amount=1;speed=0;hS=0.01;vS=0.01} @origin
+IceShard-Hit:
+    Skills:
+    - basedamage{m=0.75}
+    - potion{type=SLOW;duration=60;lvl=1}
+HexedSpirits:
+     Skills:
+     - summon{type=HexedSpirit;amount=1;radius=5;os=false}
+HexedExplosion:
+     Conditions:
+     - playerwithin 1
+     Skills:
+     - effect:explosion @self
+     - basedamage{m=2.0} @PIR{r=3}
+     - healpercent{m=0.2} @MIR{r=25;t=TreeSpirit}
+     - effect:particles{particle=HappyVillager;amount=5;hS=1;vS=1;speed=1} @MIR{r=25;t=TreeSpirit}
+     - effect:particles{particle=HappyVillager;amount=5;hS=1;vS=1;speed=1} @self
+     - delay 5
+     - remove{delay=1} @self
+ActivateTreeDummy:
+     Skills:
+     - summon{type=TreeSpiritDummy;amount=1;radius=0;os=true} @RLNTE{a=1;r=11;s=3;minr=2}
+     - delay 10
+     - summon{type=TreeSpiritDummy;amount=1;radius=0;os=true} @RLNTE{a=1;r=11;s=3;minr=2}
+     - delay 10
+     - summon{type=TreeSpiritDummy;amount=1;radius=0;os=true} @RLNTE{a=1;r=11;s=3;minr=2}
+     - delay 10
+     - summon{type=TreeSpiritDummy;amount=1;radius=0;os=true} @RLNTE{a=1;r=11;s=3;minr=2}
+     - delay 10
+     - summon{type=TreeSpiritDummy;amount=1;radius=0;os=true} @RLNTE{a=1;r=11;s=3;minr=2}
+     - delay 10
+     - summon{type=TreeSpiritDummy;amount=1;radius=0;os=true} @RLNTE{a=1;r=11;s=3;minr=2}
+     - delay 10
+     - summon{type=TreeSpiritDummy;amount=1;radius=0;os=true} @RLNTE{a=1;r=11;s=3;minr=2}
+     - delay 10
+     - summon{type=TreeSpiritDummy;amount=1;radius=0;os=true} @RLNTE{a=1;r=11;s=3;minr=2}
+     - delay 10
+     - summon{type=TreeSpiritDummy;amount=1;radius=0;os=true} @RLNTE{a=1;r=11;s=3;minr=2}
+     - delay 10
+TreeBolt:
+    Skills:
+    - delay 40
+    - sound{s=entity.vex.ambient;v=3;sc=hostile} @self
+    - projectile{onTick=TreeBolt-Tick;onHit=TreeBolt-Hit;v=8;i=1;hR=1;vR=1;g=0.25}
+TreeBolt-Tick:
+    Skills:
+    - effect:particles{particle=block_crack;m=dirt;amount=1;speed=0;hS=0.01;vS=0.01} @origin
+    - effect:particles{particle=block_crack;m=grass;amount=1;speed=0;hS=0.01;vS=0.01} @origin
+TreeBolt-Hit:
+    Skills:
+    - basedamage{m=0.75}
+ActivateDimensionalGate:
+     Skills:
+     - summon{type=DimensionalKillerDummy2;amount=1;radius=0;os=true} @RLNTE{a=1;r=14;s=1;minr=10}
+VoidShift:
+     Cooldown: 15
+     Skills:
+     - potion{type=INVISIBILITY;duration=200;lvl=10;hp=false} @self
+     - potion{type=DAMAGE_RESISTANCE;duration=200;lvl=10;hp=false} @self
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+     - delay 5
+     - effect:particlesphere{p=witchMagic;amount=30;radius=1;y=0.75} @self
+SummonTable:
+    Conditions:
+    - incombat true
+    Skills:
+    - effect:particlering{particle=witchMagic;radius=1;points=16;amount=1;hS=0.01;vS=0} @self
+    - delay 5
+    - effect:particlering{particle=witchMagic;radius=1;points=16;amount=1;hS=0.01;vS=0;y=0.5} @self
+    - delay 5
+    - effect:particlering{particle=witchMagic;radius=1;points=16;amount=1;hS=0.01;vS=0;y=0.75} @self
+    - delay 5
+    - effect:particlering{particle=witchMagic;radius=1;points=16;amount=1;hS=0.01;vS=0;y=1} @self
+    - summon{type=CodexTable;amount=1;radius=7;os=true} @self
+Table-Spread:
+    Skills:
+    - effect:particles{p=reddust;color=#8200b0;amount=40;speed=0;hS=2;vS=0.2} @origin
+    - effect:particles{p=witchMagic;amount=40;speed=5;hS=2;vS=0.2} @origin
+    - potion{type=POISON;duration=100;level=1;force=true} @PIR{r=2}
+ActivateTable:
+    Skills:
+    - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+    - projectile{onTick=OrbBolt-Tick;onHit=OrbBolt-Hit;v=8;i=1;hR=1;vR=1;hs=false;onEnd=Table-Spread;tyo=8;g=0.25;mr=55;d=300;tyo=120;sfo=-0.25} @RLNTE{a=1;r=14;s=1;minr=10}
+    - delay 10
+    - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+    - projectile{onTick=OrbBolt-Tick;onHit=OrbBolt-Hit;v=8;i=1;hR=1;vR=1;hs=false;onEnd=Table-Spread;tyo=8;g=0.25;mr=55;d=300;tyo=120;sfo=-0.25} @RLNTE{a=2;r=14;s=1;minr=10}
+    - delay 10
+    - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+    - projectile{onTick=OrbBolt-Tick;onHit=OrbBolt-Hit;v=8;i=1;hR=1;vR=1;hs=false;onEnd=Table-Spread;tyo=8;g=0.25;mr=55;d=300;tyo=120;sfo=-0.25} @RLNTE{a=3;r=14;s=1;minr=10}
+    - delay 10
+    - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+    - projectile{onTick=OrbBolt-Tick;onHit=OrbBolt-Hit;v=8;i=1;hR=1;vR=1;hs=false;onEnd=Table-Spread;tyo=8;g=0.25;mr=55;d=300;tyo=120;sfo=-0.25} @RLNTE{a=4;r=14;s=1;minr=10}
+    - delay 100
+    - remove @self
+OrbBolt-Tick:
+    Skills:
+    - effect:particles{p=reddust;color=#8200b0;amount=20;speed=0;hS=0.2;vS=0.2} @origin
+    - effect:particles{p=witchMagic;amount=20;speed=5;hS=0.01;vS=0.01} @origin
+OrbBolt-Hit:
+    Skills:
+    - basedamage{m=3.0}
+OrbExplode:
+     Skills:
+     - delay 100
+     - projectile{onTick=OrbBolt-Tick;onHit=OrbBolt-Hit;v=8;i=1;hR=1;vR=1;hs=false;tyo=8;g=0.25;mr=55;d=300} @Ring{radius=55;points=4}
+     - sound{s=entity.evoker.cast_spell;v=3;sc=hostile} @self
+     - delay 10
+     - remove @self
+ActivateOrb:
+     Skills:
+     - delay 80
+     - runaigoalselector{goal=clear} @self
+     - runaitargetselector{target=clear} @self
+     - delay 10
+     - threat{amount=10000} @NearestPlayer
+     - runaigoalselector{goal=meleeattack} @self
+     - runaitargetselector{target=players} @self
+SummonOrbs:
+     Conditions:
+     - incombat true
+     Skills:
+     - sound{s=entity.evoker.cast_spell;v=3;sc=hostile} @self
+     - effect:particlering{particle=witchMagic;radius=1;points=16;amount=1;hS=0.01;vS=0} @self
+     - summon{type=CodexBreakerOrb;amount=1;radius=0;os=true} @self
+     - delay 20
+     - sound{s=entity.evoker.cast_spell;v=3;sc=hostile} @self
+     - effect:particlering{particle=witchMagic;radius=1;points=16;amount=1;hS=0.01;vS=0} @self
+     - summon{type=CodexBreakerOrb;amount=1;radius=0;os=true} @self
+     - delay 20
+     - sound{s=entity.evoker.cast_spell;v=3;sc=hostile} @self
+     - effect:particlering{particle=witchMagic;radius=1;points=16;amount=1;hS=0.01;vS=0} @self
+     - summon{type=CodexBreakerOrb;amount=1;radius=0;os=true} @self
+     - delay 20
+     - sound{s=entity.evoker.cast_spell;v=3;sc=hostile} @self
+     - effect:particlering{particle=witchMagic;radius=1;points=16;amount=1;hS=0.01;vS=0} @self
+     - summon{type=CodexBreakerOrb;amount=1;radius=0;os=true} @self
+OrbEffect:
+     Skills:
+     - effect:particlesphere{p=reddust;color=#8200b0;amount=30;radius=0.5} @self
+DimensionGateEffect:
+     Skills:
+     - basedamage{m=1.0} @PIR{r=1}
+     - pull{v=6;to=true} @PIR{r=4}
+     - effect:enderbeam{d=5;y=15} @Forward{f=0;y=-2.0}
+     - effect:particles{p=reddust;color=#8200b0;amount=100;hS=0.35;vS=2;speed=0.01} @self 
+     - effect:particles{p=reddust;color=#8200b0;amount=50;hS=2;vS=0.1;speed=5} @self 
+ShadowStep:
+     Conditions:
+     - incombat true
+     Skills:
+     - potion{type=SLOW;duration=100;lvl=10} @self
+     - summon{type=DimensionalKillerDummy;amount=1;radius=0;os=true} @RLNTE{a=1;r=14;s=1;minr=10}
+     - delay 5
+     - effect:particleline{particle=witchMagic;amount=1;fromOrigin=true} @MIR{r=25;t=DimensionalKillerDummy}
+     - delay 5
+     - effect:particleline{particle=witchMagic;amount=1;fromOrigin=true} @MIR{r=25;t=DimensionalKillerDummy}
+     - delay 5
+     - effect:particleline{particle=witchMagic;amount=1;fromOrigin=true} @MIR{r=25;t=DimensionalKillerDummy}
+     - delay 5
+     - effect:particleline{particle=witchMagic;amount=1;fromOrigin=true} @MIR{r=25;t=DimensionalKillerDummy}
+     - delay 5
+     - effect:particleline{particle=witchMagic;amount=1;fromOrigin=true} @MIR{r=25;t=DimensionalKillerDummy}
+     - delay 5
+     - effect:particleline{particle=witchMagic;amount=1;fromOrigin=true} @MIR{r=25;t=DimensionalKillerDummy}
+     - delay 5
+     - effect:particleline{particle=witchMagic;amount=1;fromOrigin=true} @MIR{r=25;t=DimensionalKillerDummy}
+     - delay 5
+     - effect:particleline{particle=witchMagic;amount=1;fromOrigin=true} @MIR{r=25;t=DimensionalKillerDummy}
+     - delay 5
+     - effect:particles{particle=witchMagic;amount=100;hS=1;vS=1;speed=0.1} @self 
+     - sound{s=entity.enderman.teleport;v=3;sc=hostile} @self
+     - teleport{spreadh=0;spreadv=0} @MIR{r=25;t=DimensionalKillerDummy}
+     - delay 5
+     - basedamage{m=1.0} @PIR{r=2}
+     - potion{type=POISON;duration=100;level=1;force=true} @PIR{r=2}
+     - effect:particles{particle=witchMagic;amount=100;hS=1;vS=1;speed=0.1} @self 
+     - sound{s=entity.evoker.cast_spell;v=3;sc=hostile} @self
+     - projectile{onTick=KillerBolt-Tick;onHit=KillerBolt-Hit;v=8;i=1;hR=1;vR=1;hs=true} @Ring{radius=5;points=4}
+KillerBolt:
+    Skills:
+    - projectile{onTick=KillerBolt-Tick;onHit=KillerBolt-Hit;v=8;i=1;hR=1;vR=1} @Forward{f=75;y=0.0}
+KillerBolt-Tick:
+    Skills:
+    - effect:particles{p=witchMagic;amount=20;speed=0;hS=0.1;vS=2} @origin
+KillerBolt-Hit:
+    Skills:
+    - damage{a=10} 
+    - potion{type=SLOW;duration=100;lvl=2}
+SwordSlice:
+    Conditions:
+    - incombat true
+    Skills:
+    - potion{type=SLOW;duration=100;lvl=2} @self
+    - effect:spin{duration=160;velocity=20} @self
+    - sound{s=entity.iron_golem.attack;v=3;sc=hostile} @self
+    - orbital{onTick=SwordSlice-Tick;onHit=SwordSlice-Hit;points=60;interval=1;duration=60;charges=0;oy=1.0;ox=-0.5;roty=5} @self
+    - delay 25
+    - sound{s=entity.iron_golem.attack;v=3;sc=hostile} @self
+    - orbital{onTick=SwordSlice-Tick;onHit=SwordSlice-Hit;points=60;interval=1;duration=60;charges=0;oy=1.0;ox=-0.5;roty=5;rotx=-0.45} @self
+    - delay 25
+    - sound{s=entity.iron_golem.attack;v=3;sc=hostile} @self
+    - orbital{onTick=SwordSlice-Tick;onHit=SwordSlice-Hit;points=60;interval=1;duration=60;charges=0;oy=1.0;ox=-0.5;roty=5;rotx=-0.55} @self
+    - delay 25
+    - sound{s=entity.iron_golem.attack;v=3;sc=hostile} @self
+    - orbital{onTick=SwordSlice-Tick;onHit=SwordSlice-Hit;points=60;interval=1;duration=60;charges=0;oy=1.0;ox=-0.5;roty=5;rotx=-0.75} @self
+    - delay 25
+    - sound{s=entity.iron_golem.attack;v=3;sc=hostile} @self
+    - orbital{onTick=SwordSlice-Tick;onHit=SwordSlice-Hit;points=60;interval=1;duration=60;charges=0;oy=1.0;ox=-0.5;roty=5;rotx=-1.75} @self
+    - delay 25
+    - sound{s=entity.iron_golem.attack;v=3;sc=hostile} @self
+    - orbital{onTick=SwordSlice-Tick;onHit=SwordSlice-Hit;points=60;interval=1;duration=60;charges=0;oy=1.0;ox=-0.5;roty=5;rotx=0.75} @self
+SwordSlice-Tick:
+    Skills:
+    - effect:particles{p=reddust;color=#8200b0;amount=1;speed=0;hS=0.01;vS=0.01} @origin
+SwordSlice-Hit:
+    Skills:
+    - damage{a=10}
+    - potion{type=SLOW;duration=100;lvl=2}
+ToxicPukeBolt:
+    Conditions:
+    - incombat true
+    Skills:
+    - potion{type=SLOW;duration=65;lvl=1} @self
+    - sound{s=entity.shulker.ambient;v=3;sc=hostile} @self
+    - projectile{onTick=ToxicPukeBolt-Tick;onHit=ToxicPukeBolt-Hit;v=12;i=1;hR=1;vR=1;g=0.25;syo=1.5;sfo=-0.3;onEnd=ToxicPukeBolt-Spread;sE=false} @Forward{f=75;y=0.0}
+    - delay 5
+    - sound{s=entity.shulker.ambient;v=3;sc=hostile} @self
+    - projectile{onTick=ToxicPukeBolt-Tick;onHit=ToxicPukeBolt-Hit;v=12;i=1;hR=1;vR=1;g=0.25;syo=1.5;sfo=-0.3;onEnd=ToxicPukeBolt-Spread;sE=false} @Forward{f=75;y=0.0}
+    - delay 5
+    - sound{s=entity.shulker.ambient;v=3;sc=hostile} @self
+    - projectile{onTick=ToxicPukeBolt-Tick;onHit=ToxicPukeBolt-Hit;v=12;i=1;hR=1;vR=1;g=0.25;syo=1.5;sfo=-0.3;onEnd=ToxicPukeBolt-Spread;sE=false} @Forward{f=75;y=0.0} 
+    - delay 5
+    - sound{s=entity.shulker.ambient;v=3;sc=hostile} @self
+    - projectile{onTick=ToxicPukeBolt-Tick;onHit=ToxicPukeBolt-Hit;v=12;i=1;hR=1;vR=1;g=0.25;syo=1.5;sfo=-0.3;onEnd=ToxicPukeBolt-Spread;sE=false} @Forward{f=75;y=0.0}
+    - delay 5
+    - sound{s=entity.shulker.ambient;v=3;sc=hostile} @self
+    - projectile{onTick=ToxicPukeBolt-Tick;onHit=ToxicPukeBolt-Hit;v=12;i=1;hR=1;vR=1;g=0.25;syo=1.5;sfo=-0.3;onEnd=ToxicPukeBolt-Spread;sE=false} @Forward{f=75;y=0.0}
+    - delay 5
+    - sound{s=entity.shulker.ambient;v=3;sc=hostile} @self
+    - projectile{onTick=ToxicPukeBolt-Tick;onHit=ToxicPukeBolt-Hit;v=12;i=1;hR=1;vR=1;g=0.25;syo=1.5;sfo=-0.3;onEnd=ToxicPukeBolt-Spread;sE=false} @Forward{f=75;y=0.0}
+    - delay 5
+    - sound{s=entity.shulker.ambient;v=3;sc=hostile} @self
+    - projectile{onTick=ToxicPukeBolt-Tick;onHit=ToxicPukeBolt-Hit;v=12;i=1;hR=1;vR=1;g=0.25;syo=1.5;sfo=-0.3;onEnd=ToxicPukeBolt-Spread;sE=false} @Forward{f=75;y=0.0}
+    - delay 5
+    - sound{s=entity.shulker.ambient;v=3;sc=hostile} @self
+    - projectile{onTick=ToxicPukeBolt-Tick;onHit=ToxicPukeBolt-Hit;v=12;i=1;hR=1;vR=1;g=0.25;syo=1.5;sfo=-0.3;onEnd=ToxicPukeBolt-Spread;sE=false} @Forward{f=75;y=0.0}
+    - delay 5
+    - sound{s=entity.shulker.ambient;v=3;sc=hostile} @self
+    - projectile{onTick=ToxicPukeBolt-Tick;onHit=ToxicPukeBolt-Hit;v=12;i=1;hR=1;vR=1;g=0.25;syo=1.5;sfo=-0.3;onEnd=ToxicPukeBolt-Spread;sE=false} @Forward{f=75;y=0.0}
+    - delay 5
+    - sound{s=entity.shulker.ambient;v=3;sc=hostile} @self
+    - projectile{onTick=ToxicPukeBolt-Tick;onHit=ToxicPukeBolt-Hit;v=12;i=1;hR=1;vR=1;g=0.25;syo=1.5;sfo=-0.3;onEnd=ToxicPukeBolt-Spread;sE=false} @Forward{f=75;y=0.0}
+    - delay 5
+    - sound{s=entity.shulker.ambient;v=3;sc=hostile} @self
+    - projectile{onTick=ToxicPukeBolt-Tick;onHit=ToxicPukeBolt-Hit;v=12;i=1;hR=1;vR=1;g=0.25;syo=1.5;sfo=-0.3;onEnd=ToxicPukeBolt-Spread;sE=false} @Forward{f=75;y=0.0}
+    - delay 5
+    - sound{s=entity.shulker.ambient;v=3;sc=hostile} @self
+    - projectile{onTick=ToxicPukeBolt-Tick;onHit=ToxicPukeBolt-Hit;v=12;i=1;hR=1;vR=1;g=0.25;syo=1.5;sfo=-0.3;onEnd=ToxicPukeBolt-Spread;sE=false} @Forward{f=75;y=0.0}
+    - delay 5
+    - sound{s=entity.shulker.ambient;v=3;sc=hostile} @self
+    - projectile{onTick=ToxicPukeBolt-Tick;onHit=ToxicPukeBolt-Hit;v=12;i=1;hR=1;vR=1;g=0.25;syo=1.5;sfo=-0.3;onEnd=ToxicPukeBolt-Spread;sE=false} @Forward{f=75;y=0.0}
+ToxicPukeBolt-Spread:
+    Skills:
+    - effect:particles{p=reddust;color=#8200b0;amount=40;speed=0;hS=2;vS=0.2} @origin
+    - effect:particles{p=witchMagic;amount=40;speed=5;hS=2;vS=0.2} @origin
+    - potion{type=POISON;duration=100;level=1;force=true} @PIR{r=2}
+ToxicPukeBolt-Tick:
+    Skills:
+    - effect:particles{p=reddust;color=#8200b0;amount=20;speed=0;hS=0.2;vS=0.2} @origin
+    - effect:particles{p=witchMagic;amount=20;speed=5;hS=0.2;vS=0.2} @origin
+ToxicPukeBolt-Hit:
+    Skills:
+    - basedamage{m=1.0}
+    - potion{type=POISON;duration=100;level=1;force=true} @PIR{r=2}
+Predator:
+    Conditions:
+    - targetnotwithin{d=15}
+    Skills:
+    - potion{type=SPEED;duration=40;lvl=2} @self
+    - potion{type=INVISIBILITY;duration=40;lvl=2} @self
+ClawMarkBolt:
+    Skills:
+    - projectile{onTick=ClawMarkBolt-Tick;onHit=ClawMarkBolt-Hit;v=8;i=1;hR=1;vR=1}
+ClawMarkBolt-Tick:
+    Skills:
+    - effect:particles{p=reddust;color=#8200b0;amount=1;speed=0;hS=0.01;vS=0.01} @origin
+    - effect:particles{p=reddust;color=#d354ff;amount=1;hS=0.01;vS=0.01;speed=0.01} @origin
+ClawMarkBolt-Hit:
+    Skills:
+    - basedamage{m=1.0}
+    - potion{type=SLOW;duration=40;lvl=1}
+RandomClawMark:
+    Conditions:
+    - incombat true
+    Skills:
+    - sound{s=entity.shulker.shoot;v=3;sc=hostile} @self
+    - randomskill{skills=ClawMark,ClawMark2}
+ClawMark2:
+    Skills:
+    - potion{type=SLOW;duration=20;lvl=10} @self
+    - delay 5
+    - projectile{onTick=ClawMarkBolt-Tick;onHit=ClawMarkBolt-Hit;v=8;i=1;hR=1;vR=1;sso=1;sfo=-4;mr=10;sE=false;hs=true} @Forward{f=75;y=0.0}
+    - projectile{onTick=ClawMarkBolt-Tick;onHit=ClawMarkBolt-Hit;v=8;i=1;hR=1;vR=1;sso=2;sfo=-4;mr=10;sE=false;hs=true} @Forward{f=75;y=0.0}
+    - projectile{onTick=ClawMarkBolt-Tick;onHit=ClawMarkBolt-Hit;v=8;i=1;hR=1;vR=1;sso=3;sfo=-4;mr=10;sE=false;hs=true} @Forward{f=75;y=0.0}
+ClawMark:
+    Skills:
+    - potion{type=SLOW;duration=20;lvl=10} @self
+    - delay 5
+    - projectile{onTick=ClawMarkBolt-Tick;onHit=ClawMarkBolt-Hit;v=8;i=1;hR=1;vR=1;sso=-1;sfo=-4;mr=10;sE=false;hs=true} @Forward{f=75;y=0.0}
+    - projectile{onTick=ClawMarkBolt-Tick;onHit=ClawMarkBolt-Hit;v=8;i=1;hR=1;vR=1;sso=-2;sfo=-4;mr=10;sE=false;hs=true} @Forward{f=75;y=0.0}
+    - projectile{onTick=ClawMarkBolt-Tick;onHit=ClawMarkBolt-Hit;v=8;i=1;hR=1;vR=1;sso=-3;sfo=-4;mr=10;sE=false;hs=true} @Forward{f=75;y=0.0}
+ElectricChargeTrigger:
+  Cooldown: 10
+  Skills:
+  - setstance{stance=lightning} @self
+  - delay 140
+  - setstance{stance=none} @self
+ElectricCharge:
+  Conditions:
+  - stance lightning true
+  Skills:
+  - sound{s=entity.lightning_bolt.thunder;v=3;sc=hostile} @self
+  - effect:lightning @self
+  - effect:particlesphere{p=explosion_normal;amount=30;radius=1;y=0.5} @self
+  - effect:particlesphere{p=reddust;color=#ffffff;amount=50;radius=1;y=0.5} @self
+  - effect:particlesphere{p=reddust;color=#f0f0f0;amount=50;radius=1;y=0.5} @self
+  - effect:particleline{p=explosion_normal;amount=1;fromOrigin=false} @Cone{angle=270;points=3;range=9;rotation=270;}
+  - effect:particleline{p=reddust;color=#ffffff;amount=1;fromOrigin=false} @Cone{angle=180;points=3;range=9;rotation=180;}
+  - effect:particleline{p=reddust;color=#f0f0f0;amount=1;fromOrigin=false} @Cone{angle=90;points=3;range=9;rotation=90;}
+  - basedamage{m=0.5} @PIR{r=9}
+LightningEffect2:
+    Cooldown: 5
+    Skills:
+    - effect:particles{particle=cloud;amount=35;hS=1;vS=1;speed=1} @self
+    - delay 5 
+    - projectile{onTick=ElectroBolt-Tick;onHit=EnderAura-Hit;v=8;i=1;hR=1;vR=1} @Ring{radius=5;points=4}
+ElectroBolt:
+    Conditions:
+    - incombat true
+    Skills:
+    - sound{s=block.beacon.power_select;v=3;sc=hostile} @self
+    - projectile{onTick=ElectroBolt-Tick;onHit=ElectroBolt-Hit;v=15;i=1;hR=1;vR=1}
+ElectroBolt-Tick:
+    Skills:
+    - effect:particles{p=reddust;color=#ffffff;amount=1;speed=0;hS=0.41;vS=0.01} @origin
+    - effect:particles{p=reddust;color=#f0f0f0;amount=1;speed=0.05;hS=0.41;vS=0.01} @origin
+    - effect:particles{p=explosion_normal;amount=1;speed=0.01;hS=0.41;vS=0.01} @origin
+ElectroBolt-Hit:
+    Skills:
+    - effect:lightning
+    - basedamage{m=1.5}
+    - potion{type=SLOW;duration=100;lvl=10}
+    - summon{type=ElectroDummy2;amount=1;radius=0}
+LightningRod:
+  Skills:
+  - summon{type=ElectroDummy;amount=1;radius=15;os=true} @self 
+LightningEffect:
+    Skills:
+    - effect:lightning @self
+    - effect:particles{particle=cloud;amount=35;hS=1;vS=1;speed=1} @self
+    - damage{a=10} @PIR{r=5}
+EndSlicer:
+    Conditions:
+    - incombat true
+    Skills:
+    - potion{type=SLOW;duration=150;lvl=10} @self
+    - sound{s=block.anvil.place;v=3;sc=hostile} @self
+    - orbital{onTick=EnderAura-Tick;onHit=EnderAura-Hit;points=50;interval=1;duration=50;charges=0;rotx=2;hnp=false} @self
+    - delay 50
+    - sound{s=block.anvil.place;v=3;sc=hostile} @self
+    - orbital{onTick=EnderAura-Tick;onHit=EnderAura-Hit;points=50;interval=1;duration=50;charges=0;rotx=10;hnp=false} @self
+    - delay 50
+    - sound{s=block.anvil.place;v=3;sc=hostile} @self
+    - orbital{onTick=EnderAura-Tick;onHit=EnderAura-Hit;points=50;interval=1;duration=50;charges=0;rotx=-7;hnp=false} @self
+    - delay 50
+    - sound{s=block.anvil.place;v=3;sc=hostile} @self
+    - orbital{onTick=EnderAura-Tick;onHit=EnderAura-Hit;points=50;interval=1;duration=50;charges=0;rotx=-10;hnp=false} @self
+EnderAura-Tick:
+    Skills:
+    - effect:particles{p=witchMagic;amount=20;speed=0;hS=0.2;vS=0.2} @origin
+EnderAura-Hit:
+    Skills:
+    - basedamage{m=2.5}
+    - potion{type=SLOW;duration=100;lvl=1}
+MirageSpawnEffectTrigger:
+  Skills:
+  - effect:particlering{particle=witchMagic;radius=1;points=16;amount=1;hS=0.01;vS=0} @MIR{r=10;t=EndWalker,EndWalkerDummy} 
+  - delay 5
+  - effect:particlering{particle=witchMagic;radius=1;points=16;amount=1;hS=0.01;vS=0;y=0.5} @MIR{r=10;t=EndWalker,EndWalkerDummy} 
+  - delay 5
+  - effect:particlering{particle=witchMagic;radius=1;points=16;amount=1;hS=0.01;vS=0;y=1} @MIR{r=10;t=EndWalker,EndWalkerDummy} 
+  - delay 5
+  - effect:particlering{particle=witchMagic;radius=1;points=16;amount=1;hS=0.01;vS=0;y=1.5} @MIR{r=10;t=EndWalker,EndWalkerDummy} 
+  - delay 5
+  - effect:particlering{particle=witchMagic;radius=1;points=16;amount=1;hS=0.01;vS=0;y=2} @MIR{r=10;t=EndWalker,EndWalkerDummy} 
+Mirage:
+  Cooldown: 15
+  Skills:
+  - summon{type=EndWalkerDummy;amount=3;radius=5;os=true} @self 
+MirageSpawn:
+  Skills:
+  - potion{type=SLOW;duration=40;lvl=10} @MIR{r=10;t=EndWalker}
+  - skill{s=MirageSpawnEffectTrigger}
+  - delay 30
+  - sound{s=entity.evoker_fangs.attack;v=3;sc=hostile} @self
+  - summon{type=EndWalkerMirage;amount=1;radius=0;os=true} @self 
+MirageSpawnEffect:
+  Skills:
+  - effect:particlering{particle=witchMagic;radius=1;points=16;amount=1;hS=0.01;vS=0} @self
+  - effect:particles{p=witchMagic;amount=15;speed=0;hS=0.21;vS=0.01} @self
+WitheringBolt:
+  Conditions:
+  - incombat true
+  Skills:
+  - sound{s=item.elytra.flying;v=3;sc=hostile} @self
+  - setgravity{g=false} @self
+  - potion{type=SLOW;duration=180;lvl=10} @self
+  - potion{type=LEVITATION;duration=60;lvl=1} @self
+  - delay 60
+  - setgravity{g=false} @self
+  - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+  - missile{ot=WitheringBolt_TICK;oh=WitheringBolt_HIT;v=25;i=1;hR=1;vR=1;in=0.75;md=200;hnp=false} @targetLocation
+  - delay 15
+  - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+  - missile{ot=WitheringBolt_TICK;oh=WitheringBolt_HIT;v=25;i=1;hR=1;vR=1;in=0.75;md=200;hnp=false} @targetLocation
+  - delay 15
+  - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+  - missile{ot=WitheringBolt_TICK;oh=WitheringBolt_HIT;v=25;i=1;hR=1;vR=1;in=0.75;md=200;hnp=false} @targetLocation
+  - delay 15
+  - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+  - missile{ot=WitheringBolt_TICK;oh=WitheringBolt_HIT;v=25;i=1;hR=1;vR=1;in=0.75;md=200;hnp=false} @targetLocation
+  - delay 15
+  - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+  - missile{ot=WitheringBolt_TICK;oh=WitheringBolt_HIT;v=25;i=1;hR=1;vR=1;in=0.75;md=200;hnp=false} @targetLocation
+  - delay 15
+  - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+  - missile{ot=WitheringBolt_TICK;oh=WitheringBolt_HIT;v=25;i=1;hR=1;vR=1;in=0.75;md=200;hnp=false} @targetLocation
+  - delay 15
+  - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+  - missile{ot=WitheringBolt_TICK;oh=WitheringBolt_HIT;v=25;i=1;hR=1;vR=1;in=0.75;md=200;hnp=false} @targetLocation
+  - delay 15
+  - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+  - missile{ot=WitheringBolt_TICK;oh=WitheringBolt_HIT;v=25;i=1;hR=1;vR=1;in=0.75;md=200;hnp=false} @targetLocation
+  - delay 15
+  - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+  - missile{ot=WitheringBolt_TICK;oh=WitheringBolt_HIT;v=25;i=1;hR=1;vR=1;in=0.75;md=200;hnp=false} @targetLocation
+  - delay 15
+  - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+  - missile{ot=WitheringBolt_TICK;oh=WitheringBolt_HIT;v=25;i=1;hR=1;vR=1;in=0.75;md=200;hnp=false} @targetLocation
+  - delay 15
+  - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+  - missile{ot=WitheringBolt_TICK;oh=WitheringBolt_HIT;v=25;i=1;hR=1;vR=1;in=0.75;md=200;hnp=false} @targetLocation
+  - delay 15
+  - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+  - missile{ot=WitheringBolt_TICK;oh=WitheringBolt_HIT;v=25;i=1;hR=1;vR=1;in=0.75;md=200;hnp=false} @targetLocation
+  - delay 15
+  - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+  - missile{ot=WitheringBolt_TICK;oh=WitheringBolt_HIT;v=25;i=1;hR=1;vR=1;in=0.75;md=200;hnp=false} @targetLocation
+  - setgravity{g=true} @self
+WitheringBolt_TICK:
+  Skills:
+  - effect:particles{p=witchMagic;amount=1;speed=0;hS=0.21;vS=0.01} @origin
+  - effect:particles{p=reddust;color=#670083;amount=1;speed=0;hS=0.21;vS=0.01} @origin
+WitheringBolt_HIT:
+  Skills:
+  - basedamage{m=0.5}
+  - potion{type=WITHER;duration=80;level=1;force=true}
+PrayerOfDeath:
+  Conditions:
+  - incombat true
+  Skills:
+  - sound{s=entity.evoker_fangs.attack;v=3;sc=hostile} @self
+  - potion{type=SLOW;duration=100;level=1;force=true} @self
+  - potion{type=POISON;duration=100;level=1;force=true} @PIR{r=15}
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @PIR{r=15}
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @self
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @self
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @self
+  - delay 5
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @PIR{r=15}
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @self
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @self
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @self
+  - delay 5
+  - sound{s=entity.evoker_fangs.attack;v=3;sc=hostile} @self
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @PIR{r=15}
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @self
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @self
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @self
+  - delay 5
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @PIR{r=15}
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @self
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @self
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @self
+  - delay 5
+  - sound{s=entity.evoker_fangs.attack;v=3;sc=hostile} @self
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @PIR{r=15}
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @self
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @self
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @self
+  - delay 5
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @PIR{r=15}
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @self
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @self
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @self
+  - delay 5
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @PIR{r=15}
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @self
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @self
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @self
+  - sound{s=entity.evoker_fangs.attack;v=3;sc=hostile} @self
+  - delay 5
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @PIR{r=15}
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @self
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @self
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @self
+  - delay 5
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @PIR{r=15}
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @self
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @self
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @self
+  - sound{s=entity.evoker_fangs.attack;v=3;sc=hostile} @self
+  - delay 5
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @PIR{r=15}
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @self
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @self
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @self
+  - delay 5
+  - sound{s=entity.evoker_fangs.attack;v=3;sc=hostile} @self
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @PIR{r=15}
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @self
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @self
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @self
+  - delay 5
+  - sound{s=entity.evoker_fangs.attack;v=3;sc=hostile} @self
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @PIR{r=15}
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @self
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @self
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @self
+  - delay 5
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @PIR{r=15}
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @self
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @self
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @self
+  - delay 5
+  - sound{s=entity.evoker_fangs.attack;v=3;sc=hostile} @self
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @PIR{r=15}
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @self
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @self
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @self
+  - delay 5
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @PIR{r=15}
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @self
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @self
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @self
+  - delay 5
+  - sound{s=entity.evoker_fangs.attack;v=3;sc=hostile} @self
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @PIR{r=15}
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @self
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @self
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @self
+  - delay 5
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @PIR{r=15}
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @self
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @self
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @self
+  - delay 5
+  - sound{s=entity.evoker_fangs.attack;v=3;sc=hostile} @self
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @PIR{r=15}
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @self
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @self
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @self
+  - delay 5
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @PIR{r=15}
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @self
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @self
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @self
+  - delay 5
+  - sound{s=entity.evoker_fangs.attack;v=3;sc=hostile} @self
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @PIR{r=15}
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @PIR{r=15}
+  - effect:particlesphere{particle=smoke;amount=100;radius=0.25;y=2} @self
+  - effect:particlesphere{p=reddust;color=#1C12DF;amount=75;radius=0.15;y=2} @self
+  - effect:particlesphere{p=reddust;color=#CC12DF;amount=50;radius=0.1;y=2} @self
+UnholyHealing:
+  Skills:
+  - sound{s=entity.evoker.prepare_wololo;v=3;sc=hostile} @self
+  - heal{amount=5} @MIR{r=25;t=UnholyServant} 
+  - effect:particles{particle=villager_happy;amount=5;hS=1;vS=1;speed=5} @MIR{r=25;t=UnholyServant} 
+  - effect:particles{particle=smoke;amount=5;hS=1;vS=0.15;speed=0.01} @self
+UnholyServants:
+  Conditions:
+  - mobsInRadius{types=UnholyServant;amount=1to10;radius=15} false
+  Skills:
+  - sound{s=entity.evoker.prepare_wololo;v=3;sc=hostile} @self
+  - effect:particles{particle=smoke;amount=50;hS=1;vS=1;speed=0.01} @self
+  - delay 5
+  - effect:particles{particle=smoke;amount=50;hS=1;vS=1;speed=0.01} @self
+  - delay 5
+  - effect:particles{particle=smoke;amount=50;hS=1;vS=1;speed=0.01} @self
+  - delay 5
+  - effect:particles{particle=smoke;amount=50;hS=1;vS=1;speed=0.01} @self
+  - delay 5
+  - effect:particles{particle=smoke;amount=50;hS=1;vS=1;speed=0.01} @self
+  - summon{type=UnholyServant;amount=3;radius=3} @self 
+WarpingMagic:
+  Conditions:
+  - incombat true
+  Skills:
+  - sound{s=entity.enderman.teleport;v=3;sc=hostile} @self
+  - potion{type=SLOW;duration=50;level=10;force=true} @self
+  - projectile{onTick=WarpingMagic-Tick;onHit=WarpingMagic-Hit;v=7;i=1;hR=1;vR=1;g=0.2;mr=190} 
+WarpingMagic-Tick:
+    Skills:
+    - effect:particles{p=dragon_breath;amount=20;speed=0;hS=0.05;vS=0.05} @origin
+    - effect:particles{p=reddust;color=#CC12DF;amount=5;speed=0;hS=0.05;vS=0.05} @origin
+    - teleport{spreadh=0;spreadv=0}
+WarpingMagic-Hit:
+    Skills:
+    - basedamage{m=1.5}
+    - teleport{spreadh=0;spreadv=0} @self
+    - sound{s=entity.enderman.teleport;v=3;sc=hostile} @self
+LeakingEnergy:
+  Skills:
+  - effect:particlering{particle=witchMagic;radius=5;points=32;amount=1;hS=0.01;vS=0} @self
+  - basedamage{m=0.5} @PIR{r=5}
+UnstableSparks:
+  Conditions:
+  - incombat true
+  Skills:
+  - sound{s=entity.evoker.cast_spell;v=3;sc=hostile} @self
+  - potion{type=SLOW;duration=50;level=10;force=true} @self
+  - projectile{onTick=UnstableSparks-Tick;onHit=UnstableSparks-Hit;v=7;i=1;hR=1;vR=1;g=0.2;sfo=-0.25;tyo=5;mr=190;g=0.1} @RLNTE{a=5;r=3;s=1;minr=1;}
+  - delay 20
+  - sound{s=entity.evoker.cast_spell;v=3;sc=hostile} @self
+  - projectile{onTick=UnstableSparks-Tick;onHit=UnstableSparks-Hit;v=7;i=1;hR=1;vR=1;g=0.2;sfo=-0.25;tyo=3;mr=190;g=0.1} @RLNTE{a=5;r=3;s=1;minr=1;}
+  - delay 20
+  - sound{s=entity.evoker.cast_spell;v=3;sc=hostile} @self
+  - projectile{onTick=UnstableSparks-Tick;onHit=UnstableSparks-Hit;v=7;i=1;hR=1;vR=1;g=0.2;sfo=-0.25;tyo=1;mr=190;g=0.1} @RLNTE{a=5;r=3;s=1;minr=1;}
+UnstableSparks-Tick:
+    Skills:
+    - effect:particles{p=witchMagic;amount=20;speed=0;hS=0.05;vS=0.05} @origin
+    - effect:particles{p=reddust;color=#CC12DF;amount=5;speed=0;hS=0.05;vS=0.05} @origin
+UnstableSparks-Hit:
+    Skills:
+    - basedamage{m=1.5}
+LeechingAura6:
+  Conditions:
+  - mobsInRadius{types=SkeletalArcher,DarkEntity,CursedPiglin,UndeadPiglin,MagmaGolem,NetherMage;amount=6to100;radius=15}
+  Skills:
+  - sound{s=entity.bee.pollinate;v=3;sc=hostile} @self
+  - basedamage{m=1} @MobsInRadius{r=15;types=SkeletalArcher,DarkEntity,CursedPiglin,UndeadPiglin,MagmaGolem,NetherMage}
+  - effect:particles{p=witchMagic;amount=20;speed=0;hS=0.05;vS=0.05} @MobsInRadius{r=15;types=SkeletalArcher,DarkEntity,CursedPiglin,UndeadPiglin,NetherMage}
+  - heal{amount=18} @self
+LeechingAura5:
+  Conditions:
+  - mobsInRadius{types=SkeletalArcher,DarkEntity,CursedPiglin,UndeadPiglin,MagmaGolem,NetherMage;amount=5;radius=15}
+  Skills:
+  - sound{s=entity.bee.pollinate;v=3;sc=hostile} @self
+  - basedamage{m=1} @MobsInRadius{r=5;types=SkeletalArcher,DarkEntity,CursedPiglin,UndeadPiglin,MagmaGolem,NetherMage}
+  - effect:particles{p=witchMagic;amount=20;speed=0;hS=0.05;vS=0.05} @MobsInRadius{r=15;types=SkeletalArcher,DarkEntity,CursedPiglin,UndeadPiglin,NetherMage}
+  - heal{amount=15} @self
+LeechingAura4:
+  Conditions:
+  - mobsInRadius{types=SkeletalArcher,DarkEntity,CursedPiglin,UndeadPiglin,MagmaGolem,NetherMage;amount=4;radius=15}
+  Skills:
+  - sound{s=entity.bee.pollinate;v=3;sc=hostile} @self
+  - basedamage{m=1} @MobsInRadius{r=15;types=SkeletalArcher,DarkEntity,CursedPiglin,UndeadPiglin,MagmaGolem,NetherMage}
+  - effect:particles{p=witchMagic;amount=20;speed=0;hS=0.05;vS=0.05} @MobsInRadius{r=15;types=SkeletalArcher,DarkEntity,CursedPiglin,UndeadPiglin,NetherMage}
+  - heal{amount=12} @self
+LeechingAura3:
+  Conditions:
+  - mobsInRadius{types=SkeletalArcher,DarkEntity,CursedPiglin,UndeadPiglin,MagmaGolem,NetherMage;amount=3;radius=15}
+  Skills:
+  - sound{s=entity.bee.pollinate;v=3;sc=hostile} @self
+  - basedamage{m=1} @MobsInRadius{r=15;types=SkeletalArcher,DarkEntity,CursedPiglin,UndeadPiglin,MagmaGolem,NetherMage}
+  - effect:particles{p=witchMagic;amount=20;speed=0;hS=0.05;vS=0.05} @MobsInRadius{r=15;types=SkeletalArcher,DarkEntity,CursedPiglin,UndeadPiglin,NetherMage}
+  - heal{amount=9} @self
+LeechingAura2:
+  Conditions:
+  - mobsInRadius{types=SkeletalArcher,DarkEntity,CursedPiglin,UndeadPiglin,MagmaGolem,NetherMage;amount=2;radius=15}
+  Skills:
+  - sound{s=entity.bee.pollinate;v=3;sc=hostile} @self
+  - basedamage{m=1} @MobsInRadius{r=15;types=SkeletalArcher,DarkEntity,CursedPiglin,UndeadPiglin,MagmaGolem,NetherMage}
+  - effect:particles{p=witchMagic;amount=20;speed=0;hS=0.05;vS=0.05} @MobsInRadius{r=15;types=SkeletalArcher,DarkEntity,CursedPiglin,UndeadPiglin,NetherMage}
+  - heal{amount=6} @self
+LeechingAura1:
+  Conditions:
+  - mobsInRadius{types=SkeletalArcher,DarkEntity,CursedPiglin,UndeadPiglin,MagmaGolem,NetherMage;amount=1;radius=15}
+  Skills:
+  - sound{s=entity.bee.pollinate;v=3;sc=hostile} @self
+  - basedamage{m=1} @MobsInRadius{r=15;types=SkeletalArcher,DarkEntity,CursedPiglin,UndeadPiglin,MagmaGolem,NetherMage}
+  - effect:particles{p=witchMagic;amount=20;speed=0;hS=0.05;vS=0.05} @MobsInRadius{r=15;types=SkeletalArcher,DarkEntity,CursedPiglin,UndeadPiglin,NetherMage}
+  - heal{amount=3} @self
+NotCombatSoundsGorger:
+  Conditions:
+  - incombat false
+  Skills:
+  - sound{s=entity.bee.loop_aggressive;v=3;sc=hostile} 
+NotCombatSoundsDevil:
+  Conditions:
+  - incombat false
+  Skills:
+  - sound{s=entity.llama.ambient;v=3;sc=hostile} 
+NotCombatSoundsMagma:
+  Conditions:
+  - incombat false
+  Skills:
+  - sound{s=entity.elder_guardian.ambient;v=3;sc=hostile} 
+NotCombatSoundsMage:
+  Conditions:
+  - incombat false
+  Skills:
+  - sound{s=entity.witch.ambient;v=3;sc=hostile} 
+NotCombatSoundsPriest:
+  Conditions:
+  - incombat false
+  Skills:
+  - sound{s=entity.evoker.ambient;v=3;sc=hostile} 
+SoulTouch:
+  Conditions:
+  - incombat true
+  Skills:
+  - sound{s=entity.bee.sting;v=3;sc=hostile} @self
+  - missile{ot=SoulTouch_TICK;oh=SoulTouch_HIT;v=4;i=1;hR=1;vR=1;in=0.75}
+
+SoulTouch_TICK:
+  Skills:
+  - effect:particles{p=reddust;color=#C0111F;a=2} @origin
+  - effect:particles{p=reddust;color=#471212;a=2} @origin
+SoulTouch_HIT:
+  Skills:
+  - effect:particles{p=reddust;color=#C0111F;a=25;hS=1;vS=1}
+  - basedamage{m=1.5} 
+  - heal{amount=4.5} @MIR{r=25;t=SoulGorger} 
+BlazingFlareSummon:
+    Skills:
+    - summon{type=SoulGorgerDummy;amount=1;radius=0} 
+BlazingFlareEffect:
+    Skills:
+    - sound{s=entity.firework_rocket.twinkle;v=3;sc=hostile} @self
+    - basedamage{m=2.5} @PIR{r=5}
+    - effect:particlering{p=reddust;color=#C0111F;radius=0.5;points=15;amount=1;hS=0.01;vS=0;speed=0.01} @self
+    - delay 1
+    - effect:particlering{p=reddust;color=#C0111F;radius=1;points=20;amount=1;hS=0.01;vS=0;speed=0.01} @self
+    - delay 1
+    - effect:particlering{p=reddust;color=#C0111F;radius=1.5;points=25;amount=1;hS=0.01;vS=0;speed=0.01} @self
+    - delay 1
+    - effect:particlering{p=reddust;color=#C0111F;radius=2;points=30;amount=1;hS=0.01;vS=0;speed=0.01} @self
+    - delay 1
+    - effect:particlering{p=reddust;color=#C0111F;radius=2.5;points=35;amount=1;hS=0.01;vS=0;speed=0.01} @self
+    - delay 1
+    - effect:particlering{p=reddust;color=#C0111F;radius=3;points=40;amount=1;hS=0.01;vS=0;speed=0.01} @self
+    - delay 1
+    - effect:particlering{p=reddust;color=#C0111F;radius=3.5;points=45;amount=1;hS=0.01;vS=0;speed=0.01} @self
+    - delay 1
+    - effect:particlering{p=reddust;color=#C0111F;radius=4;points=50;amount=1;hS=0.01;vS=0;speed=0.01} @self
+    - delay 1
+    - effect:particlering{p=reddust;color=#C0111F;radius=4.5;points=55;amount=1;hS=0.01;vS=0;speed=0.01} @self
+    - delay 1
+    - effect:particlering{p=reddust;color=#C0111F;radius=5;points=60;amount=1;hS=0.01;vS=0;speed=0.01} @self
+BlazingFlare:
+    Conditions:
+    - incombat true
+    Skills:
+    - sound{s=entity.firework_rocket.launch;v=3;sc=hostile} @self
+    - potion{type=SLOW;duration=80;level=99;force=true} @Self
+    - projectile{onTick=BlazingFlare-Tick;onHit=BlazingFlare-Hit;onEnd=BlazingFlare-Hit;v=8;i=1;hR=1;vR=1;syo=8;hnp=true} @self
+BlazingFlare-Tick:
+    Skills:
+    - effect:particlesphere{p=reddust;color=#C0111F;amount=100;radius=1.5;speed=0.1} @origin
+    - effect:particles{p=reddust;color=#4C060C;amount=20;speed=0;hS=0.4;vS=0.4} @origin
+BlazingFlare-Hit:
+    Skills:
+    - skill{s=BlazingFlareSummon}
+    - sound{s=entity.firework_rocket.blast;v=3;sc=hostile}
+FlameTrigger:
+  Cooldown: 5
+  Conditions:
+  - offgcd
+  Skills:
+  - gcd{ticks=200}
+  - damagepercent{percent=0.15} @self
+  - potion{type=SLOW;duration=200;level=99;force=true} @Self
+  - sound{s=entity.zombie_villager.converted;v=2.5;p=0.75} @Origin
+  - sound{s=entity.llama.angry;v=2.5;p=0.5} @Self
+  - delay 30
+  - projectile{ot=Flame2;v=-20;i=1;hR=0.1;syo=0;hO=5;vR=0.1;mr=30;HitNonPlayersfalse;StopAtBlock=false;StopAtEntity=false;HugSurface=true;repeat=16;repeatInterval=10} @SelfLocation
+  - delay 170
+Flame2:
+  Skills:
+  - sound{s=entity.stray.step;v=2.5;p=1.5} @Origin 0.3
+  - effect:blockmask{m=OBSIDIAN;r=3;d=600} @Origin
+  - sound{s=block.snow.break;v=2.5;p=1.0} @Origin 0.7
+  - effect:particles{particle=flame;amount=30;s=1;vs=2.0;hs=2.0;repeat=3;repeatInterval=2;speed=0.01} @Origin
+  - effect:particles{particle=smoke;amount=5;s=0.5;vs=1.0;hs=1.0;repeat=3;repeatInterval=2;speed=0.01} @Origin
+  - effect:particles{particle=smoke;amount=5;s=2.5;vs=1.0;hs=1.0;repeat=3;repeatInterval=2;speed=0.01} @Origin
+  - skill{s=Damaged1} @PIR{r=5}
+Damaged1:
+  Skills:
+  - throw{velocity=2.0;velocityY=0.15;delay=5}
+  - basedamage{m=0.5}
+  - potion{type=SLOW;duration=60;level=4;force=true}
+  - skill{s=Damaged2} 0.02
+Damaged2:
+  Skills:
+  - sound{s=block.glass.break;p=1.5;v=0.5}
+  - effect:particlebox{p=instantSpell;a=5;vs=1.5;hs=1.0;y=0.5;radius=0.5}
+  - effect:particlebox{p=flame;a=10;vs=1.5;hs=1.0;y=0.5;radius=0.5}
+  - effect:particles{p=smoke;a=2;vs=0.5;hs=1.5} @self
+DamagedTrigger:
+  Skills:
+  - throw{velocity=2.0;velocityY=5.0;delay=5} @PIR{r=5}
+  - basedamage{m=1.5} @PIR{r=5}
+FlameExecute:
+  Cooldown: 5
+  Conditions:
+  - offgcd
+  TargetConditions:
+  - distance{d=<10}
+  Skills:
+  - gcd{ticks=200}
+  - damagepercent{percent=0.15} @self
+  - potion{type=SLOW;duration=100;level=99;force=true} @Self
+  - sound{s=entity.zombie_villager.converted;v=2.5;p=0.75} @Origin
+  - sound{s=entity.llama.angry;v=2.5;p=0.5} @Self
+  - delay 30
+  - sound{s=block.end_gateway.spawn;v=2.5;p=1.5} @Self
+  - projectile{ot=Flame001;v=15;i=2;hR=0.1;syo=0;hO=5;vR=0.1;mr=15;HitNonPlayers=true;StopAtBlock=false;StopAtEntity=false;HugSurface=true} @Ring{radius=10;points=12} 
+Flame001:
+  Skills:
+  - summon{type=InfernalDevilDummy1;amount=1;radius=0;delay=40} @Origin
+  - sound{s=block.glass.break;v=0.5;p=1.5;repeat=1;repeatInterval=20} @origin 0.3
+  - effect:particlesphere{particle=magicCrit;amount=5;radius=0.5;s=0.01;vs=0.01;hs=0.01;y=0.5;repeat=7;repeatInterval=5} @origin
+  - effect:particlesphere{particle=instantSpell;amount=1;radius=0.5;s=0.1;vs=0.01;hs=0.01;y=0.5;repeat=4;repeatInterval=5;delay=20} @origin
+  - effect:blockmask{m=obsidian;r=3;d=600;delay=40} @Origin
+  - sound{s=entity.elder_guardian.hurt;v=2.5;p=2.0;delay=40} @Origin 0.15
+  - effect:particles{particle=flame;amount=15;s=1;vs=2.0;hs=2.0;repeat=3;repeatInterval=2;delay=40} @Origin
+  - effect:particles{particle=smoke;amount=5;s=2.5;vs=1.0;hs=1.0;repeat=3;repeatInterval=2;delay=40} @Origin
+  - skill{s=DamagedTrigger;delay=40}
+FlameSummon:
+  Skills:
+  - sound{s=block.glass.break;p=1.5;v=0.5} @self
+  - effect:particlebox{p=instantSpell;a=5;vs=1.5;hs=1.0;y=0.5;radius=0.5} @self
+  - effect:particlebox{p=flame;a=10;vs=1.5;hs=1.0;y=0.5;radius=0.5} @self
+  - effect:particles{p=smoke;a=2;vs=0.5;hs=1.5} @self
+  - delay 120
+  - sound{s=block.glass.break;p=1.5;v=0.5} @self
+  - effect:particlebox{p=instantSpell;a=5;vs=1.5;hs=1.0;y=0.5;radius=0.5} @self
+  - effect:particlebox{p=flame;a=10;vs=1.5;hs=1.0;y=0.5;radius=0.5} @self
+  - effect:particles{p=smoke;a=2;vs=0.5;hs=1.5} @self
+  - remove @Self
+SummonFieryBrand:
+   Conditions:
+   - targetwithin 7
+   - incombat true
+   Skills:
+   - summon{type=MagmaGolemDummy;amount=1;radius=0} @target
+LavaSurge:
+    Conditions:
+    - inblock LAVA true
+    Skills:
+    - healpercent{m=0.3} @self @self
+FieryBrandTrigger:
+    Skills:
+    - delay 90
+    - sound{s=entity.dragon_fireball.explode;v=3;sc=hostile} @self
+    - basedamage{m=1.5} @PIR{r=3}
+    - effect:particles{particle=flame;amount=70;hS=1;vS=0.55;speed=0.01} @self
+    - delay 1
+    - basedamage{m=1.5} @PIR{r=3}
+    - effect:particles{particle=flame;amount=130;hS=1;vS=1.05;speed=0.01} @self
+    - delay 1
+    - basedamage{m=1.5} @PIR{r=3}
+    - effect:particles{particle=flame;amount=190;hS=1;vS=1.55;speed=0.01} @self
+    - delay 1
+    - basedamage{m=1.5} @PIR{r=3}
+    - effect:particles{particle=flame;amount=210;hS=1;vS=2.05;speed=0.01} @self
+FieryBrand:
+    Skills:
+    - effect:particlering{particle=flame;radius=3;points=25;amount=1;hS=0.01;vS=0;speed=0.01} @self
+    - effect:particles{particle=flame;amount=70;hS=1;vS=0.05;speed=0.01} @self
+MagmaRock:
+    Conditions:
+    - incombat true
+    Skills:
+    - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+    - potion{type=SLOW;duration=100;level=25} @self
+    - projectile{onTick=MagmaRock-Tick;onHit=MagmaRock-Hit;v=7;i=1;hR=1;vR=1;g=0.2;sfo=-0.25;tyo=15;mr=190} @RLNTE{a=1;r=3;s=1;minr=1;}
+    - delay 5
+    - projectile{onTick=MagmaRock-Tick;onHit=MagmaRock-Hit;v=7;i=1;hR=1;vR=1;g=0.2;sfo=-0.25;tyo=15;mr=190} @RLNTE{a=1;r=3;s=1;minr=1;}
+    - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+    - delay 5
+    - projectile{onTick=MagmaRock-Tick;onHit=MagmaRock-Hit;v=7;i=1;hR=1;vR=1;g=0.2;sfo=-0.25;tyo=15;mr=190} @RLNTE{a=1;r=3;s=1;minr=1;}
+    - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+    - delay 5
+    - projectile{onTick=MagmaRock-Tick;onHit=MagmaRock-Hit;v=7;i=1;hR=1;vR=1;g=0.2;sfo=-0.25;tyo=15;mr=190} @RLNTE{a=1;r=3;s=1;minr=1;}
+    - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+    - delay 5
+    - projectile{onTick=MagmaRock-Tick;onHit=MagmaRock-Hit;v=7;i=1;hR=1;vR=1;g=0.2;sfo=-0.25;tyo=15;mr=190} @RLNTE{a=1;r=3;s=1;minr=1;}   
+    - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+MagmaRock-Tick:
+    Skills:
+    - effect:particles{p=flame;amount=20;speed=0;hS=0.05;vS=0.05} @origin
+    - effect:particles{p=smoke;amount=5;speed=0;hS=0.05;vS=0.05} @origin
+MagmaRock-Hit:
+    Skills:
+    - basedamage{m=1.5}
+LastStand:
+    Skills:
+    - sound{s=entity.piglin.angry;v=3;sc=hostile} @self
+    - effect:particles{p=reddust;color=#ff0000;amount=15;hS=1;vS=1;speed=1} @self
+    - potion{type=INCREASE_DAMAGE;duration=100;level=1} @self
+    - delay 5
+    - effect:particles{p=reddust;color=#ff0000;amount=15;hS=1;vS=1;speed=1} @self
+    - delay 5
+    - effect:particles{p=reddust;color=#ff0000;amount=15;hS=1;vS=1;speed=1} @self
+    - delay 5
+    - effect:particles{p=reddust;color=#ff0000;amount=15;hS=1;vS=1;speed=1} @self
+    - delay 5
+    - effect:particles{p=reddust;color=#ff0000;amount=15;hS=1;vS=1;speed=1} @self
+    - delay 5
+    - effect:particles{p=reddust;color=#ff0000;amount=15;hS=1;vS=1;speed=1} @self
+    - delay 5
+    - effect:particles{p=reddust;color=#ff0000;amount=15;hS=1;vS=1;speed=1} @self
+    - delay 5
+    - effect:particles{p=reddust;color=#ff0000;amount=15;hS=1;vS=1;speed=1} @self
+    - delay 5
+    - effect:particles{p=reddust;color=#ff0000;amount=15;hS=1;vS=1;speed=1} @self
+    - delay 5
+    - effect:particles{p=reddust;color=#ff0000;amount=15;hS=1;vS=1;speed=1} @self
+    - delay 5
+    - effect:particles{p=reddust;color=#ff0000;amount=15;hS=1;vS=1;speed=1} @self
+    - delay 5
+    - effect:particles{p=reddust;color=#ff0000;amount=15;hS=1;vS=1;speed=1} @self
+    - delay 5
+    - effect:particles{p=reddust;color=#ff0000;amount=15;hS=1;vS=1;speed=1} @self
+    - delay 5
+    - effect:particles{p=reddust;color=#ff0000;amount=15;hS=1;vS=1;speed=1} @self
+    - delay 5
+    - effect:particles{p=reddust;color=#ff0000;amount=15;hS=1;vS=1;speed=1} @self
+    - delay 5
+    - effect:particles{p=reddust;color=#ff0000;amount=15;hS=1;vS=1;speed=1} @self
+    - delay 5
+    - effect:particles{p=reddust;color=#ff0000;amount=15;hS=1;vS=1;speed=1} @self
+    - delay 5
+    - effect:particles{p=reddust;color=#ff0000;amount=15;hS=1;vS=1;speed=1} @self
+    - delay 5
+    - effect:particles{p=reddust;color=#ff0000;amount=15;hS=1;vS=1;speed=1} @self
+    - delay 5
+    - effect:particles{p=reddust;color=#ff0000;amount=15;hS=1;vS=1;speed=1} @self
+    - delay 5
+    - effect:particles{p=reddust;color=#0b0b0b;amount=15;hS=1;vS=1;speed=1} @self
+    - sethealth{a=1} @self
+    - sound{s=entity.piglin.hurt;v=3;sc=hostile} @self
+HungeringStrike:
+    Conditions:
+    - incombat true
+    - playerwithin 3
+    Skills:
+    - sound{s=entity.player.attack.crit;v=3;sc=hostile} @self
+    - effect:particles{p=reddust;color=#a6f21f;amount=15;hS=1;vS=1;speed=1} @target
+    - effect:particles{particle=sweep_attack;amount=1;hS=1;vS=1;speed=1} @target
+    - basedamage{m=1}
+    - potion{type=HUNGER;duration=80;lvl=1} @target
+SliceAndDice:
+    Conditions:
+    - incombat true
+    - playernotwithin 3
+    Skills:
+    - effect:particles{particle=cloud;amount=14;hS=0.01;vS=0.01;speed=0.01;y=-1} @self
+    - jump{velocity=1} @self
+    - sound{s=entity.horse.jump;v=3;sc=hostile} @self
+    - delay 5
+    - effect:particles{particle=cloud;amount=14;hS=0.01;vS=0.01;speed=0.01;y=-1} @self
+    - delay 5
+    - effect:particles{particle=cloud;amount=14;hS=0.01;vS=0.01;speed=0.01;y=-1} @self
+    - delay 5
+    - effect:particles{particle=cloud;amount=14;hS=0.01;vS=0.01;speed=0.01;y=-1} @self
+    - delay 5
+    - effect:particles{particle=cloud;amount=14;hS=0.01;vS=0.01;speed=0.01;y=-1} @self
+    - lunge{velocity=1;velocityY=0.25} @target
+    - basedamage{m=0.5} @PIR{r=2}
+    - sound{s=entity.horse.land;v=3;sc=hostile} @self
+ParalyzingTouch:
+    Conditions:
+    - incombat true
+    - playerwithin 4
+    Skills:
+    - effect:particleline{particle=bubble_column;amount=1;fromOrigin=true} @target
+    - basedamage{m=0.5} @target
+    - potion{type=SLOW;duration=60;lvl=10} @target
+SquidBolt:
+    Conditions:
+    - incombat true
+    - playernotwithin 4
+    Skills:
+    - projectile{onTick=SquidBolt-Tick;onHit=SquidBolt-Hit;v=8;i=1;hR=1;vR=1}
+SquidBolt-Tick:
+    Skills:
+    - effect:particles{p=squid_ink;amount=20;speed=0;hS=0.2;vS=0.2} @origin
+SquidBolt-Hit:
+    Skills:
+    - basedamage{m=1.25}
+    - potion{type=BLINDNESS;duration=40;lvl=1}
+EscapeArtist:
+  Skills:
+  - effect:particles{particle=squid_ink;amount=265;hS=3;vS=3;speed=0.01} @self
+  - teleport{spreadh=15;spreadv=0} @self
+  - potion{type=BLINDNESS;duration=140;lvl=100} @PIR{r=3}
+  - potion{type=SLOW;duration=140;lvl=1} @PIR{r=3}
+GolemSmash:
+  Conditions:
+  - incombat true
+  Skills:
+  - sound{s=item.trident.throw;v=3;sc=hostile} @self
+  - effect:explosion @self
+  - basedamage{m=1.5} @PIR{=3}
+  - throw{velocity=7;velocityY=2} @PIR{r=3}
+HungeringVortex:
+  Conditions:
+  - incombat true
+  Skills:
+  - potion{type=SLOW;duration=30;lvl=10} @self
+  - effect:particles{p=cloud;amount=40;speed=0;hS=3;vS=3} @self
+  - sound{s=block.portal.trigger;v=3;sc=hostile} @self
+  - pull{v=4;to=true} @PIR{r=5}
+  - delay 5
+  - effect:particles{p=cloud;amount=40;speed=0;hS=3;vS=3} @self
+  - sound{s=block.portal.trigger;v=3;sc=hostile} @self
+  - pull{v=4;to=true} @PIR{r=5}
+  - delay 5
+  - effect:particles{p=cloud;amount=40;speed=0;hS=3;vS=3} @self
+  - sound{s=block.portal.trigger;v=3;sc=hostile} @self
+  - pull{v=4;to=true} @PIR{r=5}
+  - delay 5
+  - effect:particles{p=cloud;amount=40;speed=0;hS=3;vS=3} @self
+  - sound{s=block.portal.trigger;v=3;sc=hostile} @self
+  - pull{v=4;to=true} @PIR{r=5}
+  - delay 5
+  - effect:particles{p=cloud;amount=40;speed=0;hS=3;vS=3} @self
+  - sound{s=block.portal.trigger;v=3;sc=hostile} @self
+  - pull{v=4;to=true} @PIR{r=5}
+  - delay 5
+  - effect:particles{p=cloud;amount=40;speed=0;hS=3;vS=3} @self
+  - sound{s=block.portal.trigger;v=3;sc=hostile} @self
+  - pull{v=4;to=true} @PIR{r=5}
+  - delay 5
+  - effect:explosion @self
+  - basedamage{m=1.5} @PIR{=5}
+Leaping:
+  Conditions:
+  - incombat true
+  Skills:
+  - leap{velocity=200} @target
+  - delay 20
+  - effect:explosion @self
+  - jump{velocity=-100}
+  - basedamage{m=1.5} @PIR{=5}
+GraspingPresence:
+  Conditions:
+  - incombat true
+  Skills:
+  - effect:particlering{particle=witchMagic;radius=3;points=50;amount=1;hS=0.1;vS=0} @self
+  - potion{type=WITHER;duration=80;lvl=1} @PIR{r=3}
+  - delay 5
+  - effect:particlering{particle=witchMagic;radius=3;points=50;amount=1;hS=0.1;vS=0} @self
+  - potion{type=WITHER;duration=80;lvl=1} @PIR{r=3}
+  - delay 5
+  - effect:particlering{particle=witchMagic;radius=3;points=50;amount=1;hS=0.1;vS=0} @self
+  - potion{type=WITHER;duration=80;lvl=1} @PIR{r=3}
+  - delay 5
+  - effect:particlering{particle=witchMagic;radius=3;points=50;amount=1;hS=0.1;vS=0} @self
+  - potion{type=WITHER;duration=80;lvl=1} @PIR{r=3}
+  - delay 5
+  - effect:particlering{particle=witchMagic;radius=3;points=50;amount=1;hS=0.1;vS=0} @self
+  - potion{type=WITHER;duration=80;lvl=1} @PIR{r=3}
+  - delay 5
+  - effect:particlering{particle=witchMagic;radius=3;points=50;amount=1;hS=0.1;vS=0} @self
+  - potion{type=WITHER;duration=80;lvl=1} @PIR{r=3}
+  - delay 5
+  - effect:particlering{particle=witchMagic;radius=3;points=50;amount=1;hS=0.1;vS=0} @self
+  - potion{type=WITHER;duration=80;lvl=1} @PIR{r=3}
+  - delay 5
+  - effect:particlering{particle=witchMagic;radius=3;points=50;amount=1;hS=0.1;vS=0} @self
+  - potion{type=WITHER;duration=80;lvl=1} @PIR{r=3}
+  - delay 5
+  - effect:particlering{particle=witchMagic;radius=3;points=50;amount=1;hS=0.1;vS=0} @self
+  - potion{type=WITHER;duration=80;lvl=1} @PIR{r=3}
+  - delay 5
+  - effect:particlering{particle=witchMagic;radius=3;points=50;amount=1;hS=0.1;vS=0} @self
+  - potion{type=WITHER;duration=80;lvl=1} @PIR{r=3}
+  - delay 5
+  - effect:particlering{particle=witchMagic;radius=3;points=50;amount=1;hS=0.1;vS=0} @self
+  - potion{type=WITHER;duration=80;lvl=1} @PIR{r=3}
+  - delay 5
+  - effect:particlering{particle=witchMagic;radius=3;points=50;amount=1;hS=0.1;vS=0} @self
+  - potion{type=WITHER;duration=80;lvl=1} @PIR{r=3}
+  - delay 5
+  - effect:particlering{particle=witchMagic;radius=3;points=50;amount=1;hS=0.1;vS=0} @self
+  - potion{type=WITHER;duration=80;lvl=1} @PIR{r=3}
+  - delay 5
+  - effect:particlering{particle=witchMagic;radius=3;points=50;amount=1;hS=0.1;vS=0} @self
+  - potion{type=WITHER;duration=80;lvl=1} @PIR{r=3}
+  - delay 5
+  - effect:particlering{particle=witchMagic;radius=3;points=50;amount=1;hS=0.1;vS=0} @self
+  - potion{type=WITHER;duration=80;lvl=1} @PIR{r=3}
+  - delay 5
+  - effect:particlering{particle=witchMagic;radius=3;points=50;amount=1;hS=0.1;vS=0} @self
+  - potion{type=WITHER;duration=80;lvl=1} @PIR{r=3}
+VoidZoneEffect:
+  Skills:
+  - effect:particlering{particle=witchMagic;radius=4;points=50;amount=1;hS=0.1;vS=0} @self
+  - delay 1
+  - effect:particlering{particle=witchMagic;radius=3.5;points=45;amount=1;hS=0.1;vS=0} @self
+  - delay 1
+  - effect:particlering{particle=witchMagic;radius=3;points=40;amount=1;hS=0.1;vS=0} @self
+  - delay 1
+  - effect:particlering{particle=witchMagic;radius=2.5;points=35;amount=1;hS=0.1;vS=0} @self
+  - delay 1
+  - effect:particlering{particle=witchMagic;radius=2;points=30;amount=1;hS=0.1;vS=0} @self
+  - delay 1
+  - effect:particlering{particle=witchMagic;radius=1.5;points=25;amount=1;hS=0.1;vS=0} @self
+  - delay 1
+  - effect:particlering{particle=witchMagic;radius=1;points=20;amount=1;hS=0.1;vS=0} @self
+  - delay 1
+  - effect:particlering{particle=witchMagic;radius=0.5;points=15;amount=1;hS=0.1;vS=0} @self
+  - basedamage{m=0.5} @PIR{r=4}
+VoidZone:
+  Skills:
+  - effect:blockmask{m=PURPLE_CONCRETE;r=4;d=100} @self
+WarpZone:
+  Conditions:
+  - incombat true
+  Skills:
+  - sound{s=entity.shulker.teleport;v=3;sc=hostile} @self
+  - effect:particles{p=witchMagic;amount=40;speed=0;hS=0.9;vS=0.9} @self
+  - teleport{spreadh=3;spreadv=0} @target
+  - summon{type=DarkEntityDummy;amount=1;radius=0} @self
+  - delay 30
+  - sound{s=entity.shulker.teleport;v=3;sc=hostile} @self
+  - effect:particles{p=witchMagic;amount=40;speed=0;hS=0.9;vS=0.9} @self
+  - teleport{spreadh=3;spreadv=0} @target
+  - summon{type=DarkEntityDummy;amount=1;radius=0} @self
+  - delay 30
+  - sound{s=entity.shulker.teleport;v=3;sc=hostile} @self
+  - effect:particles{p=witchMagic;amount=40;speed=0;hS=0.9;vS=0.9} @self
+  - teleport{spreadh=3;spreadv=0} @target
+  - summon{type=DarkEntityDummy;amount=1;radius=0} @self
+SplittingSlime:
+  Skills:
+  - summon{type=GreenSlime2;amount=1;radius=3} @self
+SlimeInchor:
+  Conditions:
+  - incombat true
+  Skills:
+  - sound{s=entity.generic.drink;v=3;sc=hostile} @self
+  - missile{ot=SlimeInchor_TICK;oh=SlimeInchor_HIT;v=4;i=1;hR=1;vR=1;in=0.75;}
+
+SlimeInchor_TICK:
+  Skills:
+  - effect:particles{p=slime;amount=20;speed=0;hS=0.15;vS=0.15} @origin
+  - effect:particles{p=reddust;color=#98E081;amount=20;speed=0;hS=0.15;vS=0.15} @origin
+SlimeInchor_HIT:
+  Skills:
+  - basedamage{m=1.5}
+  - potion{type=SLOW;duration=100;lvl=2}
+MortalStrikeNOCD:
+  Cooldown: 10
+  Conditions:
+  - onblock{b=GRASS_BLOCK}
+  - incombat true
+  - playerwithin 3
+  Skills:
+  - lunge{velocity=1;velocityY=0.1} @target
+  - delay 20
+  - sound{s=block.conduit.attack.target;v=3;sc=hostile} @self
+  - effect:particles{p=drip_lava;amount=20;speed=0;hS=1;vS=1} @target
+  - basedamage{m=1.25} @target
+  - delay 20
+  - effect:particles{p=drip_lava;amount=20;speed=0;hS=1;vS=1} @target
+  - basedamage{m=0.25} @target
+  - delay 20
+  - effect:particles{p=drip_lava;amount=20;speed=0;hS=1;vS=1} @target
+  - basedamage{m=0.25} @target
+  - delay 20
+  - effect:particles{p=drip_lava;amount=20;speed=0;hS=1;vS=1} @target
+  - basedamage{m=0.25} @target
+  - delay 20
+  - effect:particles{p=drip_lava;amount=20;speed=0;hS=1;vS=1} @target
+  - basedamage{m=0.25} @target
+  - delay 20
+  - effect:particles{p=drip_lava;amount=20;speed=0;hS=1;vS=1} @target
+  - basedamage{m=0.25} @target
+BladeStorm:
+  Conditions:
+  - incombat true
+  Skills:
+  - potion{type=SLOW;duration=60;lvl=10} @self
+  - sound{s=block.anvil.step;v=3;sc=hostile} @self
+  - effect:spin{duration=60;velocity=20} @self
+  - effect:smokeswirl{duration=60;interval=10} @self
+  - effect:particlering{p=cloud;radius=3;points=35;amount=1;hS=0.01;vS=0} @self
+  - delay 10
+  - sound{s=block.anvil.step;v=3;sc=hostile} @self
+  - basedamage{m=0.25} @PIR{r=3}
+  - effect:particlering{p=cloud;radius=3;points=35;amount=1;hS=0.01;vS=0} @self
+  - delay 10
+  - sound{s=block.anvil.step;v=3;sc=hostile} @self
+  - basedamage{m=0.25} @PIR{r=3}
+  - effect:particlering{p=cloud;radius=3;points=35;amount=1;hS=0.01;vS=0} @self
+  - delay 10
+  - sound{s=block.anvil.step;v=3;sc=hostile} @self
+  - basedamage{m=0.25} @PIR{r=3}
+  - effect:particlering{p=cloud;radius=3;points=35;amount=1;hS=0.01;vS=0} @self
+  - delay 10
+  - sound{s=block.anvil.step;v=3;sc=hostile} @self
+  - basedamage{m=0.25} @PIR{r=3}
+  - effect:particlering{p=cloud;radius=3;points=35;amount=1;hS=0.01;vS=0} @self
+  - delay 10
+  - sound{s=block.anvil.step;v=3;sc=hostile} @self
+  - basedamage{m=0.25} @PIR{r=3}
+  - effect:particlering{p=cloud;radius=3;points=35;amount=1;hS=0.01;vS=0} @self
+  - delay 10
+  - sound{s=block.anvil.step;v=3;sc=hostile} @self
+  - basedamage{m=0.25} @PIR{r=3}
+  - effect:particlering{p=cloud;radius=3;points=35;amount=1;hS=0.01;vS=0} @self
+MortalStrike:
+  Conditions:
+  - incombat true
+  - playerwithin 3
+  Skills:
+  - sound{s=block.conduit.attack.target;v=3;sc=hostile} @self
+  - effect:particles{p=drip_lava;amount=20;speed=0;hS=1;vS=1} @target
+  - basedamage{m=1.25} @target
+  - delay 20
+  - effect:particles{p=drip_lava;amount=20;speed=0;hS=1;vS=1} @target
+  - basedamage{m=0.25} @target
+  - delay 20
+  - effect:particles{p=drip_lava;amount=20;speed=0;hS=1;vS=1} @target
+  - basedamage{m=0.25} @target
+  - delay 20
+  - effect:particles{p=drip_lava;amount=20;speed=0;hS=1;vS=1} @target
+  - basedamage{m=0.25} @target
+  - delay 20
+  - effect:particles{p=drip_lava;amount=20;speed=0;hS=1;vS=1} @target
+  - basedamage{m=0.25} @target
+  - delay 20
+  - effect:particles{p=drip_lava;amount=20;speed=0;hS=1;vS=1} @target
+  - basedamage{m=0.25} @target
+WitchBrew:
+  Skills:
+  - sound{s=entity.generic.drink;v=3;sc=hostile} @self 
+  - randomskill{skills=Potion1,Potion2,Potion3,Potion4}
+Potion4:
+  Skills:
+  - potion{type=DAMAGE_RESISTANCE;duration=100;level=1} @self
+Potion3:
+  Skills:
+  - potion{type=REGENERATION;duration=100;level=1} @self
+Potion2:
+  Skills:
+  - potion{type=SPEED;duration=100;level=1} @self
+Potion1:
+  Skills:
+  - potion{type=INCREASE_DAMAGE;duration=100;level=1} @self
+VoidMagic:
+  Conditions:
+  - incombat true
+  Skills:
+  - sound{s=entity.shulker.teleport;v=3;sc=hostile} @self
+  - effect:particles{p=witchMagic;amount=40;speed=0;hS=0.9;vS=0.9} @self
+  - teleport{spreadh=3;spreadv=0} @target
+  - basedamage{m=0.75} @target
+  - delay 30
+  - sound{s=entity.shulker.teleport;v=3;sc=hostile} @self
+  - effect:particles{p=witchMagic;amount=40;speed=0;hS=0.9;vS=0.9} @self
+  - teleport{spreadh=3;spreadv=0} @target
+  - basedamage{m=0.75} @target
+  - delay 30
+  - sound{s=entity.shulker.teleport;v=3;sc=hostile} @self
+  - effect:particles{p=witchMagic;amount=40;speed=0;hS=0.9;vS=0.9} @self
+  - teleport{spreadh=3;spreadv=0} @target
+  - basedamage{m=0.75} @target
+SummonAntiDamageZone:
+  Conditions:
+  - incombat true
+  Skills:
+  - summon{type=WitheringKnightDummy;amount=1;radius=0} @self
+AntiDamageZoneTimer:
+  Skills:
+  - potion{type=DAMAGE_RESISTANCE;duration=60;lvl=2} @MIR{r=4;t=WitheringKnight}
+  - effect:particlering{p=witchMagic;radius=4;points=45;amount=1;hS=0.01;vS=0} @self
+AntiDamageZone:
+  Skills:
+  - effect:blockmask{m=END_STONE;r=4;d=120} @self
+ArrowBurst:
+  Conditions:
+  - incombat true
+  Skills:
+  - shoot{type=ARROW;velocity=5;damage=1} @target
+  - sound{s=entity.arrow.shoot;v=3;sc=hostile} @self
+  - delay 5
+  - shoot{type=ARROW;velocity=5;damage=1} @target
+  - sound{s=entity.arrow.shoot;v=3;sc=hostile} @self
+  - delay 5
+  - shoot{type=ARROW;velocity=5;damage=1} @target
+  - sound{s=entity.arrow.shoot;v=3;sc=hostile} @self
+VolleyOfArrows:
+  Conditions:
+  - incombat true
+  Skills:
+  - sound{s=entity.arrow.shoot;v=3;sc=hostile} @self
+  - shootvolley{type=ARROW;velocity=3;damage=2;amount=5} @Ring{radius=15;points=5}
+RadiantStrike:
+  Conditions:
+  - playerwithin 3
+  Skills:
+  - effect:particles{p=reddust;color=#F0FF05;amount=20;speed=0.1;hS=0.7;vS=0.7} @self
+  - basedamage{m=1.50} @target
+BindingOfTheSun:
+  Conditions:
+  - playerwithin 7
+  Skills:
+  - effect:particlering{p=reddust;color=#F0FF05;radius=1;points=20;amount=1;hS=0.01;vS=0} @target
+  - potion{type=SLOW;duration=50;lvl=10} @target
+  - basedamage{m=0.30} @target
+  - effect:particlering{p=reddust;color=#F0FF05;radius=1.5;points=25;amount=1;hS=0.01;vS=0} @target
+  - delay 10
+  - basedamage{m=0.30} @target
+  - effect:particlering{p=reddust;color=#F0FF05;radius=2;points=30;amount=1;hS=0.01;vS=0} @target
+  - delay 10
+  - basedamage{m=0.30} @target
+  - effect:particlering{p=reddust;color=#F0FF05;radius=2.5;points=35;amount=1;hS=0.01;vS=0} @target
+  - delay 10
+  - basedamage{m=0.30} @target
+  - effect:particlering{p=reddust;color=#F0FF05;radius=3;points=40;amount=1;hS=0.01;vS=0} @target
+  - delay 10
+  - basedamage{m=0.30} @target
+  - effect:particlering{p=reddust;color=#F0FF05;radius=3.5;points=45;amount=1;hS=0.01;vS=0} @target
+  - delay 10
+  - basedamage{m=0.30} @target
+  - effect:particlering{p=reddust;color=#F0FF05;radius=4;points=50;amount=1;hS=0.01;vS=0} @target
+LingeringVoid:
+  Skills:
+  - effect:particles{p=witchMagic;amount=20;speed=0;hS=0.2;vS=0.2} @target
+  - teleport{spreadh=5;spreadv=0} @target
+NightHunter:
+  Conditions:
+  - night true
+  Skills:
+  - potion{type=INCREASE_DAMAGE;duration=400;lvl=1} @self
+  - effect:particles{p=witchMagic;amount=20;speed=0;hS=0.2;vS=0.2} @self
+  - effect:particles{p=witchMagic;amount=30;speed=0;hS=0.4;vS=0.4} @self
+  - effect:particles{p=witchMagic;amount=40;speed=0;hS=0.6;vS=0.6} @self
+  - effect:particles{p=witchMagic;amount=50;speed=0;hS=0.8;vS=0.8} @self
+  - effect:particles{p=witchMagic;amount=60;speed=0;hS=1;vS=1} @self
+ThunderingExplosion:
+  Conditions:
+  - thundering true
+  Skills:
+  - effect:lightning @target
+  - basedamage{m=1.5} @target
+BerserkingStance:
+  Skills:
+  - sound{s=entity.piglin.angry;v=3;sc=hostile} @self
+  - healpercent{m=0.2} @self
+  - effect:particles{p=happyVillager;amount=20;speed=0.1;hS=0.2;vS=0.2} @self
+  - effect:particles{p=reddust;color=#009f0b;amount=50;speed=0.1;hS=1;vS=1} @self
+  - delay 5
+  - sound{s=entity.piglin.angry;v=3;sc=hostile} @self
+  - effect:particles{p=happyVillager;amount=20;speed=0.1;hS=0.2;vS=0.2} @self
+  - effect:particles{p=reddust;color=#009f0b;amount=50;speed=0.1;hS=1;vS=1} @self
+  - delay 5
+  - sound{s=entity.piglin.angry;v=3;sc=hostile} @self
+  - effect:particles{p=happyVillager;amount=20;speed=0.1;hS=0.2;vS=0.2} @self
+  - effect:particles{p=reddust;color=#009f0b;amount=50;speed=0.1;hS=1;vS=1} @self
+KingOfTheSea:
+  Conditions:
+  - playerwithin 5
+  - inblock{b=WATER} true
+  Skills:
+  - effect:particleline{particle=drip_water;amount=1;fromOrigin=true} @target
+  - basedamage{m=1.5} @target
+RandomToxic:
+  Skills:
+  - randomskill{skills=ToxicBolt,ToxicBolt,DoubleToxic,ToxicBolt}
+DoubleToxic:
+  Skills:
+  - randomskill{skills=WitchBolt3,WitchBolt3,WitchBolt3}
+  - projectile{onTick=ToxicBolt-Tick;onHit=ToxicBolt-Hit;v=8;i=1;hR=0.5;vR=0.5}
+  - projectile{onTick=ToxicBolt-Tick;onHit=ToxicBolt-Hit;v=8;i=1;hR=0.5;vR=0.5}
+CreepingNight:
+  Conditions:
+  - night true
+  Skills:
+  - potion{type=HEALTH_BOOST;duration=400;lvl=1} @self
+  - effect:particles{p=reddust;color=#CEE6EA;amount=50;speed=0.1;hS=0.2;vS=0.2} @self
+ImmortalSlime:
+  Skills:
+  - summon{type=GreenSlime2;amount=3;radius=3} @self
+KnightlyDominion:
+  Conditions:
+  - incombat true
+  - playernotwithin 10
+  Skills:
+  - potion{type=SPEED;duration=80;lvl=1} @self
+  - effect:particles{p=reddust;color=#CEE6EA;amount=50;speed=0.1;hS=0.2;vS=0.2} @self
+IronSkin:
+  Skills:
+  - potion{type=FIRE_RESITANCE;duration=12000;lvl=10} @self
+BoneShield:
+  Skills:
+  - delay 80
+  - potion{type=DAMAGE_RESISTANCE;duration=100;lvl=1} @self
+  - effect:particlesphere{p=reddust;color=#CEE6EA;amount=100;radius=1.5;speed=0.1;y=0.5} @self
+  - delay 5
+  - effect:particlesphere{p=reddust;color=#CEE6EA;amount=100;radius=1.5;speed=0.1;y=0.5} @self
+  - delay 5
+  - effect:particlesphere{p=reddust;color=#CEE6EA;amount=100;radius=1.5;speed=0.1;y=0.5} @self
+  - delay 5
+  - effect:particlesphere{p=reddust;color=#CEE6EA;amount=100;radius=1.5;speed=0.1;y=0.5} @self
+  - delay 5
+  - effect:particlesphere{p=reddust;color=#CEE6EA;amount=100;radius=1.5;speed=0.1;y=0.5} @self
+  - delay 5
+  - effect:particlesphere{p=reddust;color=#CEE6EA;amount=100;radius=1.5;speed=0.1;y=0.5} @self
+  - delay 5
+  - effect:particlesphere{p=reddust;color=#CEE6EA;amount=100;radius=1.5;speed=0.1;y=0.5} @self
+  - delay 5
+  - effect:particlesphere{p=reddust;color=#CEE6EA;amount=100;radius=1.5;speed=0.1;y=0.5} @self
+  - delay 5
+  - effect:particlesphere{p=reddust;color=#CEE6EA;amount=100;radius=1.5;speed=0.1;y=0.5} @self
+  - delay 5
+  - effect:particlesphere{p=reddust;color=#CEE6EA;amount=100;radius=1.5;speed=0.1;y=0.5} @self
+  - delay 5
+  - effect:particlesphere{p=reddust;color=#CEE6EA;amount=100;radius=1.5;speed=0.1;y=0.5} @self
+  - delay 5
+  - effect:particlesphere{p=reddust;color=#CEE6EA;amount=100;radius=1.5;speed=0.1;y=0.5} @self
+  - delay 5
+  - effect:particlesphere{p=reddust;color=#CEE6EA;amount=100;radius=1.5;speed=0.1;y=0.5} @self
+  - delay 5
+  - effect:particlesphere{p=reddust;color=#CEE6EA;amount=100;radius=1.5;speed=0.1;y=0.5} @self
+  - delay 5
+  - effect:particlesphere{p=reddust;color=#CEE6EA;amount=100;radius=1.5;speed=0.1;y=0.5} @self
+  - delay 5
+  - effect:particlesphere{p=reddust;color=#CEE6EA;amount=100;radius=1.5;speed=0.1;y=0.5} @self
+  - delay 5
+  - effect:particlesphere{p=reddust;color=#CEE6EA;amount=100;radius=1.5;speed=0.1;y=0.5} @self
+  - delay 5
+  - effect:particlesphere{p=reddust;color=#CEE6EA;amount=100;radius=1.5;speed=0.1;y=0.5} @self
+  - delay 5
+  - effect:particlesphere{p=reddust;color=#CEE6EA;amount=100;radius=1.5;speed=0.1;y=0.5} @self
+  - delay 5
+  - effect:particlesphere{p=reddust;color=#CEE6EA;amount=100;radius=1.5;speed=0.1;y=0.5} @self
+  - delay 5
+  - effect:particlesphere{p=reddust;color=#CEE6EA;amount=100;radius=1.5;speed=0.1;y=0.5} @self
+LoneWolf:
+  Conditions:
+  - playerwithin 4
+  - mobsInRadius{types=DesertNomad;amount=2to25;radius=15} 
+  Skills:
+  - basedamage{m=0.5} @target
+PartOfThePack:
+  Conditions:
+  - mobsInRadius{types=Ghoul;amount=4to25;radius=15} 
+  Skills:
+  - potion{type=INCREASE_DAMAGE;duration=160;lvl=1} @self
+  - potion{type=INCREASE_DAMAGE;duration=160;lvl=1} @MIR{r=25;t=Ghoul}
+SpiderShade:
+  Skills:
+  - potion{type=DAMAGE_RESISTANCE;duration=80;lvl=1} @self
+  - potion{type=INVISIBILITY;duration=80;lvl=1} @self
+  - effect:smokeswirl{duration=80;interval=5} @self
+WarpBlind:
+  Cooldown: 10
+  Conditions:
+  - incombat true
+  - playerwithin 10
+  Skills:
+  - sound{s=entity.phantom.ambient;v=3;sc=hostile} @self
+  - effect:particles{p=witchMagic;amount=20;speed=0;hS=0.2;vS=0.2} @self
+  - teleport{spreadh=1;spreadv=0} @target
+  - delay 10
+  - sound{s=entity.phantom.bite;v=3;sc=hostile} @self
+  - effect:particles{p=witchMagic;amount=20;speed=0;hS=0.2;vS=0.2} @target
+  - basedamage{m=1} @target
+  - potion{type=BLINDNESS;duration=100;lvl=1} @target
+PhantomBolt:
+    Conditions:
+    - incombat true
+    - playernotwithin 10
+    Skills:
+    - sound{s=entity.wither.shoot;v=3;sc=hostile} @self
+    - projectile{onTick=PhantomBolt-Tick;onHit=PhantomBolt-Hit;v=12;i=1;hR=1;vR=1;bulletType=ITEM;material=chorus_fruit;}
+    - delay 15
+    - sound{s=entity.wither.shoot;v=3;sc=hostile} @self
+    - projectile{onTick=PhantomBolt-Tick;onHit=PhantomBolt-Hit;v=12;i=1;hR=1;vR=1;bulletType=ITEM;material=chorus_fruit;}
+    - delay 15
+    - sound{s=entity.wither.shoot;v=3;sc=hostile} @self
+    - projectile{onTick=PhantomBolt-Tick;onHit=PhantomBolt-Hit;v=12;i=1;hR=1;vR=1;bulletType=ITEM;material=chorus_fruit;}
+PhantomBolt-Tick:
+    Skills:
+    - effect:particles{p=witchMagic;amount=20;speed=0;hS=0.01;vS=0.01} @origin
+PhantomBolt-Hit:
+    Skills:
+    - basedamage{m=1.25}
+    - potion{type=WITHER;duration=60;lvl=1}
+RandomWitchCast:
+    Conditions:
+    - incombat true
+    - raining false
+    Skills:
+    - sound{s=entity.wither.shoot;v=3;sc=hostile} @self
+    - randomskill{skills=WitchBolt3,WitchBolt3,WitchBolt3}
+RandomWitchCast2:
+    Conditions:
+    - incombat true
+    - raining true
+    Skills:
+    - sound{s=entity.wither.shoot;v=3;sc=hostile} @self
+    - randomskill{skills=WitchBolt1,WitchBolt2,WitchBolt3}
+WitchBolt3:
+    Skills:
+    - projectile{onTick=WitchBolt3-Tick;onHit=WitchBolt3-Hit;v=8;i=1;hR=1;vR=1}
+WitchBolt3-Tick:
+    Skills:
+    - effect:particles{p=reddust;color=#000000;amount=20;speed=0;hS=0.2;vS=0.2} @origin
+    - effect:particles{p=reddust;color=#3a3836;amount=20;speed=0;hS=0.2;vS=0.2} @origin
+WitchBolt3-Hit:
+    Skills:
+    - basedamage{m=1.25}
+    - potion{type=HUNGER;duration=120;lvl=1}
+WitchBolt2:
+    Skills:
+    - projectile{onTick=WitchBolt2-Tick;onHit=WitchBolt2-Hit;v=8;i=1;hR=1;vR=1}
+WitchBolt2-Tick:
+    Skills:
+    - effect:particles{p=reddust;color=#87521d;amount=20;speed=0;hS=0.2;vS=0.2} @origin
+    - effect:particles{p=reddust;color=#ce7f2f;amount=20;speed=0;hS=0.2;vS=0.2} @origin
+WitchBolt2-Hit:
+    Skills:
+    - basedamage{m=1.25}
+    - potion{type=WEAKNESS;duration=120;lvl=1}
+WitchBolt1:
+    Skills:
+    - projectile{onTick=WitchBolt1-Tick;onHit=WitchBolt1-Hit;v=8;i=1;hR=1;vR=1}
+WitchBolt1-Tick:
+    Skills:
+    - effect:particles{p=reddust;color=#7B28A4;amount=20;speed=0;hS=0.2;vS=0.2} @origin
+    - effect:particles{p=reddust;color=#311041;amount=20;speed=0;hS=0.2;vS=0.2} @origin
+WitchBolt1-Hit:
+    Skills:
+    - basedamage{m=1}
+    - potion{type=WITHER;duration=60;lvl=1}
+CreeperExplosionCheck:
+  Cooldown: 10
+  Conditions:
+  - playerwithin 2
+  - stance normal true
+  Skills:
+  - setstance{stance=explosion} @self
+  - skill{s=CreeperExplosion}
+CreeperExplosion:
+  Conditions:
+  - stance explosion true
+  Skills:
+  - sound{s=entity.creeper.primed;v=3;sc=hostile} @self
+  - effect:particlering{particle=cloud;radius=1;points=15;amount=1;hS=0.01;vS=0} @self
+  - delay 10
+  - sound{s=entity.creeper.primed;v=3;sc=hostile} @self
+  - effect:particlering{particle=cloud;radius=2;points=21;amount=1;hS=0.01;vS=0} @self
+  - delay 10
+  - sound{s=entity.creeper.primed;v=3;sc=hostile} @self
+  - effect:particlering{particle=cloud;radius=3;points=37;amount=1;hS=0.01;vS=0} @self
+  - delay 10
+  - sound{s=entity.creeper.primed;v=3;sc=hostile} @self
+  - effect:particlering{particle=cloud;radius=4;points=42;amount=1;hS=0.01;vS=0} @self
+  - delay 10
+  - sound{s=entity.creeper.primed;v=3;sc=hostile} @self
+  - effect:particlering{particle=cloud;radius=5;points=50;amount=1;hS=0.01;vS=0} @self
+  - delay 10
+  - sound{s=entity.creeper.primed;v=3;sc=hostile} @self
+  - effect:particlering{particle=cloud;radius=6;points=68;amount=1;hS=0.01;vS=0} @self
+  - delay 10
+  - sound{s=entity.creeper.primed;v=3;sc=hostile} @self
+  - effect:particlering{particle=cloud;radius=7;points=78;amount=1;hS=0.01;vS=0} @self
+  - delay 10
+  - sound{s=entity.creeper.primed;v=3;sc=hostile} @self
+  - effect:particlering{particle=cloud;radius=8;points=100;amount=1;hS=0.01;vS=0} @self
+  - delay 10
+  - sound{s=entity.creeper.primed;v=3;sc=hostile} @self
+  - effect:particlering{particle=cloud;radius=9;points=128;amount=1;hS=0.01;vS=0} @self
+  - delay 1
+  - effect:particles{particle=cloud;amount=125;hS=4;vS=4;speed=1} @self
+  - effect:explosion @self
+  - basedamage{m=4} @PIR{r=5}
+  - delay 1
+  - setstance{stance=normal} @self
+CreeperDanceCheck:
+  Conditions:
+  - incombat true
+  - stance normal true
+  Skills:
+  - setstance{stance=dance} @self
+  - skill{s=CreeperDance} 
+CreeperDance:
+  Conditions: 
+  - targetwithin 3
+  - incombat true
+  - stance dance true
+  Skills: 
+  - potion{type=SLOW;duration=50;lvl=1} @self
+  - effect:particlering{particle=cloud;radius=3;points=32;amount=1;hS=0.01;vS=0} @self
+  - delay 5
+  - effect:particlering{particle=cloud;radius=3;points=32;amount=1;hS=0.01;vS=0} @self
+  - delay 5
+  - effect:particlering{particle=cloud;radius=3;points=32;amount=1;hS=0.01;vS=0} @self
+  - delay 5
+  - missile{ot=CreeperMissile_TICK;oh=CreeperMissile_HIT;v=4;i=1;hR=1;vR=1;in=0.75} @target
+  - delay 10
+  - teleport{spreadh=5;spreadv=1} @target
+  - delay 5
+  - effect:particlering{particle=cloud;radius=3;points=32;amount=1;hS=0.01;vS=0} @self
+  - delay 5
+  - effect:particlering{particle=cloud;radius=3;points=32;amount=1;hS=0.01;vS=0} @self
+  - delay 5
+  - effect:particlering{particle=cloud;radius=3;points=32;amount=1;hS=0.01;vS=0} @self
+  - delay 5
+  - missile{ot=CreeperMissile_TICK;oh=CreeperMissile_HIT;v=4;i=1;hR=1;vR=1;in=0.75} @target
+  - delay 1
+  - setstance{stance=normal} @self 
+CreeperMissile:
+  Skills:
+  - missile{ot=CreeperMissile_TICK;oh=CreeperMissile_HIT;v=4;i=1;hR=1;vR=1;in=0.75}
+
+CreeperMissile_TICK:
+  Skills:
+  - effect:particles{p=cloud;a=1} @origin
+  - effect:particles{p=snowball;a=1} @origin
+CreeperMissile_HIT:
+  Skills:
+  - effect:explosion
+  - basedamage{m=2}
+PiercingBolt:
+    Conditions:
+    - wearing{s=0;m=crossbow} true
+    - incombat true
+    Skills:
+    - sound{s=entity.arrow.shoot;v=3;sc=hostile} @self
+    - projectile{onTick=PiercingBolt-Tick;onHit=PiercingBolt-Hit;v=8;i=1;hR=0.15;vR=0.15}
+PiercingBolt-Tick:
+    Skills:
+    - effect:particles{p=reddust;color=#f9f9f9;amount=20;speed=0;hS=0.05;vS=0.05} @origin
+PiercingBolt-Hit:
+    Skills:
+    - basedamage{m=2}
+    - potion{type=SLOW;duration=60;lvl=1}
+  
+Rush: 
+  Conditions:
+  - incombat true
+  - wearing{s=0;m=golden_sword} true
+  Skills:
+  - sound{s=block.conduit.attack.target;v=3;sc=hostile} @self
+  - effect:particles{particle=sweep_attack;amount=2;hS=1;vS=0.2;speed=1} @self
+  - lunge{velocity=2;velocityY=0.1} @target
+  - basedamage{m=0.45} @PIR{r=2}
+  - delay 20
+  - sound{s=block.conduit.attack.target;v=3;sc=hostile} @self
+  - effect:particles{particle=sweep_attack;amount=2;hS=1;vS=0.2;speed=1} @self
+  - lunge{velocity=2;velocityY=0.1} @target
+  - basedamage{m=0.65} @PIR{r=2}
+  - delay 20
+  - sound{s=block.conduit.attack.target;v=3;sc=hostile} @self
+  - effect:particles{particle=sweep_attack;amount=2;hS=1;vS=0.2;speed=1} @self
+  - lunge{velocity=2;velocityY=0.1} @target
+  - basedamage{m=0.75} @PIR{r=2}
+HealingPrison:
+  Skills:
+  - sound{s=entity.dolphin.ambient_water;v=3;sc=hostile} @self
+  - effect:particles{particle=drip_water;amount=40;hS=1;vS=1;speed=1} @self
+  - prison{material=LIGHT_BLUE_CONCRETE;duration=100;breakable=true} @self
+  - heal{amount=1} @self 
+  - effect:particles{particle=drip_water;amount=40;hS=1;vS=1;speed=1} @self
+  - delay 20
+  - heal{amount=1} @self 
+  - effect:particles{particle=drip_water;amount=40;hS=1;vS=1;speed=1} @self
+  - delay 20
+  - heal{amount=1} @self 
+  - effect:particles{particle=drip_water;amount=40;hS=1;vS=1;speed=1} @self
+  - delay 20
+  - heal{amount=1} @self 
+  - effect:particles{particle=drip_water;amount=40;hS=1;vS=1;speed=1} @self
+  - delay 20
+  - heal{amount=1} @self 
+  - effect:particles{particle=drip_water;amount=40;hS=1;vS=1;speed=1} @self
+DrownedItemEquip:
+  Conditions:
+  - incombat true
+  Skills:
+  - sound{s=block.water.ambient;v=3;sc=hostile} @self
+  - effect:itemspray{item=salmon;amount=3;velocity=1;d=100;} @self
+  - effect:particles{particle=drip_water;amount=40;hS=3;vS=0.05;speed=1} @self
+  - basedamage{m=0.25} @PIR{r=4}
+  - potion{type=SLOW;duration=20;lvl=1} @PIR{r=4}
+  - delay 10
+  - effect:itemspray{item=salmon;amount=3;velocity=1;d=100;} @self
+  - effect:particles{particle=drip_water;amount=40;hS=3;vS=0.05;speed=1} @self
+  - basedamage{m=0.25} @PIR{r=4}
+  - potion{type=SLOW;duration=20;lvl=1} @PIR{r=4}
+  - delay 10
+  - effect:itemspray{item=salmon;amount=3;velocity=1;d=100;} @self
+  - effect:particles{particle=drip_water;amount=40;hS=3;vS=0.05;speed=1} @self
+  - basedamage{m=0.25} @PIR{r=4}
+  - potion{type=SLOW;duration=20;lvl=1} @PIR{r=4}
+  - sound{s=block.water.ambient;v=3;sc=hostile} @self
+  - delay 10
+  - effect:itemspray{item=salmon;amount=3;velocity=1;d=100;} @self
+  - effect:particles{particle=drip_water;amount=40;hS=3;vS=0.05;speed=1} @self
+  - basedamage{m=0.25} @PIR{r=4}
+  - potion{type=SLOW;duration=20;lvl=1} @PIR{r=4}
+  - delay 10
+  - effect:itemspray{item=salmon;amount=3;velocity=1;d=100;} @self
+  - effect:particles{particle=drip_water;amount=40;hS=3;vS=0.05;speed=1} @self
+  - basedamage{m=0.25} @PIR{r=4}
+  - potion{type=SLOW;duration=20;lvl=1} @PIR{r=4}
+GhoulBite:
+  Conditions:
+  - incombat true
+  - targetwithin 3
+  Skills:
+  - consume{d=1;h=5} @target
+  - effect:particles{particle=sweep_attack;amount=1;hS=1;vS=1;speed=1} @Forward{f=0.5;y=0.5}
+Horde:
+  Skills:
+  - sound{s=entity.enderman.scream;v=3;sc=hostile} @self
+  - effect:particles{p=reddust;color=#ff0000;amount=20;speed=0;hS=0.25;vS=1} @MIR{r=50;t=Ghoul}
+  - effect:particles{p=reddust;color=#ff0000;amount=20;speed=0;hS=0.25;vS=1} @self
+  - effect:particles{p=reddust;color=#a10e0e;amount=20;speed=0;hS=0.25;vS=1} @MIR{r=50;t=Ghoul}
+  - effect:particles{p=reddust;color=#a10e0e;amount=20;speed=0;hS=0.25;vS=1} @self
+  - rally{types=Ghoul;radius=50;ot=false} @Trigger
+FlamingShield:
+    Conditions:
+    - incombat true
+    Skills:
+    - orbital{onTick=FlamingShield-Tick;onHit=FlamingShield-Hit;points=64;interval=1;duration=200;charges=3}
+FlamingShield-Tick:
+    Skills:
+    - effect:particles{p=flame;amount=20;speed=0;hS=0.2;vS=0.2} @origin
+    - effect:particles{p=smoke;amount=10;speed=0;hS=0.2;vS=0.2} @origin
+FlamingShield-Hit:
+    Skills:
+    - basedamage{m=1.5}
+    - potion{type=SLOW;duration=100;lvl=2}
+SpiderChoose:
+    Conditions:
+    - incombat true
+    Skills:
+    - sound{s=entity.spider.hurt;v=3;sc=hostile} @self
+    - randomskill{skills=ToxicBolt,WebBolt}
+WebBolt:
+    Skills:
+    - projectile{onTick=WebBolt-Tick;onHit=WebBolt-Hit;v=8;i=1;hR=0.5;vR=0.5}
+WebBolt-Tick:
+    Skills:
+    - effect:particles{p=reddust;color=#cfd2d0;amount=10;hS=0.1;vS=0.1;speed=1} @origin
+    - effect:particles{p=reddust;color=#b8b8b8;amount=10;hS=0.1;vS=0.1;speed=1} @origin
+WebBolt-Hit:
+    Skills:
+    - basedamage{m=0.5}
+    - potion{type=slow;duration=60;lvl=1}
+ToxicBolt:
+    Skills:
+    - projectile{onTick=ToxicBolt-Tick;onHit=ToxicBolt-Hit;v=8;i=1;hR=0.5;vR=0.5}
+ToxicBolt-Tick:
+    Skills:
+    - effect:particles{p=reddust;color=#339944;amount=10;hS=0.1;vS=0.1;speed=1} @origin
+    - effect:particles{p=reddust;color=#76f635;amount=10;hS=0.1;vS=0.1;speed=1} @origin
+ToxicBolt-Hit:
+    Skills:
+    - basedamage{m=1}
+    - potion{type=POISON;duration=60;lvl=1}
+FlameCircle:
+    Conditions:
+    - incombat true
+    Cooldown: 5
+    Skills:
+    - sound{s=block.fire.ambient;v=3;sc=hostile} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=0.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=2.0} @self
+    - basedamage{m=0.5} @PIR{r=4}
+    - delay 5
+    - sound{s=block.fire.ambient;v=3;sc=hostile} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=0.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=2.0} @self
+    - basedamage{m=0.5} @PIR{r=4}
+    - sound{s=block.fire.ambient;v=3;sc=hostile} @self
+    - delay 5
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=0.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=2.0} @self
+    - basedamage{m=0.5} @PIR{r=4}
+    - sound{s=block.fire.ambient;v=3;sc=hostile} @self
+    - delay 5
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=0.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=2.0} @self
+    - basedamage{m=0.5} @PIR{r=4}
+    - sound{s=block.fire.ambient;v=3;sc=hostile} @self
+    - delay 5
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=0.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=2.0} @self
+    - basedamage{m=0.5} @PIR{r=4}
+    - sound{s=block.fire.ambient;v=3;sc=hostile} @self
+    - delay 5
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=0.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=2.0} @self
+    - basedamage{m=0.5} @PIR{r=4}
+    - sound{s=block.fire.ambient;v=3;sc=hostile} @self
+    - delay 5
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=0.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=2.0} @self
+    - basedamage{m=0.5} @PIR{r=4}
+    - sound{s=block.fire.ambient;v=3;sc=hostile} @self
+    - delay 5
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=0.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=2.0} @self
+    - basedamage{m=0.5} @PIR{r=4}
+    - sound{s=block.fire.ambient;v=3;sc=hostile} @self
+    - delay 5
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=0.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=2.0} @self
+    - basedamage{m=0.5} @PIR{r=4}
+    - sound{s=block.fire.ambient;v=3;sc=hostile} @self
+    - delay 5
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=0.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=2.0} @self
+    - basedamage{m=0.5} @PIR{r=4}
+    - sound{s=block.fire.ambient;v=3;sc=hostile} @self
+    - delay 5
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=0.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=2.0} @self
+    - basedamage{m=0.5} @PIR{r=4}
+    - sound{s=block.fire.ambient;v=3;sc=hostile} @self
+    - delay 5
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=0.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=2.0} @self
+    - basedamage{m=0.5} @PIR{r=4}
+    - sound{s=block.fire.ambient;v=3;sc=hostile} @self
+    - delay 5
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=0.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=2.0} @self
+    - basedamage{m=0.5} @PIR{r=4}
+    - sound{s=block.fire.ambient;v=3;sc=hostile} @self
+    - delay 5
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=0.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=2.0} @self
+    - basedamage{m=0.5} @PIR{r=4}
+    - sound{s=block.fire.ambient;v=3;sc=hostile} @self
+    - delay 5
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=0.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=2.0} @self
+    - basedamage{m=0.5} @PIR{r=4}
+    - sound{s=block.fire.ambient;v=3;sc=hostile} @self
+    - delay 5
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=0.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=2.0} @self
+    - basedamage{m=0.5} @PIR{r=4}
+    - sound{s=block.fire.ambient;v=3;sc=hostile} @self
+    - delay 5
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=0.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=2.0} @self
+    - basedamage{m=0.5} @PIR{r=4}
+    - sound{s=block.fire.ambient;v=3;sc=hostile} @self
+    - delay 5
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=0.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=2.0} @self
+    - basedamage{m=0.5} @PIR{r=4}
+    - sound{s=block.fire.ambient;v=3;sc=hostile} @self
+    - delay 5
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=0.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=2.0} @self
+    - basedamage{m=0.5} @PIR{r=4}
+    - sound{s=block.fire.ambient;v=3;sc=hostile} @self
+    - delay 5
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=0.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=2.0} @self
+    - basedamage{m=0.5} @PIR{r=4}
+    - sound{s=block.fire.ambient;v=3;sc=hostile} @self
+    - delay 5
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=0.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=1.5} @self
+    - effect:particlering{particle=flame;radius=4;points=32;amount=1;hS=0;vS=0;y=2.0} @self
+    - basedamage{m=0.5} @PIR{r=4}
+    - sound{s=block.fire.ambient;v=3;sc=hostile} @self
+BreathFlame:
+    Conditions:
+    - incombat true
+    Skills:
+    - potion{type=SLOW;duration=50;lvl=10} @self
+    - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+    - projectile{onTick=BreathBolt-Tick;onHit=BreathBolt-Hit;v=8;i=1;hR=1;vR=1} @targetLocation
+    - delay 5
+    - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+    - projectile{onTick=BreathBolt-Tick;onHit=BreathBolt-Hit;v=8;i=1;hR=1;vR=1} @targetLocation
+    - delay 5
+    - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+    - projectile{onTick=BreathBolt-Tick;onHit=BreathBolt-Hit;v=8;i=1;hR=1;vR=1} @targetLocation
+    - delay 5
+    - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+    - projectile{onTick=BreathBolt-Tick;onHit=BreathBolt-Hit;v=8;i=1;hR=1;vR=1} @targetLocation
+    - delay 5
+    - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+    - projectile{onTick=BreathBolt-Tick;onHit=BreathBolt-Hit;v=8;i=1;hR=1;vR=1} @targetLocation
+    - delay 5
+    - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+    - projectile{onTick=BreathBolt-Tick;onHit=BreathBolt-Hit;v=8;i=1;hR=1;vR=1} @targetLocation
+    - delay 5
+    - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+    - projectile{onTick=BreathBolt-Tick;onHit=BreathBolt-Hit;v=8;i=1;hR=1;vR=1} @targetLocation
+    - delay 5
+    - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+    - projectile{onTick=BreathBolt-Tick;onHit=BreathBolt-Hit;v=8;i=1;hR=1;vR=1} @targetLocation
+    - delay 5
+    - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+    - projectile{onTick=BreathBolt-Tick;onHit=BreathBolt-Hit;v=8;i=1;hR=1;vR=1} @targetLocation
+    - delay 5
+    - projectile{onTick=BreathBolt-Tick;onHit=BreathBolt-Hit;v=8;i=1;hR=1;vR=1} @targetLocation
+    - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+BreathBolt:
+    Skills:
+    - projectile{onTick=BreathBolt-Tick;onHit=BreathBolt-Hit;v=8;i=1;hR=1;vR=1}
+BreathBolt-Tick:
+    Skills:
+    - effect:particles{p=flame;amount=20;speed=0;hS=0.5;vS=0.2} @origin
+    - effect:particles{p=smoke;amount=10;speed=0;hS=0.5;vS=0.2} @origin
+BreathBolt-Hit:
+    Skills:
+    - basedamage{m=0.5}
+FlameBolt:
+    Conditions:
+    - incombat true
+    Skills:
+    - sound{s=item.firecharge.use;v=3;sc=hostile} @self
+    - projectile{onTick=FlameBolt-Tick;onHit=FlameBolt-Hit;v=8;i=1;hR=0.75;vR=0.5}
+FlameBolt-Tick:
+    Skills:
+    - effect:particles{p=flame;amount=60;speed=0;hS=0.35;vS=0.35} @origin
+    - effect:particles{p=lava;amount=2;speed=0;hS=0.25;vS=0.25} @origin
+    - effect:particles{p=smoke_normal;amount=7;speed=0;hS=0.35;vS=0.35} @origin
+FlameBolt-Hit:
+    Skills:
+    - sound{s=block.fire.ambient;v=3;sc=hostile}
+    - basedamage{m=1.5}
+    - ignite{ticks=100}
+Homer:
+  Conditions:
+  - incombat true
+  Skills:
+  - sound{s=entity.wither.ambient;v=3;sc=hostile} @self
+  - missile{ot=Homer_TICK;oh=Homer_HIT;v=4;i=1;hR=1;vR=1;in=0.75;bulletType=ITEM;material=wither_skeleton_skull}
+
+Homer_TICK:
+  Skills:
+  - effect:particles{p=smoke_normal;a=4} @origin
+
+Homer_HIT:
+  Skills:
+  - effect:particles{p=smoke_normal;a=50;hS=1;vS=1}
+  - effect:sound{s=entity.generic.explode;v=1;p=0}
+  - basedamage{m=1.5}
+  - potion{type=WITHER;duration=60;lvl=1}
+
+HpShowx:
+ Skills:
+ - actionmessage{m="<mob.name> - (<mob.hp> / <mob.mhp>)"} @PlayersInRadius{r=10}
+
+#Sniper
+SniperBow:
+  Skills:
+  - equip{item=SniperBow:0}
+  - equip{item=SniperStaff:5}
+  - equip{item=CHAINMAIL_HELMET:4}
+  - equip{item=CHAINMAIL_CHESTPLATE:3}
+  - equip{item=CHAINMAIL_LEGGINGS:2}
+  - equip{item=CHAINMAIL_BOOTS:1}
+Slowness:
+  Skills:
+  - damage{a=5;IgnoreArmour=true}  
+  - potion{t=SLOW;d=50;l=3}
+
+Spell:
+  Skills:
+  - projectile{onTick=Spell-Tick;onHit=Spell-Hit;v=20;i=1;hR=1;vR=1;hnp=true;g=0.4;mr=50}
+Spell-Tick:
+  Skills:
+  - effect:particle{particle=reddust;color=#ffffff;amount=5;y=1} @origin
+Spell-Hit:
+  Skills:
+  - damage{amount=10;ignoreArmor=false} @target
+
+#
+#InvisibleVex
+#
+INVISIBILITY:
+ Skills:
+  - effect:particles{p=reddust;a=70;hS=1;vS=1} @self
+  - potion{type=INVISIBILITY;lvl=1;duration=99999999} @self
+BLINDNESS:
+ Skills:
+  - potion{type=BLINDNESS;lvl=1;duration=160} @target
+
+#
+#Zombie Bleeding
+#
+Bleeding:
+  Cooldown: 120
+  Conditions:
+  - targetwithin 2
+  - targetinlineofsight true
+  Skills:
+  - message{msg="&4You are bleeding."} @target
+  - delay 5
+  - potion{type=POISON;duration=60;l=2} @Target
+  - damage{a=2} @target
+  - effect:sound{s=entity.generic.hurt;v=1;p=1;} @target
+  - effect:particles{p=reddust;vs=1;hs=1;a=25;s=0.25;y=1;} @target
+  - delay 10
+  - potion{type=POISON;duration=60;l=2} @Target
+  - damage{a=2} @target
+  - effect:sound{s=entity.generic.hurt;v=1;p=1;} @target
+  - effect:particles{p=reddust;vs=1;hs=1;a=25;s=0.25;y=1;} @target
+  - delay 10
+  - potion{type=POISON;duration=60;l=2} @Target
+  - damage{a=2} @target
+  - effect:sound{s=entity.generic.hurt;v=1;p=1;} @target
+  - effect:particles{p=reddust;vs=1;hs=1;a=25;s=0.25;y=1;} @target
+  - delay 10
+  - potion{type=POISON;duration=60;l=2} @Target
+  - damage{a=2} @target
+  - effect:sound{s=entity.generic.hurt;v=1;p=1;} @target
+  - effect:particles{p=reddust;vs=1;hs=1;a=25;s=0.25;y=1;} @target
+  - delay 10
+  - potion{type=POISON;duration=60;l=2} @Target
+  - damage{a=2} @target
+  - effect:sound{s=entity.generic.hurt;v=1;p=1;} @target
+  - effect:particles{p=reddust;vs=1;hs=1;a=25;s=0.25;y=1;} @target
+  - delay 10
+  - potion{type=POISON;duration=60;l=2} @Target
+  - damage{a=2} @target
+  - effect:sound{s=entity.generic.hurt;v=1;p=1;} @target
+  - effect:particles{p=reddust;vs=1;hs=1;a=25;s=0.25;y=1;} @target
+  - delay 10
+  - potion{type=POISON;duration=60;l=2} @Target
+  - damage{a=2} @target
+  - effect:sound{s=entity.generic.hurt;v=1;p=1;} @target
+  - effect:particles{p=reddust;vs=1;hs=1;a=25;s=0.25;y=1;} @target
+  - delay 10
+  - message{msg="&4You stopped the bleeding, phew."} @target
+
+#
+#Zombie Jumper
+#
+Jumper:
+  Cooldown: 12
+  Conditions:
+  - targetwithin 5
+  - targetinlineofsight true
+  - incombat{} true
+  Skills:
+  - jump{v=0.6}
+  - delay 30
+  - jump{v=0.6}
+  - delay 30
+  - jump{v=0.6}
+  - delay 30
+  - jump{v=0.6}
+  - delay 30
+  - jump{v=0.6}
+
+#
+#Zombie Thrower
+#
+Throw:
+  Cooldown: 5
+  Conditions:
+  - targetwithin 5
+  - targetinlineofsight true
+  Skills:
+  - damage{a=3} @target
+  - throw{velocity=10;velocityY=10} @target
+
+#
+#Zombie Stealth
+#
+StealthInvisibility:
+  Cooldown: 1
+  Skills:
+  - potion{t=INVISIBILITY;d=999999;l=1} @self
+StealthBlocmask:
+  Cooldown: 1
+  Conditions:
+  - targetwithin 25
+  - targetinlineofsight true
+  Skills:
+  - effect:blockmask{m=dirt;r=1} @self
+  - delay 10
+  - effect:blockmask{m=dirt;r=1} @self
+  - delay 10
+  - effect:blockmask{m=dirt;r=1} @self
+  - delay 10
+  - effect:blockmask{m=dirt;r=1} @self
+  - delay 10
+  - effect:blockmask{m=dirt;r=1} @self
+  - delay 10
+  - effect:blockunmask{r=15} @self
+
+#
+#Zombie Skilled
+#
+Bash:
+  Cooldown: 1
+  Conditions:
+  - targetwithin 5
+  - targetinlineofsight true
+  Skills:
+  - effect:sound{s=block.anvil.land;v=1;p=1;} @target
+  - damage{a=3} @target
+  - potion{t=SLOW;d=20;l=5}
+
+#
+#Zombie Sprinter
+#
+Runner:
+  Cooldown: 1
+  Conditions:
+  - targetwithin 25
+  - targetinlineofsight true
+  Skills:
+  - setspeed{speed=2;type=walking} @self
+
+#
+#Zombie Explosive
+#
+Explosive:
+  Conditions: []
+  Skills:
+  - effect:particlesphere{particle=flame;amount=150;radius=10;hs=5;size=10} @self
+  - delay 10
+  - effect:particlesphere{particle=flame;amount=150;radius=8;hs=4;size=8} @self
+  - delay 10
+  - effect:particlesphere{particle=flame;amount=150;radius=6;hs=3;size=6} @self
+  - delay 10
+  - effect:particlesphere{particle=flame;amount=150;radius=4;hs=2;size=4} @self
+  - delay 10
+  - effect:particlesphere{particle=flame;amount=150;radius=2;hs=1;size=2} @self
+  - delay 10
+  - effect:particlesphere{particle=flame;amount=150;radius=2;hs=1;size=1} @self
+  - delay 10
+  - explosion{yield=3;fire=true} @self
+  - damage{amount=20;ignoreArmor=true} @PlayersInRadius{r=5}
+  - ignite{ticks=100} @PlayersInRadius{r=5}
+
+#
+#Zombie Horde
+#
+HordeSummon:
+  Cooldown: 0
+  Skills:
+  - Skill{s=SaveLocation} @self
+  - message{m="&7I can hear a &chorde &7not far away... Maybe at &a<caster.var.SpawnLoc>&7?"} @PlayersInRadius{r=50}
+  - delay 4
+  - summon{type=ZombieHordeSummon;amount=2-10;radius=3} @Self
+  - delay 4
+  - summon{type=ZombieHordeSummon;amount=2-10;radius=3} @Self
+  - delay 4
+  - summon{type=ZombieHordeSummon;amount=2-10;radius=3} @Self
+  - remove @Self
+
+SaveLocation:
+  Skills:
+  - setvariable{var=SpawnLoc;type=STRING;value="&a<caster.l.x>&7, &a<caster.l.y>&7, &a<caster.l.z>";scope=CASTER} @self
+
+#
+#Water Monster
+#
+WaterBolt:
+    Skills:
+    - projectile{onTick=WaterBolt-Tick;onHit=WaterBolt-Hit;v=8;i=1;hR=1.5;vR=1.5;hS=false;g=0.25;tyo=8}
+WaterBolt-Tick:
+    Skills:
+    - effect:particleline{particle=WATER_BUBBLE;amount=1;fromOrigin=true} @origin
+    - effect:particles{particle=WATER_BUBBLE;amount=20;hS=0;vS=0;speed=1} @origin
+WaterBolt-Hit:
+    Skills:
+    - damage{a=2}
+    - potion{type=SLOW;duration=1200;lvl=2}
+    - potion{type=WEAKNESS;duration=1200;lvl=2}
+
+#
+#Mother of Phantoms
+#
+MotherSummon:
+  Cooldown: 5
+  Skills:
+  - summon{type=PhantomMinions;amount=1;radius=10} @self
+  - delay 20
+  - summon{type=PhantomMinions;amount=1;radius=10} @self
+  - delay 20
+  - summon{type=PhantomMinions;amount=1;radius=10} @self
+  - delay 20
+  - summon{type=PhantomMinions;amount=1;radius=10} @self
+  - delay 20
+  - summon{type=PhantomMinions;amount=1;radius=10} @self
+  - delay 20
+  - summon{type=PhantomMinions;amount=1;radius=10} @self
+
+#
+#LibsDisguise Skills
+#
+#Bull
+AngryStart:
+  Conditions:
+  - targetwithin 12
+  Skills:
+  - runaigoalselector{goal=meleeattack}
+  - runaitargetselector{target=attacker}
+  - runaitargetselector{target=villagers}
+  - delay 5
+  - effect:particlering{particle=villager_angry;radius=1;points=3;amount=1;hS=1;vS=1;y=1} @self
+AngryEnd:
+  Conditions:
+  - targetwithin 12
+  Skills:
+  - runaitargetselector{target=clear}
+  - runaigoalselector{goal=clear} 
+  - runaigoalselector{goal=randomstroll}
+
+# For more information, check out the plugin manual or join us on Discord:
+# http://www.mythicmobs.net
+#  
+
+RandomSkill:
+  Cooldown: 5
+  Conditions:
+  - incombat true
+  Skills:
+  - randomskill{skills=MinionsCall,EndBolt,Forcepull}
+
+Forcepull:
+  Conditions:
+  - incombat true
+  Skills:
+  - pull{v=10;to=true} @PIR{r=10}
+
+HealKnight:
+  Conditions:
+  - incombat true
+  Skills:
+  - runaigoalselector{goal=clear}
+  - runaigoalselector{goal=fleeplayers}
+  - delay 60
+  - message{m="<mob.name> Im low on health I need to heal..."} @PlayersInRadius{r=15}
+  - lightning{d=60} @self
+  - effect:particlesphere{particle=heart;amount=200;radius=5} @self
+  - healpercent{m=0.1} @self
+  - delay 5
+  - effect:particlesphere{particle=heart;amount=200;radius=5} @self
+  - healpercent{m=0.1} @self
+  - delay 5
+  - effect:particlesphere{particle=heart;amount=200;radius=5} @self
+  - healpercent{m=0.1} @self
+  - delay 30
+  - runaigoalselector{goal=clear}
+  - runaigoalselector{goal=meleeattack}
+
+
+
+MinionsCall:
+    Conditions:
+    - incombat true
+    Skills:
+    - message{m="<mob.name><&co> &7Raise Minions!"} @PlayersInRadius{r=50}
+    - potion{type=SLOW;duration=105;lvl=10} @self
+    - effect:particlering{particle=blockcrack;material=DIRT;radius=8;points=32;amount=1;hS=1;vS=0} @self
+    - effect:particlering{particle=blockcrack;material=DIRT;radius=6;points=32;amount=1;hS=1;vS=0} @self
+    - effect:particlering{particle=blockcrack;material=DIRT;radius=3;points=32;amount=1;hS=1;vS=0} @self
+    - delay 10
+    - effect:particlering{particle=blockcrack;material=DIRT;radius=8;points=32;amount=1;hS=1;vS=0} @self
+    - effect:particlering{particle=blockcrack;material=DIRT;radius=6;points=32;amount=1;hS=1;vS=0} @self
+    - effect:particlering{particle=blockcrack;material=DIRT;radius=3;points=32;amount=1;hS=1;vS=0} @self
+    - delay 10
+    - effect:particlering{particle=blockcrack;material=DIRT;radius=8;points=32;amount=1;hS=1;vS=0} @self
+    - effect:particlering{particle=blockcrack;material=DIRT;radius=6;points=32;amount=1;hS=1;vS=0} @self
+    - effect:particlering{particle=blockcrack;material=DIRT;radius=3;points=32;amount=1;hS=1;vS=0} @self
+    - delay 10
+    - effect:particlering{particle=blockcrack;material=DIRT;radius=8;points=32;amount=1;hS=1;vS=0} @self
+    - effect:particlering{particle=blockcrack;material=DIRT;radius=6;points=32;amount=1;hS=1;vS=0} @self
+    - effect:particlering{particle=blockcrack;material=DIRT;radius=3;points=32;amount=1;hS=1;vS=0} @self
+    - delay 10
+    - effect:particlering{particle=blockcrack;material=DIRT;radius=8;points=32;amount=1;hS=1;vS=0} @self
+    - effect:particlering{particle=blockcrack;material=DIRT;radius=6;points=32;amount=1;hS=1;vS=0} @self
+    - effect:particlering{particle=blockcrack;material=DIRT;radius=3;points=32;amount=1;hS=1;vS=0} @self
+    - delay 10
+    - effect:particlering{particle=blockcrack;material=DIRT;radius=8;points=32;amount=1;hS=1;vS=0} @self
+    - effect:particlering{particle=blockcrack;material=DIRT;radius=6;points=32;amount=1;hS=1;vS=0} @self
+    - effect:particlering{particle=blockcrack;material=DIRT;radius=3;points=32;amount=1;hS=1;vS=0} @self
+    - delay 10
+    - effect:particlering{particle=blockcrack;material=DIRT;radius=8;points=32;amount=1;hS=1;vS=0} @self
+    - effect:particlering{particle=blockcrack;material=DIRT;radius=6;points=32;amount=1;hS=1;vS=0} @self
+    - effect:particlering{particle=blockcrack;material=DIRT;radius=3;points=32;amount=1;hS=1;vS=0} @self
+    - delay 10
+    - effect:particlering{particle=blockcrack;material=DIRT;radius=8;points=32;amount=1;hS=1;vS=0} @self
+    - effect:particlering{particle=blockcrack;material=DIRT;radius=6;points=32;amount=1;hS=1;vS=0} @self
+    - effect:particlering{particle=blockcrack;material=DIRT;radius=3;points=32;amount=1;hS=1;vS=0} @self
+    - delay 10
+    - effect:particlering{particle=blockcrack;material=DIRT;radius=8;points=32;amount=1;hS=1;vS=0} @self
+    - effect:particlering{particle=blockcrack;material=DIRT;radius=6;points=32;amount=1;hS=1;vS=0} @self
+    - effect:particlering{particle=blockcrack;material=DIRT;radius=3;points=32;amount=1;hS=1;vS=0} @self
+    - delay 10
+    - effect:particlering{particle=blockcrack;material=DIRT;radius=8;points=32;amount=1;hS=1;vS=0} @self
+    - effect:particlering{particle=blockcrack;material=DIRT;radius=6;points=32;amount=1;hS=1;vS=0} @self
+    - effect:particlering{particle=blockcrack;material=DIRT;radius=3;points=32;amount=1;hS=1;vS=0} @self
+    - effect:particles{particle=explosion_huge;amount=5;hS=2;vS=2;speed=5} @self
+    - damage{a=10;ia=false} @PIR{r=8}
+    - throw{velocity=15;velocityY=10} @PIR{r=8}
+    - sound{s=entity.generic.explode;sc=hostile;v=1} @self
+    - delay 5
+    - summon{type=Minions;amount=5;radius=6} @PIR{r=20}
+    - delay 5
+    - rally{types=BABY_ZOMBIE;radius=30;ot=false} @PlayersInRadius{r=15}
+
+
+
+EndBolt:
+    Skills:
+    - projectile{onTick=EndBolt-Tick;onHit=EndBolt-Hit;v=8;i=1;hR=1.5;vR=1.5;hS=false;g=0.25;tyo=8}
+EndBolt-Tick:
+    Skills:
+    - particles{particle=blockcrack;material=CRYING_OBSIDIAN;amount=105;hS=0.25;vS=0} @origin
+    - effect:explosion @origin
+    - effect:particles{particle=cloud;amount=2;hS=0;vS=0;speed=1} @origin
+EndBolt-Hit:
+    Skills:
+    - damage{a=10}
+    - potion{type=POISON;duration=120;lvl=2}
+
+
+
+OnWin:
+  Conditions:
+  - targetwithin 15
+  - targetinlineofsight true
+  Skills:
+  - effect:lightning{repeat=5;repeatInterval=3;localizedradius=20;localized=true} @self
+  - sendtitle{title="&a&lYou have beaten";subtitle="&f&lThe Greatest Knight";d=90} @target
+
+	# For more information, check out the plugin manual or join us on Discord:
+# http://www.mythicmobs.net
+#  
+Lightning:
+  Skills:
+  - potion{type=SLOW;duration=200;level=5}
+  - message{msg="<mob.name>&e starts casting a spell"} @PlayersInRadius{r=15}
+  - delay 100
+  - potion{type=LEVITATION;duration=100;level=1}
+  - potion{type=SLOW_FALLING;duration=380;level=5}
+  - delay 100
+  - prison{material=BARRIER;duration=100;breakable=false} @self
+  - delay 60
+  - sudoskill{s=Lightning_sudo} @PlayersInRadius{r=15}
+#  - effect:particleline{particle=end_rod;amount=1;fromOrigin=true;syo=1.25;tyo=1} @PIR{r=15}
+  - message{msg="<mob.name>&e smites <target.name>!"} @PlayersInRadius{r=15}
+  - effect:lightning @EntitiesInRadius{r=20}
+  - damage{a=12} @EntitiesInRadius{r=20}
+
+Lightning_sudo:
+  Skills:
+  - effect:lightning @Ring{r=3;p=5}
+
+Damage_Regen:
+  Skills:
+  - message{message="<mob.name> &eSucks the life out of you! You feel weak from the lack of blood..."} @PlayersInRadius{r=30}
+  - heal{amount=20} @self
+  - damage{amount=10} @PlayersInRadius{r=30}
+  - potion{type=SLOW;duration=200;level=2} @PlayersInRadius{r=30}
+  - potion{type=CONFUSION;duration=200;level=1} @PlayersInRadius{r=30}
+  
+
+Smash:
+  Skills:
+  - potion{type=SLOW;duration=300;level=5}
+  - message{msg="&6Rock Mob<&co> &eTime to end this..."} @PlayersInRadius{r=15}
+#  - message{msg="&6<mob.name>&e starts casting a spell"} @PlayersInRadius{r=15}
+  - delay 100
+  - potion{type=SLOW;duration=200;level=4} @target
+  - message{msg="&6<mob.name><&co> &eslow down, look at yourself die slowly..."} @PlayersInRadius{r=15}
+  - delay 120
+  - velocity{x=0;y=3;z=0} @Self
+  - message{msg="&6<mob.name><&co> &eFEEL THE EARTH QUAKE!!"} @PlayersInRadius{r=15}
+  - delay 65
+  - effect:particles{p=hugeexplode;a=5;vs=0.5;hs=0.5;s=0;y=1} @Self
+  - effect:sound{s=entity.generic.explode;v=2;p=0.5} @Self
+  - effect:sound{s=entity.generic.explode;v=2;p=1;repeat=7;repeatInterval=2} @Self
+  - effect:particlering{p=block_crack;material=stone;a=40;vs=0.5;hs=0.5;s=0;y=0.4;points=20;radius=1} @Self
+  - delay 2
+  - effect:particlering{p=block_crack;material=stone;a=40;vs=0.5;hs=0.5;s=0;y=0.4;points=20;radius=3} @Self
+  - delay 2
+  - effect:particlering{p=block_crack;material=stone;a=40;vs=0.5;hs=0.5;s=0;y=0.4;points=20;radius=5} @Self
+  - delay 2 
+  - effect:particlering{p=block_crack;material=stone;a=40;vs=0.5;hs=0.5;s=0;y=0.4;points=20;radius=7} @Self
+  - delay 2
+  - effect:particlering{p=block_crack;material=stone;a=40;vs=0.5;hs=0.5;s=0;y=0.4;points=20;radius=9} @Self
+  - delay 2
+  - effect:particlering{p=block_crack;material=stone;a=40;vs=0.5;hs=0.5;s=0;y=0.4;points=20;radius=11} @Self
+  - damage{a=8;i=false} @PIR{r=22}
+  - throw{v=0;vy=20} @PlayersInRadius{r=20}
+#  - potion{type=SLOW_FALLING;duration=200} @PlayersInRadius{r=20}
+  - delay 80
+  - message{msg="&6<mob.name><&co> &ewitness the life wither out of you!"} @PlayersInRadius{r=15}
+  - shootskull{y=2;v=4} @PlayersInRadius{r=20}
+ 
+
+
+Poison:
+  Skills:
+    - message{m="&6<mob.name><&co> &eFeel the poison course through your veins!"}
+    - delay 20
+    - potion{type=SLOW;duration=200;level=2} @target
+    - potion{type=CONFUSION;duration=200;level=1} @target
+    - potion{type=POISON;duration=200;level=2} @target
+    
+Black_Hole:
+  Skills:
+  - delay 40
+  - message{msg="&6<mob.name><&co>&e gaze upon the nightmares of a thousand generations...."} @PlayersInRadius{r=15}
+  - message{msg="&6<mob.name>&e begins casting a spell..."} @PlayersInRadius{r=15}
+  - potion{type=SLOW;duration=200;level=5} @self
+  - delay 100
+  - potion{type=LEVITATION;duration=60;level=1} @self
+  - delay 40
+  - prison{material=BARRIER;duration=600;breakable=false} @self
+  - delay 200
+  - message{m="&6<mob.name><&co> &eFeel the pain course through your veins!"}
+  - effect:lightning @self
+  - potion{type=SLOW;duration=400;level=4} @PlayersInRadius{r=15}
+  - potion{type=BLINDNESS;duration=400;level=1} @PlayersInRadius{r=15}
+  - potion{type=WEAKNESS;duration=400;level=1} @PlayersInRadius{r=15}
+#  - blackscreen{d=120} @PlayersInRadius{r=15}
+  - delay 100
+  - pull{v=1;to=true} @PIR{r=10} 
+  - message{m="&6<mob.name><&co> &eCome to me, turn to the dark side!!!"} @PlayersInRadius{r=15}
+  - effect:lightning @Ring{r=6;p=3}
+  - summon{mob=Wither_Skele} @Ring{r=6;p=3}
+  - delay 60
+  - teleport{spreadh=2;spreadv=3} @NearestPlayer
+
+
+# WATER SKILL
+
+WaterBall:
+  Skills:
+  - effect:particlesphere{particle=drip_water;amount=100;radius=3} @self
+
+Homer:
+  Skills:
+  - missile{ot=Homer_TICK;oh=Homer_HIT;v=6;i=1;hR=3;vR=1;in=0.75}
+
+Homer_TICK:
+  Skills:
+  - effect:particles{p=cloud;a=2} @origin
+  - effect:particleorbital{p=reddust;color=#0080ff;a=2;points=64;an=1;hs=0;vs=0;s=0;y=2;ticks=130;in=1;rx=0;ry=0;r=2;yOffset=1} @target ~onTimer:130
+
+Homer_HIT:
+  Skills:
+  - effect:particles{p=drip_water;a=50;hS=1;vS=1}
+  - effect:sound{s=entity.generic.explode;v=1;p=0}
+  - damage{a=7;i=false}
+
+
+# FIRE SKILL
+
+Fire_walk:
+  Skills:
+  - effect:blockmask{m=magma_block;r=5;d=100} @self
+  
+Fire_damage:
+  Skills:
+  - damage{a=1;i=true} @PIR{r=5}
+  - ignite{ticks=60} @PIR{r=5}
+
+Fireball:
+  Skills:
+  - shootfireball{y=3;v=3;i=true;ps=true} @target
+  - throw{velocity=10;velocityY=7} @target
+  - delay 40
+  - shootfireball{y=3;v=3;i=true;ps=true} @target
+  - throw{velocity=10;velocityY=7} @target
+
+Flames:
+  Skills:
+  - effect:flames @self
+  - effect:particles{p=flame;vs=1;hs=1;a=25;s=0.1;}
+
+# ROCK SKILL
+
+CobbleSummon:
+  Skills:
+  - summon{mob=Cobble} @Ring{r=5;p=5}
+
+# PLANT SKILL:
+
+Freeze:
+  Skills:
+  - stun{d=60;f=true} @target
+  
+CallForHelp:
+  Skills:
+  - rally{types=ZOMBIE,SKELETON;radius=30;ot=true} @self
+  
+  
+# THUNDER SKILLS
+
+Jump_timer:
+  Skills:
+  - effect:spin{duration=80;velocity=80} @self
+  - effect:particleorbital{p=end_rod;a=10;points=64;an=1;hs=0;vs=0;s=0;y=2;ticks=80;in=1;rx=0;ry=0;r=2;yOffset=1} @self
+  - delay 90
+  - lightning @EntitiesInRadius{r=20}
+  - effect:lightning @Ring{r=5;p=5}
+  - damage{a=10} @EntitiesInRadius{r=20}
+  - delay 20
+  - jump{velocity=5} @self
+  - delay 80
+  - skill{s=ThunderBolt_Barrage} @target
+
+ThunderBolt_Barrage:
+  Skills:
+  - skill{s=ThunderBolt} @target
+  - delay 60
+  - skill{s=ThunderBolt} @target 
+  - delay 60
+  - skill{s=ThunderBolt} @target
+
+ThunderBolt:
+    Skills:
+    - projectile{onTick=ThunderBolt-Tick;onHit=ThunderBolt-Hit;v=8;i=1;hR=1;vR=1}
+ThunderBolt-Tick:
+    Skills:
+    - effect:particles{p=crit;amount=20;speed=0;hS=0.2;vS=0.2} @origin
+ThunderBolt-Hit:
+    Skills:
+    - damage{a=10}
+    - lightning @target
+  
+# NIGHT SKILLS
+
+EnderBeam:
+  Conditions:
+  - targetinlineofsight true
+  Skills:
+  - effect:particleline{particle=dragon_breath;amount=1;fromOrigin=true;syo=1.25;tyo=1} @PIR{r=15}
+
+Blind:
+  Cooldown: 0.01
+  Skills:
+  - potion{type=BLINDNESS;duration=40;level=2}
+  
+Cripple:
+  Cooldown: 60
+  Skills:
+  - potion{type=SLOW;duration=200;level=5}
+  - damage{amount=6}
+  - teleport{spreadh=0;spreadv=0} @target
+  - message{msg="<mob.name>&e bashes <target.name>!"} @PlayersInRadius{r=15}
+  - delay 80
+  - skill{s=Flurry} @target
+  
+Flurry:
+  Conditions:
+  - targetinlineofsight true
+  Skills:
+  - message{msg="<mob.name>&e unleashes a flurry of blows on <target.name>."} @PlayersInRadius{r=15}
+  - damage{a=3;} >0 0.75
+  - delay 1
+  - damage{a=3;} >0 0.75
+  - delay 1
+  - damage{a=3;} >0 0.75
+  - delay 1
+  - damage{a=3;} >0 0.75
+  - delay 1
+  - damage{a=3;} >0 0.75
+  - delay 1
+  - damage{a=3;} >0 0.75
+  - delay 1
+
+
+# WIND SKILLS
+
+Stealth:
+  Cooldown: 1
+  Skills:
+  - message{msg="<mob.name>&e activates stealth mode."} @PlayersInRadius{r=15}
+  - potion{t=Invisibility;d=200;l=1}
+  - potion{t=INCREASE_DAMAGE;d=200;l=3}
+  - effect:particles{p=smoke;hs=1;vs=1;a=25;s=1;y=0.5}
+  - delay 200
+  - message{msg="<mob.name>&e pulls <target.name> towards him!"} @PlayersInRadius{r=15}
+  - skill{s=Pull} @target 
+
+Pull:
+  Skills:
+  - forcepull @target
+  - potion{t=SLOW;d=20;l=7} @target
+  
+# GOD SKILLS
+
+
+LazerBeam:
+  Cooldown: 60
+  Skills:
+  - potion{type=SLOW;duration=200;level=5}
+  - message{msg="<mob.name>&e is casting a spell!"} @PlayersInRadius{r=15}
+  - delay 60
+  - potion{type=LEVITATION;duration=100;level=1}
+  - delay 100
+  - prison{material=BARRIER;duration=200;breakable=false} @self
+  - potion{type=SLOW_FALLING;duration=400;level=5}
+  - message{msg="<mob.name>&e hurts you with the all-seeing eye!"} @PlayersInRadius{r=40}
+  - damage{a=6} @PIR{r=40}
+  - delay 60
+  - message{msg="<mob.name>&e summons wither skulls!!!"} @PlayersInRadius{r=40}
+  - summon{mob=Beam_Mob} @Ring{r=5;points=5}
+  - delay 200
+  - signal{s=REMOVE} @EIR{r=40;t=BEE}
+  - delay 80
+  - sudoskill{s=RingSummon} @target
+  - prison{material=GLASS;duration=100;breakable=true} @target
+
+RingSummon:
+  Skills:
+  - summon{mob=VEX} @Ring{r=5;p=2}
+  - summon{mob=BLAZE} @Self
+
+
+# VAMPIRE SKILLS:
+
+Blood:
+  Skills:
+  - effect:particles{p=dripLava;vs=1;hs=1;a=250;s=2} @target
+  - delay 20
+  - effect:particles{p=dripLava;vs=1;hs=1;a=250;s=2} @target
+  - delay 20
+  - effect:particles{p=dripLava;vs=1;hs=1;a=250;s=2} @target
+  - delay 20
+  - effect:particles{p=dripLava;vs=1;hs=1;a=250;s=2} @target
+  - delay 20
+  - effect:particles{p=dripLava;vs=1;hs=1;a=250;s=2} @target
+  - delay 20
+
+Vampire_Effect:
+  Skills:
+  - effect:particles{p=reddust;vs=1;hs=1;a=25;s=0.5;y=0.5;} @self ~onTimer:5
+  - effect:particlering{particle=reddust;radius=3;points=32;amount=1;hS=1;vS=0} @self ~onTimer:5
+  - effect:particles{p=reddust;vs=1;hs=1;a=25;s=0.5;y=1} @self ~onTimer:5
+  - effect:particles{p=reddust;vs=1;hs=1;a=25;s=0.5;y=1.25} @self ~onTimer:5
+
+Ensnare:
+  Skills:
+  - stun{d=100;f=true} @PIR{r=40}
+  - message{msg="<mob.name>&e stuns you with its gaze."} @PlayersInRadius{r=15}
+  - delay 60
+  - teleport{spreadh=2;spreadv=0} @target
+  - delay 200
+  - skill{s=Bleed}
+  - delay 600
+
+Bleed:
+  Skills:
+  - message{msg="<mob.name>&e makes you bleed before it."} @PlayersInRadius{r=15}
+  - skill{s=Blood} @PIR{r=20}
+  - damage{a=3;repeat=5;repeatInterval=20} @target
+
+# DEVIL SKILLS
+
+Devil_Summon:
+  Skills:
+  - message{msg="<mob.name>&e summons undead archers!"} @PlayersInRadius{r=15}
+  - summon{mob=Devil_Skele;a=3} @Forward{f=5;y=1}
+  - delay 200
+  - signal{s=SKELE_REMOVE} @MobsInRadius{r=40;t=Devil_Skele}
+  - teleport{spreadh=2;spreadv=0} @target
+  - message{msg="<mob.name>&e summons poison spiders!"} @PlayersInRadius{r=15}
+  - summon{mob=Devil_Spider} @Ring{r=5;p=3}
+  - delay 200
+  - signal{s=SPIDER_REMOVE} @MobsInRadius{r=40;t=Devil_Spider}
+  - delay 200
+  - summon{mob=Devil_Blaze} @Ring{r=5;p=3}
+  - delay 200
+  - signal{s=BLAZE_REMOVE} @MobsInRadius{r=40;t=Devil_Blaze}
+
+# TITAN SKILLS
+
+Charge:
+  Skills:
+  - message{msg="<mob.name>&e charges towards <target.name>!"} @PlayersInRadius{r=15}
+  - effect:particles{p=crit;vs=1;hs=1;a=250;s=2;} @self
+  - potion{t=SLOW;d=20;l=5} @target
+  - potion{t=SPEED;d=40;l=3} @self 
+  
+Kick:
+  Conditions:
+  - targetwithin 10
+  Skills:
+  - message{msg="<mob.name>&e kicks <target.name>."} @PlayersInRadius{r=15}
+  - damage{a=10} @target
+  - potion{t=CONFUSION;d=100;l=3} @target
+  - throw{v=10} @target
+
+
+# okay so this is for my personal reference
+# ples ignore
+# Skill 1:
+# Yeet to sky (velocity)
+# TP to itself (teleport)
+# Shoot wither skulls? Summon tnt around it? idk will figure it out later
+# Yeets player backward
+
+# ======================================== PARTICLES =======================================
+
+RedScreen:
+  Skill:
+  - effect:bloodyScreen{d=25} @PIR{r=20} 
+  
+FlameOrbit:
+  Skills:
+  - effect:particleorbital{p=flame;a=10;points=64;an=1;hs=0;vs=0;s=0;y=2;ticks=130;in=1;rx=0;ry=0;r=2;yOffset=1} @self ~onTimer:130
+
+Flame:
+  Skills:
+  - effect:flames @self ~onTimer:5
+  
+EnderBeam:
+  Conditions:
+  - targetinlineofsight true
+  Skills:
+  - effect:particleline{particle=dragon_breath;amount=1;fromOrigin=true;syo=1.25;tyo=1} @PIR{r=60}
+
+
+# ======================================== Fire Skills =======================================
+TNTsummon:
+  Skills:
+  - summon{mob=TNTmob} @Ring{radius=6;points=6} 
+  
+upthentptome:
+  Skills:
+#  - stun{d=60;facing=true} @target
+  - throw{v=0;vy=25} @target
+  - delay 20
+  - forcepull{delay=20} @target 
+  - delay 15  
+  - summon{mob=TNTmob} @Ring{radius=6;points=6}
+
+# ======================================== Grass Skills =======================================
+
+
+#Wave:
+#  Skills:
+#  - blockwave{duration=50;material=sand;radius=5;radiusY=0.2;velocity=0.5;shape=sphere} @selflocation     
+#  - delay 1
+#  - blockwave{duration=55;material=sand;radius=6;radiusY=0.2;velocity=0.6;shape=sphere} @selflocation
+#  - delay 1
+#  - blockwave{duration=60;material=sand;radius=7;radiusY=0.2;velocity=0.7;shape=sphere} @selflocation
+#  - delay 1
+#  - blockwave{duration=65;material=sand;radius=8;radiusY=0.2;velocity=0.8;shape=sphere} @selflocation
+#  - delay 1
+#  - blockwave{duration=70;material=sand;radius=9;radiusY=0.2;velocity=0.9;shape=sphere} @selflocation 
+#  - delay 1
+#  - blockwave{duration=75;material=sand;radius=10;radiusY=0.2;velocity=0.8;shape=sphere} @selflocation  
+#  - delay 1
+#  - blockwave{duration=80;material=sand;radius=11;radiusY=0.2;velocity=0.9;shape=sphere} @selflocation
+#  - delay 1
+#  - blockwave{duration=85;material=sand;radius=12;radiusY=0.2;velocity=1;shape=sphere} @selflocation
+#  - throw{v=0;vy=25} @PIR{r=20}
+
+
+Wave:
+  Skills:
+  - lightning{d=0} @self
+  - lightning{d=0} @Ring{radius=8;points=10}
+  - lightning{d=3} @PIR{r=20}
+  - delay 10
+  - jump{velocity=2.5} @self
+  - skill{s=Homer} @target ~onTimer:100
+  - delay 55
+  - blockwave{duration=50;material=grass_block;radius=7;radiusY=0.01;velocity=0.8;shape=sphere} @selflocation  
+  - delay 5
+  - blockwave{duration=50;material=grass_block;radius=9;radiusY=0.01;velocity=0.9;shape=sphere} @selflocation     
+  
+
+Homer:
+  Skills:
+  - missile{ot=Homer_TICK;oh=Homer_HIT;v=5;i=1;hR=1;vR=1;in=0.75;HugSurface=true}
+
+Homer_TICK:
+  Skills:
+  - effect:particles{p=reddust;c=#4fbd20;a=10} @origin
+
+Homer_HIT:
+  Skills:
+  - effect:particles{p=lava;a=50;hS=1;vS=1}
+  - effect:sound{s=entity.generic.explode;v=1;p=0}
+  - damage{a=20;i=false}
+  - throw{v=0;vy=15} @target
+
+# ======================================== Electric Skills =======================================
+
+Random1:
+  Skills:
+  - effect:particleline{particle=end_rod;amount=1;fromOrigin=true;syo=1.25;tyo=1} @Forward{f=5;y=0}	
+
+Random2:
+  Skills:
+  - effect:particleline{particle=end_rod;amount=1;fromOrigin=true;syo=1.25;tyo=1} @Forward{f=-5;y=0}
+
+ApplyR:  
+  Skills:  
+  - randomskill{skills=Random1,Random2} @self
+  
+Cone:
+  Skills:
+  - effect:particleline{particle=end_rod;amount=1;fromOrigin=true;syo=1.25;tyo=1} @Cone{angle=10;points=8;range=8} ~onTimer:2	
+  
+PL:
+  Skills:
+  - effect:particleline{particle=end_rod;amount=1;fromOrigin=true;syo=1.25;tyo=1} @Cone{angle=10;points=8;range=8;rotation=180} 
+  
+  
+# ======================================== Water Skills =======================================
+  
+WaterBox:
+  Skills:
+  - effect:particlesphere{particle=drip_water;amount=100;radius=3} @self
+  - effect:particlesphere{particle=splash;amount=500;radius=5} @self
+
+Beam:
+  Skills:
+  - missile{ot=Beam_TICK;oh=Beam_HIT;v=7;i=1;hR=1;vR=1;in=0.75}
+  - pull{velocity=4} @target
+
+Beam_TICK:
+  Skills:
+  - effect:particles{p=cloud;a=10} @origin
+
+Beam_HIT:
+  Skills:
+  - effect:particles{p=bubble_pop;a=50;hS=1;vS=1}
+  - effect:sound{s=entity.generic.explode;v=1;p=0}
+  - damage{a=8;i=false}
+  - throw{v=0;vy=10} @target
+  
+  
+  
+# ======================================== Fallen Angel Skills =======================================
+
+Blind:
+  Cooldown: 0.01
+  Skills:
+  - potion{type=BLINDNESS;duration=40;level=2}
+#  - potion{type=WEAKNESS;duration=40;level=2}
+
+
+Fireball:
+  Cooldown: 7
+  Conditions:
+  - targetinlineofsight true
+  Skills:
+  - shootfireball{y=2;v=2;incendiary=true;fireTicks=60;playsound=true} @target
+  - delay 20
+  - shootfireball{y=2;v=2;incendiary=true;fireTicks=60;playsound=true} @target
+  - delay 20
+  - shootfireball{y=2;v=2;incendiary=true;fireTicks=60;playsound=true} @target
+  - delay 20
+  - shootfireball{y=2;v=2;incendiary=true;fireTicks=60;playsound=true} @target
+  - delay 20
+
+  
+Cripple:
+  Cooldown: 30
+  Skills:
+  - potion{type=SLOW;duration=300;level=3} @PIR{r=15}
+  - damage{amount=5} @PIR{r=15}
+ 
+  
+SkullSpam:
+  Skills:
+  - lightning @self
+  - shootskull{y=3;v=4} @target
+  - delay 10
+  - shootskull{y=2;v=4} @target
+  - delay 10
+  - shootskull{y=2;v=4} @target  
+  - delay 100
+  - shootfireball{y=2;v=2;incendiary=true;fireTicks=200;playsound=true} @target 
+  - delay 15
+  - shootfireball{y=2;v=2;incendiary=true;fireTicks=200;playsound=true} @target 
+  - delay 15
+  - shootfireball{y=2;v=2;incendiary=true;fireTicks=200;playsound=true} @target
+
+Unstable_Star:
+  Type: ARMOR_STAND
+  Options:
+    Invisible: true
+    Invincible: true
+    Despawn: false
+    HasGravity: false
+  Skills:
+  - setvariable{var=caster.starStage;value=0} @self ~onSpawn
+  - setvariable{var=caster.starTimer;value=120} @self ~onSpawn
+  - skill{s=[
+      - particles{particle=SOUL_FIRE_FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/240;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=0}
+      - particles{particle=FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/240;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=0.628}
+      - particles{particle=FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/240;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=1.256}
+      - particles{particle=FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/240;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=1.884}
+      - particles{particle=SOUL_FIRE_FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/240;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=2.512}
+      - particles{particle=FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/240;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=3.14}
+      - particles{particle=FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/240;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=3.768}
+      - particles{particle=FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/240;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=4.396}
+      - particles{particle=SOUL_FIRE_FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/240;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=5.024}
+      - particles{particle=FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/240;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=5.652}
+      - particles{particle=FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/240;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;ry=0.628}
+      - particles{particle=FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/240;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;ry=1.256}
+      - particles{particle=SOUL_FIRE_FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/240;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;ry=1.884}
+      - particles{particle=FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/240;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;ry=2.512}
+      - particles{particle=FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/240;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;ry=3.14}
+      - particles{particle=FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/240;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;ry=3.768}
+      - particles{particle=SOUL_FIRE_FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/240;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;ry=4.396}
+      - particles{particle=FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/240;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;ry=5.024}
+      - particles{particle=FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/240;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;ry=5.652}
+      - particles{particle=FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/240;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rz=0.628}
+      - particles{particle=SOUL_FIRE_FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/240;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rz=1.256}
+      - particles{particle=FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/240;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rz=1.884}
+      - particles{particle=FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/240;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rz=2.512}
+      - particles{particle=FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/240;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rz=3.14}
+      - particles{particle=SOUL_FIRE_FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/240;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rz=3.768}
+      - particles{particle=FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/240;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rz=4.396}
+      - particles{particle=FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/240;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rz=5.024}
+      - particles{particle=FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/240;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rz=5.652}
+      - variablesubtract{var=caster.starTimer;a=1} @self
+      - delay 1
+      - skill{s=[
+          - variableadd{var=caster.starStage;a=1} @self
+        ]} @self ?variableinrange{var=caster.starTimer;value=<61}
+    ]} @self ~onTimer:5 ?variableequals{var=caster.starStage;value=0}
+
+  - skill{s=[
+      - particles{particle=FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/360;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=0}
+      - particles{particle=SOUL_FIRE_FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/360;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=0.628}
+      - particles{particle=FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/360;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=1.256}
+      - particles{particle=SOUL_FIRE_FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/360;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=1.884}
+      - particles{particle=FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/360;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=2.512}
+      - particles{particle=SOUL_FIRE_FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/360;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=3.14}
+      - particles{particle=FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/360;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=3.768}
+      - particles{particle=SOUL_FIRE_FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/360;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=4.396}
+      - particles{particle=FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/360;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=5.024}
+      - particles{particle=SOUL_FIRE_FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/360;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=5.652}
+      - particles{particle=FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/360;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;ry=0.628}
+      - particles{particle=SOUL_FIRE_FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/360;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;ry=1.256}
+      - particles{particle=FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/360;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;ry=1.884}
+      - particles{particle=SOUL_FIRE_FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/360;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;ry=2.512}
+      - particles{particle=FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/360;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;ry=3.14}
+      - particles{particle=SOUL_FIRE_FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/360;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;ry=3.768}
+      - particles{particle=FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/360;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;ry=4.396}
+      - particles{particle=SOUL_FIRE_FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/360;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;ry=5.024}
+      - particles{particle=FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/360;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;ry=5.652}
+      - particles{particle=SOUL_FIRE_FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/360;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rz=0.628}
+      - particles{particle=FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/360;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rz=1.256}
+      - particles{particle=SOUL_FIRE_FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/360;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rz=1.884}
+      - particles{particle=FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/360;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rz=2.512}
+      - particles{particle=SOUL_FIRE_FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/360;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rz=3.14}
+      - particles{particle=FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/360;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rz=3.768}
+      - particles{particle=SOUL_FIRE_FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/360;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rz=4.396}
+      - particles{particle=FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/360;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rz=5.024}
+      - particles{particle=SOUL_FIRE_FLAME;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/360;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rz=5.652}
+      - particles{particle=FLAME;a=1;hs=0.05;vs=0.05;y=0;s=<caster.var.starTimer>/120;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=<random.1-30>;points=<random.100-150>;yOffset=0;rx=<random.float.0to12.56>-6.28;ry=<random.float.0to12.56>-6.28;rz=<random.float.0to12.56>-6.28} 0.25
+      - particles{particle=SOUL_FIRE_FLAME;a=1;hs=0.05;vs=0.05;y=0;s=<caster.var.starTimer>/120;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=<random.1-30>;points=<random.100-150>;yOffset=0;rx=<random.float.0to12.56>-6.28;ry=<random.float.0to12.56>-6.28;rz=<random.float.0to12.56>-6.28} 0.25
+      - variablesubtract{var=caster.starTimer;a=1} @self
+      - delay 1
+      - skill{s=[
+          - variableadd{var=caster.starStage;a=1} @self
+        ]} @self ?variableinrange{var=caster.starTimer;value=<21}
+    ]} @self ~onTimer:5 ?variableequals{var=caster.starStage;value=1}
+
+  - skill{s=[
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=0}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=0.628}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=1.256}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=1.884}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=2.512}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=3.14}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=3.768}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=4.396}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=5.024}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=5.652}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;ry=0.628}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;ry=1.256}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;ry=1.884}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;ry=2.512}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;ry=3.14}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;ry=3.768}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;ry=4.396}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;ry=5.024}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;ry=5.652}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rz=0.628}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rz=1.256}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rz=1.884}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rz=2.512}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rz=3.14}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rz=3.768}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rz=4.396}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rz=5.024}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rz=5.652}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.05;vs=0.05;y=0;s=<caster.var.starTimer>/60;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=<random.1-30>;points=<random.100-150>;yOffset=0;rx=<random.float.0to12.56>-6.28;ry=<random.float.0to12.56>-6.28;rz=<random.float.0to12.56>-6.28} 0.5
+      - variablesubtract{var=caster.starTimer;a=1} @self
+      - delay 1
+      - skill{s=[
+          - variableadd{var=caster.starStage;a=1} @self
+        ]} @self ?variableinrange{var=caster.starTimer;value=<1}
+    ]} @self ~onTimer:2 ?variableequals{var=caster.starStage;value=2}
+
+  - skill{s=[
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=0}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=0.628}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=1.256}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=1.884}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=2.512}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=3.14}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=3.768}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=4.396}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=5.024}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rx=5.652}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;ry=0.628}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;ry=1.256}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;ry=1.884}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;ry=2.512}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;ry=3.14}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;ry=3.768}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;ry=4.396}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;ry=5.024}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;ry=5.652}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rz=0.628}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rz=1.256}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rz=1.884}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rz=2.512}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rz=3.14}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rz=3.768}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rz=4.396}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rz=5.024}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.1;vs=0.1;y=0;s=<caster.var.starTimer>/30;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=3;points=25;yOffset=0;rz=5.652}
+      - particles{particle=BUBBLE_POP;a=1;hs=0.05;vs=0.05;y=0;s=<caster.var.starTimer>/60;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=<random.1-30>;points=<random.100-150>;yOffset=0;rx=<random.float.0to12.56>-6.28;ry=<random.float.0to12.56>-6.28;rz=<random.float.0to12.56>-6.28} 0.5
+      - variableadd{var=caster.starTimer;a=3} @self
+      - delay 1
+      - skill{s=[
+          - variableadd{var=caster.starStage;a=1} @self
+        ]} @self ?variableinrange{var=caster.starTimer;value=>89}
+    ]} @self ~onTimer:2 ?variableequals{var=caster.starStage;value=3}
+  
+  - skill{s=[
+      - particles{particle=SOUL_FIRE_FLAME;a=<random.1-2>;hs=<random.float.0.05to0.25>;vs=<random.float.0.05to0.25>;y=<random.float.0to12.5>-6.25;s=<random.float.0.03to0.06>;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=<random.1-30>;points=<random.16-32>;yOffset=0;rx=<random.float.0to12.56>-6.28;ry=<random.float.0to12.56>-6.28;rz=<random.float.0to12.56>-6.28}
+      - particles{particle=SOUL_FIRE_FLAME;a=<random.1-2>;hs=<random.float.0.05to0.25>;vs=<random.float.0.05to0.25>;y=<random.float.0to12.5>-6.25;s=<random.float.0.03to0.06>;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=<random.1-30>;points=<random.16-32>;yOffset=0;rx=<random.float.0to12.56>-6.28;ry=<random.float.0to12.56>-6.28;rz=<random.float.0to12.56>-6.28}
+      - particles{particle=SOUL_FIRE_FLAME;a=<random.1-2>;hs=<random.float.0.05to0.25>;vs=<random.float.0.05to0.25>;y=<random.float.0to12.5>-6.25;s=<random.float.0.03to0.06>;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=<random.1-30>;points=<random.16-32>;yOffset=0;rx=<random.float.0to12.56>-6.28;ry=<random.float.0to12.56>-6.28;rz=<random.float.0to12.56>-6.28}
+      - particles{particle=SOUL_FIRE_FLAME;a=<random.1-2>;hs=<random.float.0.05to0.25>;vs=<random.float.0.05to0.25>;y=<random.float.0to12.5>-6.25;s=<random.float.0.03to0.06>;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=<random.1-30>;points=<random.16-32>;yOffset=0;rx=<random.float.0to12.56>-6.28;ry=<random.float.0to12.56>-6.28;rz=<random.float.0to12.56>-6.28}
+      - particles{particle=SOUL_FIRE_FLAME;a=<random.1-2>;hs=<random.float.0.05to0.25>;vs=<random.float.0.05to0.25>;y=<random.float.0to12.5>-6.25;s=<random.float.0.03to0.06>;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=<random.1-30>;points=<random.16-32>;yOffset=0;rx=<random.float.0to12.56>-6.28;ry=<random.float.0to12.56>-6.28;rz=<random.float.0to12.56>-6.28}
+      - particles{particle=SOUL_FIRE_FLAME;a=<random.1-2>;hs=<random.float.0.05to0.25>;vs=<random.float.0.05to0.25>;y=<random.float.0to12.5>-6.25;s=<random.float.0.03to0.06>;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=<random.1-30>;points=<random.16-32>;yOffset=0;rx=<random.float.0to12.56>-6.28;ry=<random.float.0to12.56>-6.28;rz=<random.float.0to12.56>-6.28}
+      - particles{particle=SOUL_FIRE_FLAME;a=<random.1-2>;hs=<random.float.0.05to0.25>;vs=<random.float.0.05to0.25>;y=<random.float.0to12.5>-6.25;s=<random.float.0.03to0.06>;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=<random.1-30>;points=<random.16-32>;yOffset=0;rx=<random.float.0to12.56>-6.28;ry=<random.float.0to12.56>-6.28;rz=<random.float.0to12.56>-6.28}
+      - particles{particle=SOUL_FIRE_FLAME;a=<random.1-2>;hs=<random.float.0.05to0.25>;vs=<random.float.0.05to0.25>;y=<random.float.0to12.5>-6.25;s=<random.float.0.03to0.06>;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=<random.1-30>;points=<random.16-32>;yOffset=0;rx=<random.float.0to12.56>-6.28;ry=<random.float.0to12.56>-6.28;rz=<random.float.0to12.56>-6.28}
+      - particles{particle=SOUL_FIRE_FLAME;a=<random.1-2>;hs=<random.float.0.05to0.25>;vs=<random.float.0.05to0.25>;y=<random.float.0to12.5>-6.25;s=<random.float.0.03to0.06>;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=<random.1-30>;points=<random.16-32>;yOffset=0;rx=<random.float.0to12.56>-6.28;ry=<random.float.0to12.56>-6.28;rz=<random.float.0to12.56>-6.28}
+      - particles{particle=SOUL_FIRE_FLAME;a=1;hs=0.05;vs=0.05;y=0;s=<random.float.0.75to1.75>;d=true;dr=true;fromOrigin=true} @RingAroundOrigin{r=<random.1-30>;points=<random.100-150>;yOffset=0;rx=<random.float.0to12.56>-6.28;ry=<random.float.0to12.56>-6.28;rz=<random.float.0to12.56>-6.28} 0.75
+    ]} @self ~onTimer:5 ?variableequals{var=caster.starStage;value=4}
+
+Fires1:    #Fire - 1 BASICS
+  Cooldown: 12
+  Conditions:
+  - offgcd true
+  Skills:
+  - randomskill{skills=Fire1-1,Fire1-2,Fire1-3,Fire1-4} @self
+  - gcd{ticks=360} @self # !! YES !! ticks=360 | Empêche l'utilisation d'une autre compétence pendant 18 secondes
+
+
+Fire1-1:          # Skill de catégorie 1 # Cône de flame # Zone à distance
+  Skills:
+  - effect:particlesphere{particle=flame;amount=50;hS=0.1;vS=0.1;y=0.8;speed=0.1;radius=1} @self #NONEED
+  - potion{type=SLOW;duration=40;level=5;force=true;particles=false} @self #NONEED
+  - sound{s=entity.evoker.prepare_attack;v=2} @self #NONEED
+  - sound{s=entity.blaze.burn;v=2} @self #NONEED
+  - sound{s=entity.blaze.ambient;v=2} @self #NONEED
+  - setblock{m=FIRE;md=0} @selflocation #NONEED
+  - setstance{stance=fire} @self #NONEED
+  - ignite{ticks=50} @self #NONEED
+  - randommessage{
+      m=
+      "<mob.name>&f<&co> M1",
+      "<mob.name>&f<&co> M2",
+      "<mob.name>&f<&co> M3";
+      } @target #ICI = Messages / Variable true/false 
+  - delay 4 #NONEED
+  - effect:particlesphere{particle=flame;amount=40;hS=0.05;vS=0.05;y=0.8;speed=0.05;radius=0.8} @self #NONEED
+  - delay 4 #NONEED
+  - effect:particlesphere{particle=flame;amount=30;hS=0.05;vS=0.05;y=0.8;speed=0.05;radius=0.6} @self #NONEED
+  - delay 4 #NONEED
+  - effect:particlesphere{particle=flame;amount=25;hS=0.05;vS=0.05;y=0.8;speed=0.05;radius=0.4} @self #NONEED
+  - delay 4 #NONEED
+  - effect:particlesphere{particle=flame;amount=20;hS=0.05;vS=0.05;y=0.8;speed=0.05;radius=0.2} @self #NONEED
+  - delay 4 #NONEED
+  - effect:particlesphere{particle=flame;amount=15;hS=0.05;vS=0.05;y=0.8;speed=0.05;radius=0.1} @self #NONEED
+  - delay 20
+  - skill{s=SummonFire1-1;repeat=0;repeatinterval=20} @target # !! YES !! repeat=0 ==> Nombre de cônes ( 0 = 1 cône, 1 = 2 cônes ... etc etc) | repeatinterval=20 ==> Temps entre les spawn des cones
+  - sound{s=entity.shulker_bullet.hit;v=0.8} @self #NONEED
+
+  
+SummonFire1-1:
+  Skills:
+  - sound{s=entity.firework_rocket.large_blast;v=1.5} @self #NONEED
+  - sound{s=entity.bee.pollinate;v=1.5} @self #NONEED
+  - summon{type=FirePoint1Area;amount=1;radius=10;onSurface=true} @RLNTE{a=1;r=2;s=0;minr=0} # !! YES !! radius=10 ==> Distance max possible des spawn des cônes autour du joueur.
+  
+  
+  
+ConeFire:
+  Skills:
+  - effect:particlering{particle=flame;radius=4;points=70;amount=2;hS=0.02;vS=0.02;repeat=13;repeatInterval=2} @self #NONEED
+  - effect:particles{particle=flame;amount=50;hS=2;vS=0.02;speed=0.1;repeat=13;repeatInterval=2} @self #NONEED
+  - sound{s=block.fire.ambient;v=2} @self #NONEED
+  - delay 2
+  - effect:particlering{particle=flame;radius=3.6;points=100;amount=3;hS=0.1;vS=0.1} @self #NONEED
+  - delay 2 
+  - effect:particlering{particle=flame;radius=3.2;points=95;amount=2;hS=0.1;vS=0.1} @self #NONEED
+  - delay 2
+  - effect:particlering{particle=flame;radius=2.8;points=85;amount=2;hS=0.1;vS=0.1} @self #NONEED
+  - delay 2
+  - effect:particlering{particle=flame;radius=2.4;points=80;amount=2;hS=0.1;vS=0.1} @self #NONEED
+  - delay 2
+  - effect:particlering{particle=flame;radius=2;points=75;amount=2;hS=0.1;vS=0.1} @self #NONEED
+  - delay 2
+  - effect:particlering{particle=flame;radius=1.6;points=70;amount=2;hS=0.1;vS=0.1} @self #NONEED
+  - delay 2
+  - effect:particlering{particle=flame;radius=1.2;points=65;amount=2;hS=0.1;vS=0.1} @self #NONEED
+  - delay 2
+  - effect:particlering{particle=flame;radius=0.8;points=50;amount=2;hS=0.1;vS=0.1} @self #NONEED
+  - delay 2
+  - effect:particlering{particle=flame;radius=0.4;points=40;amount=2;hS=0.1;vS=0.1} @self #NONEED
+  - delay 2
+  - effect:particlering{particle=flame;radius=0;points=90;amount=2;hS=0.1;vS=0.1;speed=0.2} @self #NONEED
+  - delay 2
+  - ignite{ticks=50} @self #NONEED
+  - sound{s=entity.ghast.shoot;v=2} @self #NONEED
+  - sound{s=entity.blaze.burn;v=2;repeat=20;repeatInterval=2} @self #NONEED
+  - sound{s=ambient.basalt_deltas.mood;v=1;repeat=10;repeatInterval=2} @self #NONEED
+  - setblock{m=FIRE;md=0} @selflocation #NONEED
+  - sound{s=block.fire.ambient;v=2} @self #NONEED
+  - throw{velocity=1;velocityY=15} @PlayersInRadius{r=4} # !! YES !! {velocity=1;velocityY=15} ==> Puissance de rejet du cône. Garder un écart 1/15
+  - damage{amount=30;element=FIRE;pkb=true} @PIR{r=4} # !! YES !! amount=30 ==> Dégats du cône
+  - ignite{ticks=160} @PIR{r=4} # !! YES !! ticks=160 ==> Durée d'enflammage du joueur
+  - effect:blockmask{m=fire;r=3;oa=true;d=50} @self #NONEED
+  - blockwave{duration=30;material=fire;radius=3;radiusY=5;velocity=4;vh=0;noise=1;shape=sphere} @origin #NONEED
+  - effect:particles{particle=flame;amount=70;hS=1.5;vS=1.5;speed=0.05;repeat=10;repeatInterval=4} @self #NONEED
+  - delay 2
+  - damage{amount=10;element=FIRE;pkb=true;repeat=10;repeatInterval=3} @PIR{r=4} # !! YES !! amount=10 ==> Dégats du cône quand on s'en approche
+  - ignite{ticks=100;repeat=10;repeatInterval=3} @PIR{r=4} # YES
+  - effect:blockmask{m=fire;r=2;oa=true;d=46} @Forward{f=0;y=2.0} #NONEED
+  - effect:particles{particle=flame;amount=70;hS=1.5;vS=1.5;speed=0.1;repeat=9;repeatInterval=4} @Forward{f=0;y=2.0} #NONEED
+  - delay 2
+  - effect:blockmask{m=fire;r=2;oa=true;d=42} @Forward{f=0;y=4.0} #NONEED
+  - effect:particles{particle=flame;amount=70;hS=1;vS=1;speed=0.1;repeat=8;repeatInterval=4} @Forward{f=0;y=4.0} #NONEED
+  - delay 2
+  - effect:blockmask{m=fire;r=2;oa=true;d=38} @Forward{f=0;y=6.0} #NONEED
+  - effect:particles{particle=flame;amount=70;hS=1;vS=1;speed=0.1;repeat=7;repeatInterval=4} @Forward{f=0;y=6.0} #NONEED
+  - delay 2
+  - effect:blockmask{m=fire;r=2;oa=true;d=34} @Forward{f=0;y=8.0} #NONEED
+  - effect:particles{particle=flame;amount=70;hS=1;vS=1;speed=0.1;repeat=6;repeatInterval=4} @Forward{f=0;y=8.0} #NONEED
+  - delay 2
+  - effect:blockmask{m=fire;r=1;oa=true;d=20} @Forward{f=0;y=10.0} #NONEED
+  - effect:particles{particle=flame;amount=70;hS=1;vS=1;speed=0.1;repeat=3;repeatInterval=4} @Forward{f=0;y=10.0} #NONEED
+  - delay 2
+  - effect:blockmask{m=fire;r=1;oa=true;d=26} @Forward{f=0;y=12.0} #NONEED
+  - effect:particles{particle=flame;amount=70;hS=0.5;vS=0.5;speed=0.1;repeat=2;repeatInterval=4} @Forward{f=0;y=12.0} #NONEED
+  - delay 2
+  - effect:blockmask{m=fire;r=1;oa=true;d=22} @Forward{f=0;y=14.0} #NONEED
+  - effect:particles{particle=flame;amount=70;hS=0.5;vS=0.5;speed=0.1;repeat=1;repeatInterval=4} @Forward{f=0;y=14.0} #NONEED
+  - delay 20
+  - remove @self
+  
+Fire1-2:          # Skill de catégorie 1 # Souffle de flame # Courte zone devant le mob
+  Skills:
+  - effect:particlesphere{particle=flame;amount=50;hS=0.1;vS=0.1;y=0.8;speed=0.1;radius=1} @self #NONEED
+  - potion{type=SLOW;duration=60;level=5;force=true;particles=false} @self #!! YES !! duration=60 ==> Temp du souffle en ticks, doit être égal à (delay + repeat + 20) ligne 138 et 139
+  - sound{s=entity.blaze.burn;v=2} @self #NONEED
+  - sound{s=entity.blaze.ambient;v=2} @self #NONEED
+  - setblock{m=FIRE;md=0} @selflocation #NONEED
+  - setstance{stance=fire} @self #NONEED
+  - ignite{ticks=50} @self #NONEED
+  - randommessage{
+      m=
+      "<mob.name>&f<&co> M1",
+      "<mob.name>&f<&co> M2",
+      "<mob.name>&f<&co> M3";
+      } @target #ICI = Messages / Variable true/false 
+  - delay 4 #NONEED
+  - effect:particlesphere{particle=flame;amount=40;hS=0.05;vS=0.05;y=0.8;speed=0.05;radius=0.8} @self #NONEED
+  - delay 4 #NONEED
+  - effect:particlesphere{particle=flame;amount=30;hS=0.05;vS=0.05;y=0.8;speed=0.05;radius=0.6} @self #NONEED
+  - delay 4 #NONEED
+  - effect:particlesphere{particle=flame;amount=25;hS=0.05;vS=0.05;y=0.8;speed=0.05;radius=0.4} @self #NONEED
+  - delay 4 #NONEED
+  - effect:particlesphere{particle=flame;amount=20;hS=0.05;vS=0.05;y=0.8;speed=0.05;radius=0.2} @self #NONEED
+  - delay 4 #NONEED
+  - effect:particlesphere{particle=flame;amount=15;hS=0.05;vS=0.05;y=0.8;speed=0.05;radius=0.1} @self #NONEED
+  - delay 20
+  - skill{s=SoufleFire1;repeat=20;repeatinterval=1} @target # !! YES !! repeat=20 ==> Temp du souffle en ticks
+  - sound{s=entity.ender_dragon.growl;v=2} @self #NONEED
+  - sound{s=entity.firework_rocket.large_blast;v=1.5} @self #NONEED
+  
+SoufleFire1:
+  Skills:
+  - projectile{onTick=SoufleFire-Tick;oE=SFE1;v=12;i=1;hR=1;vR=1;mr=7;syo=1;sfo=0.7;hp=false;hnp=false;sE=false} @RLNTE{a=3;r=3;s=0;minr=0}
+SoufleFire-Tick:
+  Skills:
+  - effect:particles{p=flame;amount=10;speed=0.1;hS=0.1;vS=0.1} @origin
+  - sound{s=entity.blaze.burn;v=0.7} @origin #NONEED
+  - damage{amount=1;element=FIRE;pkb=true;ia=true} @PlayersNearOrigin{r=2}  # !! YES !! amount=1 ==> Dégats du sort | ia=true/false ==> dégat brut ou non
+  - ignite{ticks=300} @PlayersNearOrigin{r=2} #NONEED
+
+SFE1:
+  Skills:
+  - setblock{m=FIRE;md=0} @origin #NONEED
+  
+  
+Fire1-3:          # Skill de catégorie 1 # Ignition # Sort en conditions, si joueur en feu, reance le sort, si joueur pas en feu, l'enflamme.
+  Skills:
+  - potion{type=SLOW;duration=60;level=5;force=true;particles=false} @self #NONEED
+  - sound{s=entity.blaze.burn;v=2} @self #NONEED
+  - sound{s=entity.blaze.ambient;v=2} @self #NONEED
+  - setblock{m=FIRE;md=0} @selflocation #NONEED
+  - setstance{stance=fire} @self #NONEED
+  - ignite{ticks=50} @self #NONEED
+  - randommessage{
+      m=
+      "<mob.name>&f<&co> M1",
+      "<mob.name>&f<&co> M2",
+      "<mob.name>&f<&co> M3";
+      } @target #ICI = Messages / Variable true/false
+  - effect:particlesphere{particle=flame;amount=50;hS=0.1;vS=0.1;y=0.8;speed=0.1;radius=1} @self #NONEED
+  - delay 4 #NONEED
+  - effect:particlesphere{particle=flame;amount=40;hS=0.05;vS=0.05;y=0.8;speed=0.05;radius=0.8} @self #NONEED
+  - delay 4 #NONEED
+  - effect:particlesphere{particle=flame;amount=30;hS=0.05;vS=0.05;y=0.8;speed=0.05;radius=0.6} @self #NONEED
+  - delay 4 #NONEED
+  - effect:particlesphere{particle=flame;amount=25;hS=0.05;vS=0.05;y=0.8;speed=0.05;radius=0.4} @self #NONEED
+  - delay 4 #NONEED
+  - effect:particlesphere{particle=flame;amount=20;hS=0.05;vS=0.05;y=0.8;speed=0.05;radius=0.2} @self #NONEED
+  - delay 4 #NONEED
+  - effect:particlesphere{particle=flame;amount=15;hS=0.05;vS=0.05;y=0.8;speed=0.05;radius=0.1} @self #NONEED
+  - delay 20
+  - skill{s=Ignition1} @target #NONEED
+  - skill{s=Ignition2} @target #NONEED
+  - skill{s=Ignition3} @target #NONEED
+  
+Ignition1:
+  TargetConditions:
+  - isburning true
+  - lineofsight true
+  Skills:
+  - potion{type=SLOW;duration=50;level=5;force=true;particles=false} @self
+  - sound{s=block.fire.extinguish;v=1} @target #NONEED
+  - sound{s=entity.ghast.shoot;v=1} @self #NONEED
+  - sound{s=block.fire.ambient;v=2} @self #NONEED
+  - sound{s=block.fire.ambient;v=1} @target #NONEED
+  - effect:particles{p=lava;amount=15;speed=0.1;hS=0.3;vS=0.3} @target
+  - effect:particles{p=flame;amount=50;speed=0.3;hS=0.3;vS=0.3} @target
+  - effect:particles{p=flame;amount=50;speed=0.3;hS=0.3;vS=0.3} @self
+  - gcd{ticks=40}
+  - damage{amount=20;element=FIRE;pkb=true} @target # !! YES !! amount=20 ==> Dégat du sort
+  - delay 20
+  - sound{s=entity.firework_rocket.large_blast;v=1.5} @self #NONEED
+  - delay 20
+  - skill{s=Ignition1} @target #NONEED
+  - skill{s=Ignition2} @target #NONEED
+  - skill{s=Ignition3} @target #NONEED
+Ignition2:
+  TargetConditions:
+  - isburning false
+  - lineofsight true
+  Skills:
+  - potion{type=SLOW;duration=50;level=5;force=true;particles=false} @self
+  - sound{s=block.fire.extinguish;v=1} @target #NONEED
+  - sound{s=entity.ghast.shoot;v=1} @self #NONEED
+  - sound{s=block.fire.ambient;v=2} @self #NONEED
+  - sound{s=block.fire.ambient;v=1} @target #NONEED
+  - effect:particles{p=lava;amount=15;speed=0.1;hS=0.3;vS=0.3} @target
+  - effect:particles{p=flame;amount=50;speed=0.3;hS=0.3;vS=0.3} @target
+  - effect:particles{p=flame;amount=50;speed=0.3;hS=0.3;vS=0.3} @self
+  - ignite{ticks=300} @target # !! YES !! ticks=300 ==> Durée de l'enflammage en cas de joueur pas en feu
+Ignition3:
+  TargetConditions:
+  - lineofsight false
+  Skills:
+  - sound{s=entity.villager.no;v=3} @self
+  
+Fire1-4:          # Skill de catégorie 1 # Armure # Le mob gagne en vitesse et brûle lorsqu'on l'attaque. Il brûle le sol derrière lui.
+  Skills:
+  - potion{type=SLOW;duration=40;level=5;force=true;particles=false} @self
+  - sound{s=entity.blaze.burn;v=2} @self #NONEED
+  - sound{s=entity.blaze.ambient;v=2} @self #NONEED
+  - setblock{m=FIRE;md=0} @selflocation #NONEED
+  - setstance{stance=fire} @self #NONEED
+  - ignite{ticks=50} @self #NONEED
+  - randommessage{
+      m=
+      "<mob.name>&f<&co> M1",
+      "<mob.name>&f<&co> M2",
+      "<mob.name>&f<&co> M3";
+      } @target #ICI = Messages / Variable true/false
+  - effect:particlesphere{particle=flame;amount=50;hS=0.1;vS=0.1;y=0.8;speed=0.1;radius=1} @self #NONEED
+  - delay 4 #NONEED
+  - effect:particlesphere{particle=flame;amount=40;hS=0.05;vS=0.05;y=0.8;speed=0.05;radius=0.8} @self #NONEED
+  - delay 4 #NONEED
+  - effect:particlesphere{particle=flame;amount=30;hS=0.05;vS=0.05;y=0.8;speed=0.05;radius=0.6} @self #NONEED
+  - delay 4 #NONEED
+  - effect:particlesphere{particle=flame;amount=25;hS=0.05;vS=0.05;y=0.8;speed=0.05;radius=0.4} @self #NONEED
+  - delay 4 #NONEED
+  - effect:particlesphere{particle=flame;amount=20;hS=0.05;vS=0.05;y=0.8;speed=0.05;radius=0.2} @self #NONEED
+  - delay 4 #NONEED
+  - effect:particlesphere{particle=flame;amount=15;hS=0.05;vS=0.05;y=0.8;speed=0.05;radius=0.1} @self #NONEED
+  - delay 20
+  - sound{s=entity.ravager.celebrate;v=2} @self #NONEED
+  - modifytargetscore{objective=fire;action=set;value=1} @self
+  - sound{s=block.fire.ambient;v=2;repeat=60;repeatInterval=5} @self #NONEED
+  - sound{s=entity.zombie_horse.ambient;v=1;repeat=60;repeatInterval=5} @self #NONEED
+  - setblock{m=FIRE;md=0;repeat=60;repeatInterval=5} @selflocation #NONEED
+  - effect:particles{p=lava;amount=5;speed=0.1;hS=0.3;vS=0.3;repeat=60;repeatInterval=5} @self
+  - effect:particles{p=flame;amount=10;speed=0.1;hS=0.3;vS=0.3;repeat=60;repeatInterval=5} @self
+  - ignite{ticks=30;repeat=30;repeatInterval=10} @self #NONEED
+  - potion{type=SPEED;duration=20;level=2;force=true;particles=false;repeat=30;repeatInterval=10} @self  # !! YES !! repeat=30 ==> Doit être égal au (Delay / 10) de la ligne 264 (Exemple ici: 300/10 = 30) => Augmente la durée de l'armure de feu
+  - delay 300 # !! YES !! delay 300 ==> Cf ligne au dessus
+  - modifytargetscore{objective=fire;action=set;value=0} @self
+  
+ArmorFire1:
+  Conditions:
+  - score{objective=fire;value=1} true
+  Skills:
+  - ignite{ticks=80} @trigger
+  - damage{amount=1;element=FIRE;pkb=true;ia=true} @trigger # YES
+ArmorFire2:
+  Conditions:
+  - score{objective=fire;value=1} true
+  Skills:
+  - ignite{ticks=80}
+  - damage{amount=1;element=FIRE;pkb=true;ia=true}
+
